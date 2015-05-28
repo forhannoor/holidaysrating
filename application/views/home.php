@@ -36,9 +36,9 @@
 <div class="middleVideo">
 <?php foreach($videos as $video): ?>
 <?php if(strlen($video->thumbnail) > 0): ?>
-<?php echo anchor('topmenu/video/' . $video->name, img(array('src' => 'uploads/media/videos/' . $video->thumbnail, 'title' => $video->title))) ?>
+<?php echo anchor('topmenu/video/' . urlsafe_b64encode($video->name), img(array('src' => 'uploads/media/videos/' . $video->thumbnail, 'title' => $video->title))) ?>
 <?php else: ?>
-<?php echo anchor('topmenu/video/' . $video->name, img(array('src' => 'assets/images/thumbnail.jpg', 'title' => $video->title))) ?>
+<?php echo anchor('topmenu/video/' . urlsafe_b64encode($video->name), img(array('src' => 'assets/images/thumbnail.jpg', 'title' => $video->title))) ?>
 <?php endif ?>
 <?php endforeach ?>
 </div>

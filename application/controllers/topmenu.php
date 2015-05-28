@@ -120,7 +120,7 @@ class topmenu extends CI_Controller
     public function video($name)
     {
         $this->load->model('Comment_m');
-        $vid = $this->Video_model->get_where('name', $name, 1);
+        $vid = $this->Video_model->get_where('name', urlsafe_b64decode($name), 1);
         $vid->viewed += 1;
         R::store($vid);
         $data['video'] = $vid;

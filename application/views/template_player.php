@@ -9,19 +9,22 @@
 <meta name="robots" content="index, follow"/>
 <meta name="revisit-after" content="1 days"/>
 <meta name="language" content="English" />
-<meta content="<?php echo base_url('assets/images/schelpen.jpg') ?>" property="og:image" />
+<meta property="og:title" content="<?php echo $video->title ?>" />
+<meta property="og:type" content="video">
 
 <?php if(isset($video)): ?>
     <title><?php echo $video->title ?></title>
 <?php endif ?>
 
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
-<?php echo js('assets/js/projekktor-1.3.09.min.js') ?>
 <?php echo js('assets/js/jquery.jeditable.min.js') ?>
 </head>
 
 <style type="text/css">
-.thumbnails img{width: 70px;height: auto;}
+.thumbnails img {
+width: 70px;
+height: auto;
+}
 </style>
 
 <body>
@@ -34,20 +37,77 @@
 <?php $extension = $temp[count($temp) - 1] ?>
 <?php $region = $video->region ?>
 <center>
-<video class="projekktor" poster="media/intro.png" width="auto" height="385" controls id="player_a">
-    <source src="<?php echo base_url('uploads/media/videos/' . $video->name) ?>" type="video/<?php echo $extension ?>" />
+<video id="player_a" class="projekktor" poster="media/intro.png" width="auto" height="385" controls>
+    <source src="../../../uploads/media/videos/<?php echo $video->name ?>" type="video/<?php echo $extension ?>" />
 </video>
 </center>
 </div>
 <br />
 <div id="content">
+<!--h1><?php echo $heading ?></h1-->
 <div class="clear"></div>
 <div class="left-side">
 <div class="top-player"></div>
 <div class="middle-player">
 <div class="my_login">
-<?php $this->load->view($sidebar) ?>
+<?php if($this->ion_auth->logged_in()): ?>
+<h2>Welcome</h2>
+<?php if(isset($profile_info) && strlen($profile_info->avatar) > 0): ?>
+<p class="avatar"><?php echo anchor('user/index', img('./uploads/'.$profile_info->avatar)) ?></p>
+<?php else: ?>
+<p class="avatar"><?php echo anchor('user/index', img('assets/assets/avatar.jpg')) ?></p>
+<?php endif ?>
+<br />
+<?php echo $this->session->userdata('username') ?>
+<br />
+<?php echo 'Member since: ' . date("d-m-Y" , $this->session->userdata('created_on')) ?>
+<br />
+<?php echo 'Last logged in: ' . date("d-m-Y" , $this->session->userdata('old_last_login')) ?>
+<?php $CI = & get_instance() ?>
+<?php $CI->load->model('Message_model') ?>
+<?php $new_message_counter = $CI->Message_model->count_new($this->session->userdata('user_id')) ?>
+<br/>
+<br/>
+<?php echo anchor('user/inbox', "Inbox ($new_message_counter new)") ?>
+<br/>
+<br/>
+<?php echo anchor('auth/logout', 'Logout') ?>
+<?php else: ?>
+<h2>Member Login</h2>
+<?php $this->load->view('auth/my_login') ?>
+<br />
+<?php echo anchor('auth/forgot_password', 'Forgot Password') ?>
+&nbsp;&nbsp;&nbsp;
+<?php echo anchor('auth/register', 'Register') ?>
+<?php endif ?>
 </div>
+<img src="<?php echo base_url('assets/images/border.png') ?>" alt="border" style="margin-top:10px" />
+<div class="google-left">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- PlayerLeft -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:180px;height:150px"
+     data-ad-client="ca-pub-0797455318364345"
+     data-ad-slot="6010130744"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<img src="<?php echo base_url('assets/images/border.png') ?>" alt="border" style="margin-top:10px;margin-bottom:5px" />
+<?php $CI = &get_instance() ?>
+<?php $CI->load->model('Session_model') ?>
+<h2>Members online</h2>
+<p style="font-size:10px">Total: <?php echo $CI->Session_model->member_online() ?></p>
+<br/>
+<ul class="profile-items">
+<?php $members_online = $CI->Session_model->member_online_list() ?>
+<?php foreach($members_online as $key => $value): ?>
+<li><?php echo anchor('user/browse/' . $key, $value) ?></li>
+<?php endforeach ?>
+</ul>
+<br />
+<h2>Guests online</h2>
+<p style="font-size:10px">Total:<?php echo $CI->Session_model->guest_online() ?></p>
 </div>
 <div class="bottom-player"></div>
 </div>
@@ -56,22 +116,9 @@
 <div class="right-side">
 <div class="top-player"></div>
 <div class="middle-player">
-
-<h2>Related Videos</h2>
-<table class="thumbnails">
-<?php foreach($related_videos as $r): ?>
-<?php $thumbnail = array('src' => strlen($r->thumbnail) > 0 ? 'uploads/media/videos/' . $r->thumbnail : 'assets/images/thumbnail.jpg', 'title' => $r['title']) ?>
-<tr>
-    <td><p><?php echo anchor('topmenu/video/'.$r['name'], img($thumbnail), array('target' => '_blank')) ?></p></td>
-    <td><p><?php echo $r['title'] ?></p></td>
-</tr>
-<?php endforeach ?>
-</table>
-
-<h2 style="margin-bottom:6px">Travel with us...</h2>
-<p>Make new travel buddies, find information about destinations and vote for your favorite, upload your movies for everyone to watch or share your favorite travel story... <br /><br />
-Join <?php echo anchor('home/index', 'Holidaysrating') ?> now and become a <strong>FREE</strong> member... <strong>No creditcard or payments needed!</strong></p>
-<img src="<?php echo base_url('assets/images/border.png') ?>" alt="border" />
+<h2 style="margin-bottom:7px">Travel with us...</h2>
+<p>Join <?php echo anchor('home/index', 'Holidaysrating') ?> now and become a <strong>FREE</strong> member... <strong>No creditcard or payments needed!</strong></p>
+<img src="<?php echo base_url('assets/images/border.png') ?>" alt="border" style="margin-top:8px" />
 <h2>Like it..</h2>
 <div class="social">
 <!-- AddThis Button BEGIN -->
@@ -90,7 +137,18 @@ Join <?php echo anchor('home/index', 'Holidaysrating') ?> now and become a <stro
 <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-512f1c611545a1da"></script>
 <!-- AddThis Button END -->
 </div>
-<div class="clear"></div>
+<img src="<?php echo base_url('assets/images/border.png') ?>" alt="border" style="margin-top:12px" />
+<h2 style="margin-bottom:8px">Related Videos</h2>
+<table class="thumbnails" style="border: thin gray solid;padding:10px;width:180px;border-radius:7px">
+<?php foreach($related_videos as $r): ?>
+<?php $thumbnail = array('src' => strlen($r->thumbnail) > 0 ? 'uploads/media/videos/' . $r->thumbnail : 'assets/images/thumbnail.jpg', 'title' => $r['title']) ?>
+<tr>
+    <td><p><?php echo anchor('topmenu/video/'.$r['name'], img($thumbnail), array('target' => '_blank')) ?></p></td>
+    <td><p><?php echo $r['title'] ?></p></td>
+</tr>
+<?php endforeach ?>
+</table>
+
 </div>
 
 <div class="bottom-player"></div>
@@ -121,4 +179,3 @@ Join <?php echo anchor('home/index', 'Holidaysrating') ?> now and become a <stro
 <?php echo css('assets/css/holiday.css') ?>
 </body>
 </html>
-

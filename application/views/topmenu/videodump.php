@@ -74,7 +74,7 @@
     <?php else: ?>
     <?php $thumbnail = array('src' => 'assets/images/thumbnail.jpg', 'title' => $video->title) ?>
     <?php endif ?>
-    <?php echo anchor('topmenu/video/' . $video->name, img($thumbnail)) ?>
+    <?php echo anchor('topmenu/video/' . urlsafe_b64encode($video->name), img($thumbnail)) ?>
     <?php endforeach ?>
 </div>
 <div class="bottom"></div>
