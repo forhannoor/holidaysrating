@@ -109,49 +109,49 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function()
+$(document).ready(function()
+{
+    $("#a1").hide();
+    
+    $("#q1").click(function()
     {
-        $("#a1").hide();
-        
-        $("#q1").click(function()
-        {
-            $("#a1").toggle("medium");
-        }
-        );
-        
-        $("#a2").hide();
-        
-        $("#q2").click(function()
-        {
-            $("#a2").toggle("medium");
-        }
-        );
-        
-        $("#a3").hide();
-        
-        $("#q3").click(function()
-        {
-            $("#a3").toggle("medium");
-        }
-        );
-        
-        $("#a4").hide();
-        
-        $("#q4").click(function()
-        {
-            $("#a4").toggle("medium");
-        }
-        );
-        $("#a5").hide();
-        
-        $("#q5").click(function()
-        {
-            $("#a5").toggle("medium");
-        }
-        );
-
+        $("#a1").toggle("medium");
     }
     );
+    
+    $("#a2").hide();
+    
+    $("#q2").click(function()
+    {
+        $("#a2").toggle("medium");
+    }
+    );
+    
+    $("#a3").hide();
+    
+    $("#q3").click(function()
+    {
+        $("#a3").toggle("medium");
+    }
+    );
+    
+    $("#a4").hide();
+    
+    $("#q4").click(function()
+    {
+        $("#a4").toggle("medium");
+    }
+    );
+    $("#a5").hide();
+    
+    $("#q5").click(function()
+    {
+        $("#a5").toggle("medium");
+    }
+    );
+
+}
+);
 </script>
 
 <p><a id="q2" style="cursor: pointer">How to rate my favorite destination or adventure?</a></p>

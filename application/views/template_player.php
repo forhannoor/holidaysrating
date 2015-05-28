@@ -143,7 +143,7 @@ height: auto;
 <?php foreach($related_videos as $r): ?>
 <?php $thumbnail = array('src' => strlen($r->thumbnail) > 0 ? 'uploads/media/videos/' . $r->thumbnail : 'assets/images/thumbnail.jpg', 'title' => $r['title']) ?>
 <tr>
-    <td><p><?php echo anchor('topmenu/video/'.$r['name'], img($thumbnail), array('target' => '_blank')) ?></p></td>
+    <td><p><?php echo anchor('topmenu/video/' . urlsafe_b64encode($r['name']), img($thumbnail), array('target' => '_blank')) ?></p></td>
     <td><p><?php echo $r['title'] ?></p></td>
 </tr>
 <?php endforeach ?>
