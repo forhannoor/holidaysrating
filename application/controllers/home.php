@@ -7,7 +7,10 @@ class Home extends CI_Controller
         parent::__construct();
         $this->output->nocache();
     }
-    
+    public function login()
+    {
+      	$this->load->view('home/login', $data);
+    }
     public function index()
     {
         $this->load->model('Video_model');
