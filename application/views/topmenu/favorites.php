@@ -14,6 +14,7 @@
 <title>Favorites | Holidaysrating</title>
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
 <?php echo js('assets/js/jquery.jeditable.min.js') ?>
+
 </head>
 
 <body>
@@ -26,19 +27,27 @@ js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=187439388064490";
 fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 </script>
-
+<style>
+	#pagi{
+		color:black;
+		margin-left:15px;
+	};
+</style>
 <div id="top-head">
 <div class="main">
-<div class="logo"><img src="<?php echo base_url('assets/images/logo/holidaysrating.png') ?>" alt="Holidaysrating" title="Holidaysrating" /></div>
+<div class="logo"><?php echo anchor('home/index', img('assets/images/logo/holidaysrating.png')); ?></div>
 <div class="menu">
 <ul>
-<li><?php echo anchor('home/index', 'HOME') ?></li>
-<li><?php echo anchor('user/index', 'MY PROFILE') ?></li>
+<?php if(! $this->ion_auth->logged_in()): ?>
+<li><a href="<?php echo site_url('home/login') ?>" rel="nofollow">LOGIN</a></li>
+<?php else: ?>
+<li><a href="<?php echo site_url('user/index') ?>" rel="nofollow"><?php echo $this->session->userdata('username') ?></a></li>
+<?php endif ?>
 <li><?php echo anchor('topmenu/worldmap', 'WORLDMAP') ?></li>
 <li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
 <li class="active"><?php echo anchor('topmenu/favorites', 'Favorites') ?></li>
 <li><?php echo anchor('news/news_index', 'TRAVELNEWS') ?></li>
-<li><?php echo anchor('topmenu/helpcenter', 'HELP') ?></li>
+<li><?php echo anchor('topmenu/helpcenter', 'HELPCENTER') ?></li>
 </ul>
 </div>
 </div>
@@ -72,72 +81,105 @@ fjs.parentNode.insertBefore(js, fjs);
 </div>
 
 <div class="center">
-<div class="hot">
+<div class="hot" >
 <div class="edit1">
 <h1>Our favorite lists:</h1>
 <p>This world is enormous, there is plenty to see and explore. <strong>Holidaysrating</strong> has made different lists of what we think are the best destinations. We did not rank them, it is on you to decide which one is your favorite! Because there are so many great spots in the world, we probably have forgotten a few, therefore we ask for your help... Let us know what you want to see in these favorite lists, become our travelguide!</p>
 </div>
-
-<?php if($this->ion_auth->is_editor()): ?>
-<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed1') ?>
-<?php endif ?>
 <br>
-<div class="favlist">
-<div class="left" style="margin:6px"><?php echo anchor('favorites/festivals_index', img('assets/images/img-1.jpg')); ?></div>
-<p><?php echo anchor('favorites/festivals_index', 'The best festivals around the world') ?><br>
+<?php
+$page = (isset($_GET['page'])) ? $_GET['page'] : 0;
+$_GET['page'] = $page;
+$content = "<div class='favlist'>
+<div class='left' style='margin:6px'>".anchor('favorites/festivals_index', img('assets/images/img-1.jpg'))."</div>
+<p><?php echo anchor('favorites/festivals_index', 'The best festivals around the world') ?>
 We made a selection of festivals. For some persons these are unusual or funny, for the other it is a must visit!</p>
 </div>
-<div class="favlist">
-<div class="left" style="margin:6px"><?php echo anchor('favorites/beaches_index', img('assets/images/img-2.jpg')); ?></div>
-<p><?php echo anchor('favorites/beaches_index', 'The most amazing beaches') ?><br>
+<div class='favlist'>
+<div class='left' style='margin:6px'>".anchor('favorites/beaches_index', img('assets/images/img-2.jpg'))."</div>
+<p><?php echo anchor('favorites/beaches_index', 'The most amazing beaches') ?>
 From the tropical islands of the Caribbean to the sunfilled beaches of Australia. Check them out now. </p>
 </div>
-<div class="favlist">
-<div class="left" style="margin:6px"><?php echo anchor('favorites/cruises_index', img('assets/images/img-3.jpg')); ?></div>
-<p><?php echo anchor('favorites/cruises_index', 'The best cruises around the globe') ?><br>
+<div class='favlist'>
+<div class='left' style='margin:6px'>".anchor('favorites/cruises_index', img('assets/images/img-3.jpg'))."</div>
+<p><?php echo anchor('favorites/cruises_index', 'The best cruises around the globe') ?>
 If you like small river cruises or big and luxurious, we got them on our list. Go see for yourself... </p>
 </div>
-<div class="favlist">
-<div class="left" style="margin:6px"><?php echo anchor('favorites/wonders_index', img('assets/images/img-4.jpg')); ?></div>
-<p><?php echo anchor('favorites/wonders_index', 'Wonders of the world') ?><br>
+<div class='favlist'>
+<div class='left' style='margin:6px'>".anchor('favorites/wonders_index', img('assets/images/img-4.jpg'))."</div>
+<p><?php echo anchor('favorites/wonders_index', 'Wonders of the world') ?>
 The world has many wonders. We all can name a few but do you know all of them?</p>
 </div>
-<div class="favlist">
-<div class="left" style="margin:6px"><?php echo anchor('favorites/diving_index', img('assets/images/img-5.jpg')); ?></div>
-<p><?php echo anchor('favorites/diving_index', 'The best diving locations') ?><br>
+{newpage}
+<div class='favlist'>
+<div class='left' style='margin:6px'>".anchor('favorites/diving_index', img('assets/images/img-5.jpg'))."</div>
+<p><?php echo anchor('favorites/diving_index', 'The best diving locations') ?>
 Want to find a great wreck or spot some colourful coral, we know the best dive locations.</p>
 </div>
-<div class="favlist">
-<div class="left" style="margin:6px"><?php echo anchor('favorites/islands_index', img('assets/images/img-6.jpg')); ?></div>
-<p><?php echo anchor('favorites/islands_index', 'Spectacular islands') ?><br>
+<div class='favlist'>
+<div class='left' style='margin:6px'>".anchor('favorites/islands_index', img('assets/images/img-6.jpg'))."</div>
+<p><?php echo anchor('favorites/islands_index', 'Spectacular islands') ?>
 The world has got an uncountable amount of islands, we created a list with the most spectaculair onces.</p>
 </div>
-<div class="favlist">
-<div class="left" style="margin:6px"><?php echo anchor('favorites/road_trips_index', img('assets/images/img-7.jpg')); ?></div>
-<p><?php echo anchor('favorites/road_trips_index', 'The finest road trips') ?><br>
+<div class='favlist'>
+<div class='left' style='margin:6px'>".anchor('favorites/road_trips_index', img('assets/images/img-7.jpg'))."</div>
+<p><?php echo anchor('favorites/road_trips_index', 'The finest road trips') ?>
 Hours, days or maybe even weeks on the road. That is what you will get if you drive these roadtrips. </p>
 </div>
-<div class="favlist">
-<div class="left" style="margin:6px"><?php echo anchor('favorites/ski_index', img('assets/images/img-8.jpg')); ?></div>
-<p><?php echo anchor('favorites/ski_index', 'Ski Locations') ?><br>
+{newpage}
+<div class='favlist'>
+<div class='left' style='margin:6px'>".anchor('favorites/ski_index', img('assets/images/img-8.jpg'))."</div>
+<p><?php echo anchor('favorites/ski_index', 'Ski Locations') ?>
 Are you a skier or snowboarder? Find out more about the best ski loactions. </p>
 </div>
-<div class="favlist">
-<div class="left" style="margin:6px"><?php echo anchor('favorites/train_trips_index', img('assets/images/img-9.jpg')); ?></div>
-<p><?php echo anchor('favorites/train_trips_index', 'The greatest train trips') ?><br>
+<div class='favlist'>
+<div class='left' style='margin:6px'>".anchor('favorites/train_trips_index', img('assets/images/img-9.jpg'))."</div>
+<p><?php echo anchor('favorites/train_trips_index', 'The greatest train trips') ?>
 Exploring Africa, Europe or travelling with train through Asia. It is all possible, check out the possibilities.</p>
 </div>
-<div class="favlist">
-<div class="left" style="margin:6px"><?php echo anchor('favorites/romantic_index', img('assets/images/img-10.jpg')); ?></div>
-<p><?php echo anchor('favorites/romantic_index', 'The most romantic cities') ?><br>
+<div class='favlist'>
+<div class='left' style='margin:6px'>".anchor('favorites/romantic_index', img('assets/images/img-10.jpg'))."</div>
+<p><?php echo anchor('favorites/romantic_index', 'The most romantic cities') ?>
 Love is in the air! Which city should you bring your date?</p>
 </div>
-<div class="favlist">
-<div class="left" style="margin:6px"><?php echo anchor('favorites/city_trips_index', img('assets/images/img-11.jpg')); ?></div>
-<p><?php echo anchor('favorites/city_trips_index', 'The best city trips') ?><br>
+<div class='favlist'>
+<div class='left' style='margin:6px'>".anchor('favorites/city_trips_index', img('assets/images/img-11.jpg'))."</div>
+<p><?php echo anchor('favorites/city_trips_index', 'The best city trips') ?>
 Like to hop from city to city. Which one should you not forget...</p>
 
-</div>
+</div>";
+$pages = explode('{newpage}', $content);
+		
+echo $pages[$page].'<br>';
+
+$total_pages = count($pages);
+
+$prevpage = $page - 1;
+$nextpage = $page + 1;
+echo "<div style='text-align:center;' >";
+
+if ($page > 0)
+{
+	echo "<a href=\"?page={$prevpage}\" id='pagi'>Previous</a> ";
+}
+ 
+//echo "<a href=\"?page={$prevpage}\">Prev</a> ";
+
+for($i = 0; $i< $total_pages; $i++){
+		if($i== $_GET["page"]){
+			echo "<a href=\"?page={$i}\" style='color:red;' id='pagi' >".($i+1)."</a>";
+		} else {
+		echo "<a href=\"?page={$i}\" id='pagi' >".($i+1)."</a>";
+		}
+}
+// echo "<a href=\"?page={$nextpage}\" style='margin-left:15px;'>Next</a>";
+if ($nextpage < $total_pages)
+{
+  echo "<a href=\"?page={$nextpage}\" id='pagi' >Next</a>";
+}
+echo "</div>";
+?>
+
 </div>
 <div class="clear"></div>
 
@@ -201,33 +243,37 @@ Like to hop from city to city. Which one should you not forget...</p>
 
 <div class="first-column">
 <ul>
-<li><?php echo anchor('home/index', 'HOME') ?></li>
-<li><?php echo anchor('user/index', 'MY PROFILE') ?></li>
-<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
+<?php if(! $this->ion_auth->logged_in()): ?>
+<li><a href="<?php echo site_url('home/login') ?>" rel="nofollow">LOGIN</a></li>
+<?php else: ?>
+<li><a href="<?php echo site_url('user/index') ?>" rel="nofollow"><?php echo $this->session->userdata('username') ?></a></li>
+<?php endif ?>
 <li><?php echo anchor('topmenu/worldmap', 'WORLDMAP') ?></li>
+<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
+<li class="active"><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
 <li><?php echo anchor('regions/africa', 'AFRICA') ?></li>
+<li><?php echo anchor('regions/antartica', 'ANTARCTICA') ?></li>
 <li><?php echo anchor('regions/asia', 'ASIA') ?></li>
 <li><?php echo anchor('regions/caribbean', 'CARIBBEAN') ?></li>
-<li><?php echo anchor('regions/central_america', 'CENTRAL AMERICA') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
+<li><?php echo anchor('regions/central_america', 'CENTRAL AMERICA') ?></li>
 <li><?php echo anchor('regions/europe', 'EUROPE') ?></li>
+<li><?php echo anchor('regions/middle_east', 'MIDDLE EAST') ?></li>
 <li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
+</ul>
+</div>
+<div class="first-column">
+<ul>
 <li><?php echo anchor('regions/oceania', 'OCEANIA') ?></li>
 <li><?php echo anchor('regions/south_america', 'SOUTH AMERICA') ?></li>
-</ul>
-</div>
-<div class="first-column">
-<ul>
-<li class="active"><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
 <li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
-<li><?php echo anchor('blog/blog_index', 'BLOG') ?></li>
 <li><?php echo anchor('topmenu/helpcenter', 'HELPCENTER') ?></li>
 </ul>
 </div>
