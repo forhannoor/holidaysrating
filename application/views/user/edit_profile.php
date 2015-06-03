@@ -3,9 +3,13 @@
 <br/>
 <?php echo form_open_multipart('user/edit_profile') ?>
 <?php if(isset($profile_info)): ?>
-<?php echo form_label('Name', 'name') ?>
+<?php echo form_label('First Name', 'first_name') ?>
 <br />
-<?php echo form_input('name', $profile_info->name) ?> 
+<?php echo form_input('first_name', $profile_info->first_name) ?> 
+<br />
+<?php echo form_label('Last Name', 'last_name') ?>
+<br />
+<?php echo form_input('last_name', $profile_info->last_name) ?> 
 <br />
 <?php echo form_label('Display Name', 'display_name') ?>
 <br />
