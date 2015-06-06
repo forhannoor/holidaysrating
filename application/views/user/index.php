@@ -24,7 +24,8 @@
     <br/>
     
     <div class="highlight">
-        <p>Name: <?php echo $profile_info->name ?></p>
+        <p>First Name: <?php echo $profile_info->first_name ?></p>
+        <p>Last Name: <?php echo $profile_info->last_name ?></p>
         <p>Gender: <?php echo ($profile_info->gender) ? 'Female' : 'Male' ?></p>
         <p>Date of Birth: <?php echo $profile_info->date_of_birth ?></p>
         <p>Location: <?php echo $profile_info->location ?></p>
