@@ -126,12 +126,12 @@ The world has got an uncountable amount of islands, we created a list with the m
 <p><?php echo anchor('favorites/road_trips_index', 'The finest road trips') ?>
 Hours, days or maybe even weeks on the road. That is what you will get if you drive these roadtrips. </p>
 </div>
-{newpage}
 <div class='favlist'>
 <div class='left' style='margin:6px'>".anchor('favorites/ski_index', img('assets/images/img-8.jpg'))."</div>
 <p><?php echo anchor('favorites/ski_index', 'Ski Locations') ?>
 Are you a skier or snowboarder? Find out more about the best ski loactions. </p>
 </div>
+{newpage}
 <div class='favlist'>
 <div class='left' style='margin:6px'>".anchor('favorites/train_trips_index', img('assets/images/img-9.jpg'))."</div>
 <p><?php echo anchor('favorites/train_trips_index', 'The greatest train trips') ?>
