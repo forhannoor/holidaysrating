@@ -25,3 +25,7 @@
 <?php endif ?>
 <br /><br />
 <p><?php echo anchor('admin/recipes', 'Back') ?></p>
+
+<style type="text/css">
+img{max-width: 400px;max-height: 300px;}
+</style>
