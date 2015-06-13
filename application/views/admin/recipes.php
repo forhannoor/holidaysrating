@@ -46,5 +46,5 @@
 <?php echo anchor('admin/index', 'Back') ?>
 
 <style type="text/css">
-.recipe-image img{width: 72px; height: auto;}
+.recipe-image img{width: 72px; height: 54px;}
 </style>
