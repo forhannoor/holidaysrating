@@ -61,4 +61,24 @@ class Story_model extends MY_Model
         $stories = R::find($this->_table, ' approved = 1 ORDER BY created_at DESC LIMIT :limit', array(':limit' => $limit));
         return $stories;
     }
+    
+    public function get_where($field, $value, $limit = 1000000000)
+    {
+        $this->db->select('*');
+        $this->db->from($this->_table);
+        $this->db->join('users', "$this->_table . author = users.id");
+        $this->db->where($field, $value);
+        $this->db->limit($limit);
+        $record = $this->db->get();
+        
+        if($limit == 1)
+        {
+            return $record->row();
+        }
+        
+        else
+        {
+            return $record->result();
+        }
+    }
 }
