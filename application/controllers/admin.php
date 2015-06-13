@@ -130,7 +130,7 @@ class Admin extends Base_Admin_Controller
     public function story_delete($id)
     {
         $this->load->model('Story_model');
-        $this->story_model->delete($id);
+        $this->Story_model->delete($id);
         redirect('admin/stories', 'refresh');
     }
     

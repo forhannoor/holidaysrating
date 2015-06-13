@@ -64,7 +64,7 @@ class Story_model extends MY_Model
     
     public function get_where($field, $value, $limit = 1000000000)
     {
-        $this->db->select('*');
+        $this->db->select('stories.id AS id, stories.author AS author, stories.title AS title, stories.body AS body, stories.approved AS approved, stories.created_at AS created_at, stories.country AS country, stories.num_views AS num_views, users.id AS user_id, users.username AS username');
         $this->db->from($this->_table);
         $this->db->join('users', "$this->_table . author = users.id");
         $this->db->where($field, $value);

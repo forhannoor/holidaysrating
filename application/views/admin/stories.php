@@ -13,7 +13,7 @@
         <td><?php echo $story->username ?></td>
         <td><?php echo $story->country ?></td>
         <td><?php echo anchor('admin/story_approve/' . $story->id, '<i class = "icon-thumbs-up"></i>') ?></td>
-        <td><?php echo anchor('admin/story_delete/' . $story->id, '<i class = "icon-remove-sign"></i>') ?></td>
+        <td><?php echo anchor('admin/story_delete/' . $story->id, '<i class = "icon-remove-sign"></i>', array('onclick' => "return confirm('You are about to delete this story. This cannot be undone. Are you sure?')")) ?></td>
         <td><?php echo $story->created_at ?></td>
     </tr>
     <?php endforeach ?>
