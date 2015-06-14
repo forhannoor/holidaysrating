@@ -32,16 +32,25 @@ class Story_model extends MY_Model
         R::store($story);
     }
     
-    public function get_all($country, $limit = 1000000000)
+    public function get_all()
     {
-        $stories = R::find($this->_table, ' `country` = :country AND `approved` = :approved ORDER BY `created_at` DESC LIMIT 0, :limit', array(':country' => $country, ':approved' => 1, ':limit' => $limit));
+        if(func_num_args() > 0)
+        {
+            $stories = R::find($this->_table, ' `country` = :country AND `approved` = :approved ORDER BY `created_at` DESC LIMIT 0, :limit', array(':country' => func_get_arg(0), ':approved' => 1, ':limit' => func_get_arg(1)));
+        }
+        
+        else
+        {
+            $stories = R::findAll($this->_table);
+        }
+        
         return $stories;
     }
     
-    public function approve($id)
+    public function set_approved($id, $approve)
     {
         $data = array(
-            'approved' => 1
+            'approved' => $approve
         );
         
         $this->update($id, $data);

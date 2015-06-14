@@ -122,7 +122,19 @@ class Admin extends Base_Admin_Controller
     public function stories()
     {
         $this->load->model('Story_model');
-        $data['stories'] = $this->Story_model->get_where('approved', 0);
+        $uri_segment = $this->uri->segment(3);
+        $data = array();
+        
+        if(strlen($uri_segment) > 0)
+        {
+            $data['stories'] = $this->Story_model->get_all();
+        }
+        
+        else
+        {
+            $data['stories'] = $this->Story_model->get_where('approved', 0);
+        }
+        
         $data['main'] = 'admin/stories.php';
         $this->load->view($this->_layout, $data);
     }
@@ -137,7 +149,14 @@ class Admin extends Base_Admin_Controller
     public function story_approve($id)
     {
         $this->load->model('Story_model');
-        $this->Story_model->approve($id);
+        $this->Story_model->set_approved($id, 1);
+        redirect('admin/stories', 'refresh');
+    }
+    
+    public function story_disapprove($id)
+    {
+        $this->load->model('Story_model');
+        $this->Story_model->set_approved($id, 0);
         redirect('admin/stories', 'refresh');
     }
     
