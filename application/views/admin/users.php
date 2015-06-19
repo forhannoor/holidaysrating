@@ -1,6 +1,6 @@
 <h3>Users</h3>
 <?php echo form_open('admin/users', array('method' => 'GET')) ?>
-<?php echo form_input('ip', '', 'placeholder = \'filter users by ip address\'') ?>
+<?php echo form_input('ip', $this->input->get('ip'), 'placeholder = \'filter users by ip address\'') ?>
 <br />
 <?php echo form_submit('submit', 'Filter', 'class = "btn btn-mini btn-primary"') ?>
 &nbsp;&nbsp;

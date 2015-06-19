@@ -214,9 +214,4 @@ class Admin_model extends CI_Model
             R::store($user);
         }
     }
-    
-    public function get_recipes()
-    {
-        
-    } 
 }

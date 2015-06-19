@@ -73,11 +73,11 @@ class Admin extends Base_Admin_Controller
         $data['main']='admin/users.php';
         $ip = $this->input->get('ip');
         
-        if($ip) // filter users using ip
+        if($ip) // filter users using ip address
         {
             $ip = ip2long($ip);
             $ip = dechex($ip);
-            $data['users'] = $this->Admin_model->get_user_by_ip($ip);
+            $data['users'] = $this->Admin_model->get_user_by_ip((int) $ip);
         }
         
         else
