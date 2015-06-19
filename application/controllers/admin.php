@@ -296,8 +296,20 @@ class Admin extends Base_Admin_Controller
     public function recipes()
     {
         $this->load->model('Recipe_m');
+        $uri_segment = $this->uri->segment(3);
+        $data = array();
+        
+        if(strlen($uri_segment) > 0)
+        {
+            $data['recipes'] = $this->Recipe_m->get_all();
+        }
+        
+        else
+        {
+            $data['recipes'] = $this->Recipe_m->get_where('approved', 0);
+        }
+        
         $data['main'] = 'admin/recipes.php';
-        $data['recipes'] = $this->Recipe_m->get_all();
         $this->load->view($this->_layout, $data);
     }
     

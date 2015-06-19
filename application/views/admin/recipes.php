@@ -2,10 +2,9 @@
 <table class="table table-condensed">
     <th></th>
     <th>Title</th>
-    <th>Country</th>
     <th>Ingredients</th>
     <th>Category</th>
-    <th>Status</th>
+    <th>Country</th>
     <th>Action</th>
     
     <?php foreach($recipes as $recipe): ?>
@@ -18,16 +17,9 @@
                 <?php endif ?>
             </td>
             <td><?php echo anchor('admin/recipe/' . $recipe->id, $recipe->title, 'title = \'Click to view recipe\'') ?></td>
-            <td><?php echo ucfirst($recipe->country) ?></td>
             <td><?php echo $recipe->ingredients ?></td>
             <td><?php echo $recipe->category ?></td>
-            <td>
-                <?php if($recipe->approved): ?>
-                Approved
-                <?php else: ?>
-                Not approved
-                <?php endif ?>
-            </td>
+            <td><?php echo ucfirst($recipe->country) ?></td>
             <td>
                 <?php if($recipe->approved): ?>
                     <?php echo anchor('admin/disapprove_recipe/' . $recipe->id, '<i class = \'icon-thumbs-down\'></i>') ?>
@@ -43,6 +35,11 @@
     <?php endforeach ?>
 </table>
 
+<?php if(strlen($this->uri->segment(3)) == 0): ?>
+    <?php echo anchor('admin/recipes/all', 'View all') ?>    
+<?php endif ?>
+
+<br />
 <?php echo anchor('admin/index', 'Back') ?>
 
 <style type="text/css">
