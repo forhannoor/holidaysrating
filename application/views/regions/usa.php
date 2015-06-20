@@ -2,15 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="United States of America"/>
-<meta name="keywords" content="United States, USA, US "/>
+<meta name="description" content="<?php echo $heading ?>"/>
+<meta name="keywords" content="<?php echo $heading ?>, United States, USA, US, U.S.A., U.S."/>
 <meta name="author" content="Raymond"/>
 <meta name="robots" content="index, follow"/>
 <meta name="revisit-after" content="1 days"/>
 <meta name="language" content="English" />
 <meta content="<?php echo base_url() ?>assets/images/flags/usa.gif" property="og:image" />
+<meta name="viewport" content="maximum-scale=1"/>
 
-<title>United States of America | Holidaysrating</title>
+<title><?php echo $heading ?> | Holidaysrating</title>
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
 <?php echo js('assets/js/jquery.jeditable.min.js') ?>
 </head>
@@ -75,6 +76,7 @@
 <area shape="poly" coords="615,312,655,308,660,313,711,312,716,306,721,306,733,332,745,336,743,345,758,360,760,380,748,386,743,377,733,377,729,367,723,368,712,354,711,331,697,328,682,319,672,320,662,325,654,326,642,318,631,318,616,320," href="<?php echo base_url() ?>index.php/usa_states/florida" alt="Florida" title="Florida"   />
 <area shape="poly" coords="215,340,283,340,332,377,332,408,217,407," href="<?php echo base_url() ?>index.php/usa_states/hawaii" alt="Hawaii" title="Hawaii"   />
 <area shape="poly" coords="2,292,137,292,199,338,214,341,213,406,2,405," href="<?php echo base_url() ?>index.php/usa_states/alaska" alt="Alaska" title="Alaska"   />
+<p style="font-size:10.5px;margin-left:200px">Click on the map for more info about the country or <a href="https://www.google.com.au/maps/@37.2671019,-113.5779827,4z" target="_blank">click here</a> for detailed map.</p>
 </map>
 </div>
 <div id="content">
@@ -96,20 +98,20 @@
 <div class="flag" style="float:left"><img src="<?php echo base_url() ?>assets/images/flags/usa.jpg" alt="USA" width="100px" height="70px" /></div>
 
 <div class="intro">
-<div class="edit1">
+<div class="edit28">
 <p><strong>United States of America</strong> stretches from Lake Superiour on the Canadian border to the Gambling paradise in Las vegas. From the breathe taking islands of <a href="http://www.holidaysrating.com/index.php/usa_states/hawaii">Hawaii</a> to the glaciers and snowy mountains in <a href="http://www.holidaysrating.com/index.php/usa_states/alaska">Alaska</a><br /><br />
 Discover the country with endless highways cutting through bleak deserts, forests of skyscrapers towering over urban jungles and  acres of beaches dotted with surfboards and sun worshippers. 
 This country has a total size of 9,826,675 square kilometers. The main language spoken in the U.S.A.is English (American English) and secondly Spanish. There are also plenty of Native American languages spoken.</p>
 </div>
 <?php if($this->ion_auth->is_editor()): ?>
-<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed1') ?>
+<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed28') ?>
 <?php endif ?>
 
 </div>
 
 <div class="options">
 <ul>
-<li><?php echo anchor('usa_cities/usa_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
+<li><?php echo anchor('cities/north_america_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
 <li><?php echo anchor('http://www.holidaysrating.com/index.php/topmenu/videodump/north_america', img('assets/images/buttonblue-videos-bg.png')); ?></li>
 <li><?php echo anchor('help/external_links', img('assets/images/buttonblue-links-bg.png')); ?></li>
 </ul>
@@ -221,15 +223,15 @@ This country has a total size of 9,826,675 square kilometers. The main language 
 <div class="right-side">
 <div class="top"></div>
 <div class="middle">
-<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;<?php echo anchor('regions/north_america', 'North America') ?>&gt;USA</span></p>
-<iframe width="180" height="100" src="http://www.youtube-nocookie.com/embed/5yRgiXh2fP4?rel=0" frameborder="0" allowfullscreen></iframe>
+<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;<?php echo anchor('regions/north_america', 'North America') ?>&gt; <?php echo $heading ?></span></p>
+<iframe width="180" height="110" src="http://www.youtube-nocookie.com/embed/5yRgiXh2fP4?rel=0" frameborder="0" allowfullscreen></iframe>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" />
 
 <div class="key-facts">	
 <h2>Key Facts</h2>
 <ul>
 <li><strong>Capital city:</strong></li>
-<li><img src="<?php echo base_url() ?>assets/assets/city.png" style="margin-right:5px" alt="city"/>Washington D.C.</li>
+<li><img src="<?php echo base_url() ?>assets/assets/city.png" style="margin-right:5px" alt="city"/><?php echo anchor('usa_cities/washington', 'Washington D.C.') ?></li>
 
 <li><strong>Size:</strong></li>
 <li><img src="<?php echo base_url() ?>assets/assets/size.png" style="margin-right:5px" alt="size"/>9,826,675 km2</li>
@@ -279,7 +281,7 @@ This country has a total size of 9,826,675 square kilometers. The main language 
 
 <div class="clear"></div>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" style="margin-top:8px"/>
-<h2>Cities</h2>
+<h2>Towns - Cities</h2>
 <ul>
 <li>New York City, <?php echo anchor('usa_states/new_york', 'New York') ?></li>
 <li>Chicago, <?php echo anchor('usa_states/illinois', 'Illinois') ?></li>
@@ -325,7 +327,7 @@ var siteUrl = "<?php echo site_url('editor/update') ?>";
 
 $(document).ready(function() {
     
-    $('.edit1').editable(siteUrl + '/1', {
+    $('.edit28').editable(siteUrl + '/28', {
         type      : 'textarea',
         cancel    : 'Cancel',
         submit    : 'OK',
@@ -333,8 +335,8 @@ $(document).ready(function() {
         event     : 'edit'
     });
     
-    $('#ed1').bind('click', function(){
-        $('.edit1').trigger('edit');
+    $('#ed28').bind('click', function(){
+        $('.edit28').trigger('edit');
         return false;
     });
 });

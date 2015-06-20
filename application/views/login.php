@@ -19,21 +19,37 @@
 <div id="top-head">
 <div class="main">
 <div class="logo"><?php echo anchor('home/index', img('assets/images/logo/holidaysrating.png')); ?></div>
+<a href="http://www.holidaysrating.com/index.php/auth/register" rel="nofollow" style="float:right;padding-top:10px" onmouseover='this.style.textDecoration="opactity:0.8"'><img src="<?php echo base_url('assets/assets/register.png') ?>"/></a>
 </div>
 </div>
 
+<div id="slider" style="padding-top:40px">
 <div id="login-page">
-<?php $this->load->view('auth/my_login') ?>
+<?php echo form_open('auth/login') ?>
+<?php echo form_label('Email', 'identity') ?>
+<?php echo form_input('identity', '', 'required') ?>
 <br />
-<?php echo anchor('auth/forgot_password', 'Forgot Password', 'rel = "nofollow"') ?>
-&nbsp;&nbsp;&nbsp;
-<?php echo anchor('auth/register', 'Register', 'rel = "nofollow"') ?>
+<?php echo form_label('Password', 'password') ?>
+<?php echo form_password('password', '', 'required') ?>
+<p style = "color: black; margin-top: 8px;">Remember Me
+<?php echo form_checkbox('remember', '1', FALSE, 'id="remember"') ?>
+</p>
+<?php $error = $this->session->flashdata('error') ?>
+<?php if(strlen($error) > 0): ?>
+<p><?php echo $error ?></p>
+<?php endif ?>        
+<?php echo form_submit('', 'Login') ?> <a href="#" onClick="history.go(-1)">Cancel</a>
+<?php echo form_close() ?>
+<br />
+<?php echo anchor('auth/forgot_password', 'Forgot Your Password?', 'rel = "nofollow"') ?>
+</div>
 </div>
 
 
-
-
+<div id="last-line">
 <p><?php echo anchor('privacy/privacy_policy', 'Privacy Policy', 'rel = "nofollow"') ?> | <?php echo anchor('privacy/terms_of_use', 'Terms of Use', 'rel = "nofollow"') ?> | <?php echo anchor('home/contact_us', 'Contact Us', 'rel = "nofollow"') ?> | &copy; Copyright <?php echo date('Y') ?> Holidaysrating All Rights Reserved</p>
+</div>
+<?php echo css('assets/css/holiday.css') ?>
 </body>
 
 </html>

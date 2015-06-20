@@ -2,15 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="Selemat Pagi!"/>
-<meta name="keywords" content="Indonesia, "/>
+<meta name="description" content="<?php echo $heading ?>"/>
+<meta name="keywords" content="<?php echo $heading ?>, East Indies"/>
 <meta name="author" content="Raymond"/>
 <meta name="robots" content="index, follow"/>
 <meta name="revisit-after" content="1 days"/>
 <meta name="language" content="English" />
 <meta content="<?php echo base_url() ?>assets/images/flags/indonesia.gif" property="og:image" />
+<meta name="viewport" content="maximum-scale=1"/>
 
-<title>Indonesia | Holidaysrating</title>
+<title><?php echo $heading ?> | Holidaysrating</title>
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
 <?php echo js('assets/js/jquery.jeditable.min.js') ?>
 </head>
@@ -39,6 +40,7 @@
 <area shape="poly" coords="293,157,325,160,330,144,364,137,386,115,411,109,436,87,446,80,491,109,470,112,465,124,450,121,417,122,393,157,355,161,341,167,322,167,314,170," href="<?php echo base_url() ?>index.php/regions/asia" alt="Asia" title="Asia"   />
 <area shape="poly" coords="442,67,513,1,589,0,613,7,626,43,636,78,628,91,613,105,584,91,568,79,546,93,545,70,561,54,544,38,530,12,503,36,466,60," href="<?php echo base_url() ?>index.php/regions/asia" alt="Asia" title="Asia"   />
 <area shape="poly" coords="71,3,290,2,285,19,246,36,232,47,199,61,198,42,168,30,143,9,120,9,88,38,99,52,105,65,111,83,129,85,165,109,175,146,195,170,161,159,129,148,114,126,106,109,98,88,75,68,65,62,72,28," href="<?php echo base_url() ?>index.php/regions/asia" alt="Asia" title="Asia"   />
+<p style="font-size:10.5px;margin-left:200px">Click on the map for more info about the country or <a href="https://www.google.com.au/maps/@-2.548926,118.0148634,5z" target="_blank">click here</a> for detailed map.</p>
 </map>
 </div>
 <div id="content">
@@ -50,6 +52,14 @@
 <div class="my_login">
 <?php $this->load->view($sidebar) ?>
 </div>
+<img src="<?php echo base_url() ?>assets/images/border.png" alt="Holidayrating" style="margin:8px 0 4px 0" />
+<h2 style="margin-bottom:5px">Explore Indonesia</h2>
+<div class="edit17"><p>Experience religion and culture like no other in the wonderful country of <strong>Indonesia</strong>. Visit their famous Borobudur and Prambanan Temples, as well as Agung Rai Museum of Art. You may also enjoy diving, surfing, hiking and trekking.</p></div>
+
+<?php if($this->ion_auth->is_editor()): ?>
+<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed17') ?>
+<?php endif ?>
+
 </div>
 <div class="bottom"></div>
 </div>
@@ -60,28 +70,28 @@
 <div class="flag" style="float:left"><img src="<?php echo base_url() ?>assets/images/flags/indonesia.jpg" alt="Indonesia" width="100px" height="70px" /></div>
 
 <div class="intro">
-<div class="edit1">
+<div class="edit18">
 <p><strong>Indonesia</strong> is a archipelago comprimises 17,508  islands. It's national motto; Unity in Diversity, is a term that strikes deep into the heart of this dynamic and attractive Southeast Asian nation.<br /> 
 The region stretches from the tropical rainforests in <a href="http://www.holidaysrating.com/index.php/indonesia_islands/papua">Pappua</a> to the popular resort island <a href="http://www.holidaysrating.com/index.php/indonesia_islands/bali">Bali</a>, the wildlife on <a href="http://www.holidaysrating.com/index.php/indonesia_islands/sumatra">Sumatra</a> in the West to the amazing beaches on <a href="http://www.holidaysrating.com/index.php/indonesia_islands/flores">Flores</a>.<br />
 Few places offer such cultural variety and geographical complexity as Indonesia, and no two journeys here are the same. It has a total size of 1,904,569 square kilometers.</p>
 </div>
 
 <?php if($this->ion_auth->is_editor()): ?>
-<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed1') ?>
+<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed18') ?>
 <?php endif ?>
 
 </div>
 
 <div class="options">
 <ul>
-<li><?php echo anchor('indonesia_cities/indonesia_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
+<li><?php echo anchor('cities/indonesia_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
 <li><?php echo anchor('http://www.holidaysrating.com/index.php/topmenu/videodump/asia', img('assets/images/buttonblue-videos-bg.png')); ?></li>
 <li><?php echo anchor('help/external_links', img('assets/images/buttonblue-links-bg.png')); ?></li>
 </ul>
 <br />
 </div>
 
-<h1>PROVINCES-ISLANDS</h1>
+<h1>ISLANDS</h1>
 <p style="margin-bottom:20px;text-align:center">Click on the map or choose a country below:</p>
 	<table style="width: 100%">
 		<tr>
@@ -131,15 +141,15 @@ Few places offer such cultural variety and geographical complexity as Indonesia,
 <div class="right-side">
 <div class="top"></div>
 <div class="middle">
-<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;<?php echo anchor('regions/asia', 'Asia') ?>&gt;Indonesia</span></p>
-<iframe width="180" height="100" src="http://www.youtube-nocookie.com/embed/YuWdGETFLNM?rel=0" frameborder="0" allowfullscreen></iframe>
+<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;<?php echo anchor('regions/asia', 'Asia') ?>&gt;<?php echo $heading ?></span></p>
+<iframe width="180" height="110" src="http://www.youtube-nocookie.com/embed/YuWdGETFLNM?rel=0" frameborder="0" allowfullscreen></iframe>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" />
 
 <div class="key-facts">	
 <h2>Key Facts</h2>
 <ul>
 <li><strong>Capital city:</strong></li>
-<li><img src="<?php echo base_url() ?>assets/assets/city.png" style="margin-right:5px" alt="city"/>Jakarta</li>
+<li><img src="<?php echo base_url() ?>assets/assets/city.png" style="margin-right:5px" alt="city"/><a href="http://www.holidaysrating.com/index.php/asia_cities/jakarta">Jakarta</a></li>
 
 <li><strong>Size:</strong></li>
 <li><img src="<?php echo base_url() ?>assets/assets/size.png" style="margin-right:5px" alt="size"/>1,904,569 km2</li>
@@ -188,7 +198,7 @@ Few places offer such cultural variety and geographical complexity as Indonesia,
 
 <div class="clear"></div>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" style="margin-top:8px"/>
-<h2>Cities</h2>
+<h2>Towns - Cities</h2>
 <ul>
 <li>Denpasar <?php echo anchor('indonesia_islands/bali', '(Bali)') ?></li>
 <li>Surubaya <?php echo anchor('indonesia_islands/java', '(Java)') ?></li>
@@ -235,7 +245,7 @@ var siteUrl = "<?php echo site_url('editor/update') ?>";
 
 $(document).ready(function() {
     
-    $('.edit1').editable(siteUrl + '/1', {
+    $('.edit17').editable(siteUrl + '/17', {
         type      : 'textarea',
         cancel    : 'Cancel',
         submit    : 'OK',
@@ -243,10 +253,24 @@ $(document).ready(function() {
         event     : 'edit'
     });
     
-    $('#ed1').bind('click', function(){
-        $('.edit1').trigger('edit');
+    $('#ed17').bind('click', function(){
+        $('.edit17').trigger('edit');
         return false;
     });
+    
+    $('.edit18').editable(siteUrl + '/18', {
+        type      : 'textarea',
+        cancel    : 'Cancel',
+        submit    : 'OK',
+        tooltip   : 'Click pencil to edit...',
+        event     : 'edit'
+    });
+    
+    $('#ed18').bind('click', function(){
+        $('.edit18').trigger('edit');
+        return false;
+    });
+
 });
 </script>
 <?php endif ?>

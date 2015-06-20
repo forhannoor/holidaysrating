@@ -4,12 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="Edit your profile, send messages and upload travel media."/>
 <meta name="keywords" content="My Profile, Profile"/>
-<meta name="author" content="Raymond"/>
 <meta name="robots" content="index, follow"/>
 <meta name="revisit-after" content="1 days"/>
 <meta name="viewport" content="maximum-scale=1"/>
 
-<title>Holidaysrating.com | The social travel community...</title>
+<title><?php echo $heading ?> | Holidaysrating</title>
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
 </head>
 <body>
@@ -27,17 +26,57 @@ fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <div id="top-head" style="background: #<?php echo $user_meta['top'] ?>;">
 <div class="main">
-<div class="logo"><img src="<?php echo base_url('assets/images/logo/holidaysrating.png') ?>" alt="Holidaysrating" title="Holidaysrating" /></div>
+<div class="logo"><?php echo anchor('home/index', img('assets/images/logo/holidaysrating.png')); ?></div>
 <div class="menu">
 <ul>
-<li><?php echo anchor('home/index', 'HOME') ?></li>
-<li class="active"><?php echo anchor('user/index', 'MY PROFILE') ?></li>
 <li><?php echo anchor('topmenu/worldmap', 'WORLDMAP') ?></li>
 <li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
-<li><?php echo anchor('topmenu/favorites', 'Favorites') ?></li>
+<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
 <li><?php echo anchor('news/news_index', 'TRAVELNEWS') ?></li>
 <li><?php echo anchor('topmenu/helpcenter', 'HELP') ?></li>
 </ul>
+
+<div class="user-submenu">
+<?php if(! $this->ion_auth->logged_in()): ?>
+<a href="<?php echo site_url('home/login') ?>" rel="nofollow">LOGIN</a>
+<?php else: ?>
+<strong><a href="<?php echo site_url('user/index') ?>" rel="nofollow"><?php echo $this->session->userdata('username') ?></a></strong>&nbsp;&nbsp;<a id="q999" style="cursor: pointer">&#9660;</a>
+
+<div id="a999">
+<table style="border:collapse;border-top:1px solid #A1B8BE;margin-top:2px">
+<tr>
+<td style="padding:0 3px"><?php echo anchor('user/index', 'MY PROFILE') ?></td>
+</tr>
+<tr>
+<td style="padding:0 3px"><?php echo anchor('user/inbox', 'INBOX') ?></td>
+</tr>
+<tr>
+<td style="padding:0 3px"><?php echo anchor('user/bucket', 'BUCKETLIST') ?></td>
+</tr>
+<tr>
+<td style="padding:0 3px"><?php echo anchor('user/settings', 'SETTINGS') ?></td>
+</tr>
+<tr>
+<td style="padding:0 3px"><?php echo anchor('auth/logout', 'LOG OUT') ?></td>
+</tr>
+</table>
+</div>
+<?php endif ?>
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        $("#a999").hide();
+        
+        $("#q999").click(function()
+        {
+            $("#a999").toggle("medium");
+        }
+        );
+    }
+    );
+</script>
+</div>
+
 </div>
 </div>
 </div>
@@ -111,16 +150,16 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <div class="clear"></div>
 <div class="first-column">
 <ul>
-<li><?php echo anchor('home/index', 'HOME') ?></li>
-<li class="active"><?php echo anchor('user/index', 'MY PROFILE') ?></li>
+<li><?php echo anchor('topmenu/worldmap', 'WORLDMAP') ?></li>
 <li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
-<li><?php echo anchor('regions/africa', 'AFRICA') ?></li>
+<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
+<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
 <li><?php echo anchor('regions/africa', 'AFRICA') ?></li>
-<li><?php echo anchor('regions/antarctica', 'ANTARCTICA') ?></li>
+<li><?php echo anchor('regions/antartica', 'ANTARCTICA') ?></li>
 <li><?php echo anchor('regions/asia', 'ASIA') ?></li>
 <li><?php echo anchor('regions/caribbean', 'CARIBBEAN') ?></li>
 </ul>
@@ -129,16 +168,16 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <ul>
 <li><?php echo anchor('regions/central_america', 'CENTRAL AMERICA') ?></li>
 <li><?php echo anchor('regions/europe', 'EUROPE') ?></li>
+<li><?php echo anchor('regions/indonesia', 'INDONESIA') ?></li>
 <li><?php echo anchor('regions/middle_east', 'MIDDLE EAST') ?></li>
-<li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
+<li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 <li><?php echo anchor('regions/oceania', 'OCEANIA') ?></li>
 <li><?php echo anchor('regions/south_america', 'SOUTH AMERICA') ?></li>
-<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
-<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
+<li><?php echo anchor('topmenu/helpcenter', 'HELPCENTER') ?></li>
 </ul>
 </div>
 <div class="logo"><center><img src="<?php echo base_url('assets/images/photos.jpg') ?>" alt="logo" /></center>

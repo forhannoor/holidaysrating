@@ -2,15 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="Middle East"/>
-<meta name="keywords" content="Middle East, "/>
+<meta name="description" content="<?php echo $heading ?>"/>
+<meta name="keywords" content="<?php echo $heading ?>"/>
 <meta name="author" content="Raymond"/>
 <meta name="robots" content="index, follow"/>
 <meta name="revisit-after" content="1 days"/>
 <meta name="language" content="English" />
 <meta content="<?php echo base_url() ?>assets/images/thumbs/middle-east.jpg" property="og:image" />
+<meta name="viewport" content="maximum-scale=1"/>
 
-<title>Middle East | Holidaysrating</title>
+<title><?php echo $heading ?> | Holidaysrating</title>
 <?php echo js('assets/js/jquery-2.0.3.min.js') ?>
 <?php echo js('assets/js/jquery.jeditable.min.js') ?>
 </head>
@@ -40,6 +41,7 @@
 <area shape="poly" coords="379,122,415,114,417,95,432,83,459,82,467,93,480,95,478,112,483,124,500,131,510,145,509,156,491,156,483,158,475,167,427,151,398,138," href="<?php echo base_url() ?>index.php/asia_countries/iraq" alt="Iraq" title="Iraq"   />
 <area shape="poly" coords="462,57,483,65,519,58,527,67,530,72,543,80,583,86,600,84,640,69,716,80,715,91,715,118,724,137,737,136,733,154,756,172,767,177,747,193,723,199,680,197,670,184,656,182,642,190,603,187,579,175,561,160,545,163,532,160,513,156,511,134,498,126,481,113,487,96,478,90,464,78,458,64," href="<?php echo base_url() ?>index.php/asia_countries/iran" alt="Iran" title="Iran"   />
 <area shape="poly" coords="119,2,933,6,936,230,897,211,851,198,813,187,775,189,780,174,737,155,739,150,748,138,729,122,723,82,693,68,636,61,586,77,538,68,511,51,483,59,461,46,444,32,416,34,377,32,327,26,297,18,274,26,239,26,201,32,198,24,123,24,103,34,97,22,107,13," href="<?php echo base_url() ?>index.php/regions/asia" alt="Asia" title="Asia"   />
+<p style="font-size:10.5px;margin-left:200px">Click on the map for more info about the country or <a href="https://www.google.com.au/maps/@27.0821,44.0150558,4z" target="_blank">click here</a> for detailed map.</p>
 </map>
 </div>
 <div id="content">
@@ -61,19 +63,19 @@
 <div class="flag" style="float:left"><img src="<?php echo base_url() ?>assets/images/flags/middle-east.jpg" alt="Middle East" width="100px" height="70px" /></div>
 
 <div class="intro">
-<div class="edit1">
+<div class="edit22">
 <p><strong>Middle East</strong> is a region that stretches from the <a href="http://www.holidaysrating.com/index.php/africa_countries/egypt">Egypt</a> in Norteast <a href="http://www.holidaysrating.com/index.php/regions/africa">Africa</a> to the majority of the countries in Western <a href="http://www.holidaysrating.com/index.php/regions/asia">Asia</a> and the <a href="http://www.holidaysrating.com/index.php/regions/europe">European</a> island <a href="http://www.holidaysrating.com/index.php/europe_countries/cyprus">Cyprus</a>.<br /><br />
 Discover the historical cities, small mountain villages, magnificent temples and exotic food. Enjoy the history and culture of ancient Middle East. There are five main languages spoken in this region, Arabic, Persian, Turkish, Berber, and Kurdish.</p>
 </div>
 <?php if($this->ion_auth->is_editor()): ?>
-<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed1') ?>
+<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed22') ?>
 <?php endif ?>
 
 </div>
 
 <div class="options">
 <ul>
-<li><?php echo anchor('africa_cities/africa_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
+<li><?php echo anchor('cities/africa_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
 <li><?php echo anchor('http://www.holidaysrating.com/index.php/topmenu/videodump/asia', img('assets/images/buttonblue-videos-bg.png')); ?></li>
 <li><?php echo anchor('help/external_links', img('assets/images/buttonblue-links-bg.png')); ?></li>
 </ul>
@@ -118,8 +120,8 @@ Discover the historical cities, small mountain villages, magnificent temples and
 <div class="right-side">
 <div class="top"></div>
 <div class="middle">
-<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;Middle East</span></p>
-<iframe width="180" height="100" src="http://www.youtube-nocookie.com/embed/8g2TU0HgqTM" frameborder="0" allowfullscreen></iframe>
+<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt; <?php echo $heading ?></span></p>
+<iframe width="180" height="110" src="http://www.youtube-nocookie.com/embed/8g2TU0HgqTM" frameborder="0" allowfullscreen></iframe>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" />
 <h2>Facts</h2>
 <ol>
@@ -150,7 +152,7 @@ While under Arab rule (1948-67), this area was entirely closed to Jews. Since Is
 </div>
 <div class="clear"></div>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" style="margin-top:8px"/>
-<h2>Cities</h2>
+<h2>Towns - Cities</h2>
 <ul>
 <li>Dubai <?php echo anchor('asia_countries/uae', '(United Arab Emirates)') ?></li>
 <li>Jerusalem <?php echo anchor('asia_countries/israel', '(Israel)') ?></li>
@@ -179,16 +181,16 @@ While under Arab rule (1948-67), this area was entirely closed to Jews. Since Is
 <div class="clear"></div>
 <div class="first-column">
 <ul>
-<li class="active"><?php echo anchor('home/index', 'HOME') ?></li>
-<li><?php echo anchor('user/index', 'MY PROFILE') ?></li>
-<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
 <li><?php echo anchor('topmenu/worldmap', 'WORLDMAP') ?></li>
+<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
+<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
+<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
 <li><?php echo anchor('regions/africa', 'AFRICA') ?></li>
-<li><?php echo anchor('regions/antarctica', 'ANTARCTICA') ?></li>
+<li><?php echo anchor('regions/antartica', 'ANTARCTICA') ?></li>
 <li><?php echo anchor('regions/asia', 'ASIA') ?></li>
 <li><?php echo anchor('regions/caribbean', 'CARIBBEAN') ?></li>
 </ul>
@@ -197,16 +199,16 @@ While under Arab rule (1948-67), this area was entirely closed to Jews. Since Is
 <ul>
 <li><?php echo anchor('regions/central_america', 'CENTRAL AMERICA') ?></li>
 <li><?php echo anchor('regions/europe', 'EUROPE') ?></li>
+<li><?php echo anchor('regions/indonesia', 'INDONESIA') ?></li>
 <li class="active"><?php echo anchor('regions/middle_east', 'MIDDLE EAST') ?></li>
-<li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
+<li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 <li><?php echo anchor('regions/oceania', 'OCEANIA') ?></li>
 <li><?php echo anchor('regions/south_america', 'SOUTH AMERICA') ?></li>
-<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
-<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
+<li><?php echo anchor('topmenu/helpcenter', 'HELPCENTER') ?></li>
 </ul>
 </div>
 <div class="logo"><center><img src="<?php echo base_url() ?>assets/images/photos.jpg" alt="logo" /></center>
@@ -228,7 +230,7 @@ var siteUrl = "<?php echo site_url('editor/update') ?>";
 
 $(document).ready(function() {
     
-    $('.edit1').editable(siteUrl + '/1', {
+    $('.edit22').editable(siteUrl + '/22', {
         type      : 'textarea',
         cancel    : 'Cancel',
         submit    : 'OK',
@@ -236,8 +238,8 @@ $(document).ready(function() {
         event     : 'edit'
     });
     
-    $('#ed1').bind('click', function(){
-        $('.edit1').trigger('edit');
+    $('#ed22').bind('click', function(){
+        $('.edit22').trigger('edit');
         return false;
     });
 });

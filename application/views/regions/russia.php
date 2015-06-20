@@ -2,15 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="Russia"/>
-<meta name="keywords" content="Russia"/>
+<meta name="description" content="<?php echo $heading ?>"/>
+<meta name="keywords" content="<?php echo $heading ?>, Sovjet Union"/>
 <meta name="author" content="Raymond"/>
 <meta name="robots" content="index, follow"/>
 <meta name="revisit-after" content="1 days"/>
 <meta name="language" content="English" />
 <meta content="<?php echo base_url() ?>assets/images/flags/russia.gif" property="og:image" />
+<meta name="viewport" content="maximum-scale=1"/>
 
-<title>Russia | Holidaysrating</title>
+<title><?php echo $heading ?> | Holidaysrating</title>
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
 <?php echo js('assets/js/jquery.jeditable.min.js') ?>
 </head>
@@ -103,8 +104,10 @@
 <area shape="poly" coords="804, 191, 783, 190, 780, 183, 772, 181, 765, 180, 754, 169, 761, 162, 769, 155, 772, 145, 764, 132, 774, 123, 803, 113, 815, 122, 836, 129, 836, 142, 825, 136, 816, 145, 823, 168, 835, 167, 827, 177, 823, 186, 817, 185, 818, 179, 805, 183" href="<?php echo base_url() ?>index.php/russia_states/magadan" alt="Magadan Oblast" title="Magadan Oblast"   />
 <area shape="poly" coords="745, 87, 755, 73, 774, 66, 758, 62, 765, 47, 751, 27, 762, 22, 776, 41, 810, 24, 823, 12, 834, 8, 839, 17, 854, 21, 842, 34, 833, 33, 832, 41, 822, 42, 834, 47, 835, 59, 845, 56, 859, 55, 867, 59, 859, 66, 863, 78, 853, 79, 847, 92, 835, 97, 830, 89, 820, 92, 802, 103, 801, 112, 793, 112, 782, 119, 776, 114, 755, 109, 759, 93" href="<?php echo base_url() ?>index.php/russia_states/chukotka" alt="Chukotka Autonomous Okrug" title="Chukotka Autonomous Okrug"   />
 <area shape="poly" coords="807, 109, 830, 93, 836, 100, 845, 95, 851, 97, 855, 80, 863, 80, 876, 103, 865, 104, 866, 118, 858, 118, 858, 127, 872, 147, 878, 141, 885, 150, 892, 150, 895, 161, 906, 164, 904, 173, 915, 182, 914, 189, 923, 195, 927, 205, 889, 194, 872, 184, 864, 177, 863, 168, 847, 138, 846, 122, 834, 126, 818, 118" href="<?php echo base_url() ?>index.php/russia_states/kamchatka" alt="Kamchatka Krai" title="Kamchatka Krai"   />
+<p style="font-size:10.5px;margin-left:200px">Click on the map for more info or <a href="https://www.google.com.au/maps/@62.5951164,102.1632795,3z" target="_blank">click here</a> for detailed map.</p>
 </map>
 </div>
+
 <div id="content">
 <h1><?php echo $heading ?></h1>
 <div class="clear"></div>
@@ -114,6 +117,16 @@
 <div class="my_login">
 <?php $this->load->view($sidebar) ?>
 </div>
+<img src="<?php echo base_url() ?>assets/images/border.png" alt="Holidayrating" style="margin:8px 0 4px 0" />
+<h2 style="margin-bottom:5px">Explore <?php echo $heading ?></h2>
+<div class="edit25">
+<p>Coming soon </p>
+</div>
+
+<?php if($this->ion_auth->is_editor()): ?>
+<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed25') ?>
+<?php endif ?>
+
 </div>
 <div class="bottom"></div>
 </div>
@@ -124,19 +137,19 @@
 <div class="flag" style="float:left"><img src="<?php echo base_url() ?>assets/images/flags/russia.jpg" alt="Russia" width="100px" height="70px" /></div>
 
 <div class="intro">
-<div class="edit1">
-<p><strong>Russia</strong> stretches from the European borders in the West to the coastlines of the Pacific Ocean in the East. The country is divided into two continents, both <a href="http://www.holidaysrating.com/index.php/regions/europe">Europe</a>and <a href="http://www.holidaysrating.com/index.php/reions/asia">Asia</a>. Discover the vast forests and tundras in Siberia, the mountains along the Southern borders or walk through the streets of snowy Moscow City.<br /><br />
+<div class="edit26">
+<p><strong>Russia</strong> stretches from the European borders in the west to the coastlines of the Pacific Ocean in the east. The country is divided into two continents, both <a href="http://www.holidaysrating.com/index.php/regions/europe">Europe</a> and <a href="http://www.holidaysrating.com/index.php/reions/asia">Asia</a>. Discover the vast forests and tundras in Siberia, the mountains along the Southern borders or walk through the streets of snowy Moscow City.<br /><br />
 Russia is enormous, by far the biggest country in the World because of it's total size of 17,098,242 square kilometers.</p>
 </div>
 <?php if($this->ion_auth->is_editor()): ?>
-<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed1') ?>
+<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed26') ?>
 <?php endif ?>
 
 </div>
 
 <div class="options">
 <ul>
-<li><?php echo anchor('russia_cities/russia_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
+<li><?php echo anchor('cities/asia_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
 <li><?php echo anchor('http://www.holidaysrating.com/index.php/topmenu/videodump/asia', img('assets/images/buttonblue-videos-bg.png')); ?></li>
 <li><?php echo anchor('help/external_links', img('assets/images/buttonblue-links-bg.png')); ?></li>
 </ul>
@@ -270,21 +283,36 @@ Russia is enormous, by far the biggest country in the World because of it's tota
 	</table>
 </div>
 <div class="clear"></div>
-
-
+<div class="country-menu">
+<ul>
+<li><?php echo anchor('asia_before_you_go/russia', img('assets/images/countries/menu/before-you-go.png')); ?></li>
+<li><?php echo anchor('asia_entry/russia', img('assets/images/countries/menu/entry.png')); ?></li>
+<li><?php echo anchor('asia_adventures/russia', img('assets/images/countries/menu/adventures.png')); ?></li>
+<li><?php echo anchor('asia_must_see/russia', img('assets/images/countries/menu/must-see.png')); ?></li>
+</ul>
+<ul>
+<li><?php echo anchor('asia_getting_around/russia', img('assets/images/countries/menu/getting-around.png')); ?></li>
+<li><?php echo anchor('asia_health/russia', img('assets/images/countries/menu/health.png')); ?></li>
+<li><?php echo anchor('asia_local_food/russia', img('assets/images/countries/menu/food.png')); ?></li>
+<li><?php echo anchor('asia_public_holidays/russia', img('assets/images/countries/menu/holidays.png')); ?></li>
+</ul>
+</div>
 </div>
 
 
 <div class="right-side">
 <div class="top"></div>
 <div class="middle">
-<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;<?php echo anchor('regions/asia', 'Asia') ?>&gt; Russia</span></p>
-<iframe width="180" height="100" src="http://www.youtube-nocookie.com/embed/sLOJjT5uyPA?rel=0" frameborder="0" allowfullscreen></iframe>
+<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;<?php echo anchor('regions/asia', 'Asia') ?>&gt;<?php echo $heading ?></span></p>
+<iframe width="180" height="110" src="http://www.youtube-nocookie.com/embed/sLOJjT5uyPA?rel=0" frameborder="0" allowfullscreen></iframe>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" />
 
 <div class="key-facts">	
 <h2>Key Facts</h2>
 <ul>
+<li><strong>Coordinates:</strong></li>
+<li><img src="<?php echo base_url() ?>assets/assets/globe.png" style="margin-right:5px" alt="coordinates"/><a href="http://tools.wmflabs.org/geohack/geohack.php?pagename=Russia&params=60_N_90_E_" target="_blank">60°N 90°E</a></li>
+
 <li><strong>Capital city:</strong></li>
 <li><img src="<?php echo base_url() ?>assets/assets/city.png" style="margin-right:5px" alt="city"/>Moscow</li>
 
@@ -388,7 +416,7 @@ var siteUrl = "<?php echo site_url('editor/update') ?>";
 
 $(document).ready(function() {
     
-    $('.edit1').editable(siteUrl + '/1', {
+    $('.edit25').editable(siteUrl + '/25', {
         type      : 'textarea',
         cancel    : 'Cancel',
         submit    : 'OK',
@@ -396,8 +424,21 @@ $(document).ready(function() {
         event     : 'edit'
     });
     
-    $('#ed1').bind('click', function(){
-        $('.edit1').trigger('edit');
+    $('#ed25').bind('click', function(){
+        $('.edit25').trigger('edit');
+        return false;
+    });
+    
+    $('.edit26').editable(siteUrl + '/26', {
+        type      : 'textarea',
+        cancel    : 'Cancel',
+        submit    : 'OK',
+        tooltip   : 'Click pencil to edit...',
+        event     : 'edit'
+    });
+    
+    $('#ed26').bind('click', function(){
+        $('.edit26').trigger('edit');
         return false;
     });
 });

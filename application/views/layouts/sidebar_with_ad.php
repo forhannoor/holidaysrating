@@ -1,13 +1,3 @@
-<?php if($this->ion_auth->logged_in()): ?>
-<h2>Welcome</h2>
-<?php if(isset($profile_info) && strlen($profile_info->avatar) > 0): ?>
-<p class="avatar"><?php echo anchor('user/index', img('./uploads/'.$profile_info->avatar)) ?></p>
-<?php else: ?>
-<p class="avatar"><?php echo anchor('user/index', img('assets/assets/avatar.jpg')) ?></p>
-<?php endif ?>
-<br />
-<?php echo $this->session->userdata('username') ?>
-<br />
 <?php echo 'Member since: ' . date("d-m-Y" , $this->session->userdata('created_on')) ?>
 <br />
 <?php echo 'Last logged in: ' . date("d-m-Y" , $this->session->userdata('old_last_login')) ?>
@@ -31,6 +21,18 @@
 </center>
 <?php endif ?>
 
+<img src="<?php echo base_url('assets/images/border.png') ?>" alt="Holiday" style="margin-top:12px" />
+<div class="google-left">
+<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!--PlayerLeft -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:180px;height:150px"
+     data-ad-client="ca-pub-0797455318364345"
+     data-ad-slot="7441933540"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
 <img src="<?php echo base_url('assets/images/border.png') ?>" alt="Holiday" style="margin-top:12px" />
 <?php $CI = &get_instance() ?>
 <?php $CI->load->model('Session_model') ?>

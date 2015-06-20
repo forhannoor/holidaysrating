@@ -2,15 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="Magical Asia"/>
-<meta name="keywords" content="Asia"/>
+<meta name="description" content="<?php echo $heading ?>"/>
+<meta name="keywords" content="<?php echo $heading ?>"/>
 <meta name="author" content="Raymond"/>
 <meta name="robots" content="index, follow"/>
 <meta name="revisit-after" content="1 days"/>
 <meta name="language" content="English" />
 <meta content="<?php echo base_url() ?>assets/images/thumbs/asia.jpg" property="og:image" />
+<meta name="viewport" content="maximum-scale=1"/>
 
-<title>Asia | Holidaysrating</title>
+<title><?php echo $heading ?> | Holidaysrating</title>
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
 <?php echo js('assets/js/jquery.jeditable.min.js') ?>
 </head>
@@ -62,7 +63,7 @@
 <area shape="poly" coords="525.413818359375,350.7586364746094,550.2413940429687,352.1379699707031,577.82763671875,363.8620910644531,606.7931518554687,369.37933349609375,631.6207275390625,379.0345153808594,657.1380004882812,357.65521240234375,670.9310913085937,361.1034851074219,681.965576171875,361.7931213378906,686.7931518554687,356.27587890625,697.82763671875,352.8276062011719,713.689697265625,348,721.27587890625,340.413818359375,738.5172729492187,351.44830322265625,753.689697265625,347.31036376953125,768.1724853515625,344.5517578125,788.1724853515625,341.1034851074219,795.0690307617187,336.9655456542969,825.413818359375,326.6207275390625,865.413818359375,331.44830322265625,872.3104248046875,336.9655456542969,885.4138793945312,340.413818359375,888.1724853515625,328.6896667480469,903.3449096679687,328.6896667480469,929.5517578125,328,929.5517578125,359.7241516113281,908.1724853515625,358.3448486328125,901.965576171875,350.0690002441406,887.4827880859375,351.44830322265625,869.5517578125,350.7586364746094,850.241455078125,372.8276062011719,832.3104248046875,378.3448486328125,804.0345458984375,379.0345153808594,786.7931518554687,385.24139404296875,793,394.8965759277344,776.4483032226562,401.7931213378906,739.8966064453125,402.4827880859375,690.9310913085937,403.1724548339844,673,403.1724548339844,642.6552124023437,404.5517578125,615.0690307617187,399.7241516113281,586.7931518554687,390.7586364746094,560.5862426757812,381.7931213378906,546.1034545898437,370.7586364746094,530.2413940429687,358.3448486328125," href="<?php echo base_url() ?>index.php/regions/indonesia" alt="Indonesia" title="Indonesia"   />
 <area shape="poly" coords="628, 305, 623, 315, 609, 321, 594, 317, 590, 306, 611, 302, 620, 306" href="<?php echo base_url() ?>index.php/asia_countries/cambodia" alt="Cambodia" title="Cambodia"   />
 <area shape="poly" coords="609, 301, 608, 294, 592, 286, 575, 289, 568, 281, 560, 278, 544, 287, 553, 300, 550, 305, 561, 317, 554, 332, 573, 342, 583, 343, 565, 328, 569, 311, 591, 314, 590, 303" href="<?php echo base_url() ?>index.php/asia_countries/thailand" alt="Thailand" title="Thailand"   />
-<area shape="poly" coords="539, 284, 540, 291, 550, 299, 547, 303, 559, 316, 554, 324, 552, 313, 542, 304, 534, 296, 513, 303, 508, 286, 497, 281, 505, 265, 509, 256, 534, 244, 542, 249, 539, 261, 557, 274" href="<?php echo base_url() ?>index.php/asia_countries/burma" alt="Burma (Myanmar)" title="Burma (Myanmar)"   />
+<area shape="poly" coords="539, 284, 540, 291, 550, 299, 547, 303, 559, 316, 554, 324, 552, 313, 542, 304, 534, 296, 513, 303, 508, 286, 497, 281, 505, 265, 509, 256, 534, 244, 542, 249, 539, 261, 557, 274" href="<?php echo base_url() ?>index.php/asia_countries/myanmar" alt="Myanmar (Burma)" title="Myanmar (Burma)"   />
 <area shape="poly" coords="504, 241, 518, 238, 521, 246, 523, 249, 515, 249, 505, 255, 507, 264, 499, 264, 497, 274, 493, 267, 485, 270, 490, 259, 474, 261, 468, 257, 460, 256, 454, 257, 445, 259, 432, 259, 400, 250, 390, 244, 398, 241, 426, 252, 458, 251, 465, 254, 486, 254, 488, 250, 497, 248" href="<?php echo base_url() ?>index.php/asia_countries/nepal" alt="Nepal" title="Nepal"   />
 <area shape="poly" coords="457, 258, 470, 258, 474, 265, 488, 262, 485, 269, 493, 269, 494, 281, 484, 274, 468, 276, 456, 265" href="<?php echo base_url() ?>index.php/asia_countries/bangladesh" alt="Bangladesh" title="Bangladesh"   />
 <area shape="poly" coords="366, 217, 378, 227, 374, 233, 391, 239, 387, 246, 411, 254, 441, 257, 451, 263, 462, 277, 407, 301, 388, 308, 389, 322, 366, 343, 335, 311, 327, 305, 322, 292, 322, 278, 308, 281, 296, 275, 290, 267, 310, 264, 303, 256, 307, 251, 316, 252, 326, 248, 344, 231, 343, 221, 356, 219" href="<?php echo base_url() ?>index.php/asia_countries/india" alt="India" title="India"   />
@@ -70,8 +71,10 @@
 <area shape="poly" coords="810.9310913085937,385.9310607910156,798.5172729492187,388,801.965576171875,392.8276062011719," href="<?php echo base_url() ?>index.php/asia_countries/east_timor" alt="East Timor" title="East Timor"   />
 <area shape="poly" coords="343, 208, 360, 216, 351, 220, 341, 218, 340, 228, 341, 234, 323, 247, 313, 250, 305, 249, 299, 255, 306, 265, 290, 263, 284, 267, 276, 260, 235, 256, 248, 249, 240, 239, 273, 238, 283, 231, 300, 232, 309, 223, 317, 225, 321, 211" href="<?php echo base_url() ?>index.php/asia_countries/pakistan" alt="Pakistan" title="Pakistan"   />
 <area shape="poly" coords="291, 203, 309, 207, 309, 203, 321, 200, 322, 206, 318, 213, 308, 223, 300, 228, 285, 230, 274, 234, 238, 236, 240, 229, 233, 223, 246, 210, 272, 208, 282, 203" href="<?php echo base_url() ?>index.php/asia_countries/afghanistan" alt="Afghanistan" title="Afghanistan"   />
+<p style="font-size:10.5px;margin-left:200px">Click on the map for more info about the country or <a href="https://www.google.com.au/maps/@38.0542561,104.6880829,3z" target="_blank">click here</a> for detailed map.</p>
 </map>
 </div>
+
 <div id="content">
 <h1><?php echo $heading ?></h1>
 <div class="clear"></div>
@@ -91,20 +94,20 @@
 <div class="flag" style="float:left"><img src="<?php echo base_url() ?>assets/images/flags/asia.jpg" alt="Asia" width="100px" height="70px" /></div>
 
 <div class="intro">
-<div class="edit1">
+<div class="edit10">
 <p><strong>Asia</strong> offers more variety than any other continent. It stretches from the Mediterranean to the monsterous <a href="http://www.holidaysrating.com/index.php/regions/russia">Russia</a>, from the exotic cultures in the <a href="http://www.holidaysrating/index.php/regions/middle_east">Middle East</a> to the breathtaking mysteries of <a href="http://www.holidaysrating.com/index.php/asia_countries/china">China</a>.<br /><br />
 That is not all, there is plenty more to see; from sublime coastlines to snow capped mountains, the majestic Mekong River to wildlife infested jungle.</p>
 <p>The continent has got a total size of 31,915,446 square kilometers. Asia is home to hundreds of different cultures and languages. Some of these languages are Russian, Arabic, Mandarin, Cantones, Hindi, Turkish, Korean and Thai.</p>
 </div>
 <?php if($this->ion_auth->is_editor()): ?>
-<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed1') ?>
+<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed10') ?>
 <?php endif ?>
 
 </div>
 
 <div class="options">
 <ul>
-<li><?php echo anchor('asia_cities/asia_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
+<li><?php echo anchor('cities/asia_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
 <li><?php echo anchor('http://www.holidaysrating.com/index.php/topmenu/videodump/asia', img('assets/images/buttonblue-videos-bg.png')); ?></li>
 <li><?php echo anchor('help/external_links', img('assets/images/buttonblue-links-bg.png')); ?></li>
 </ul>
@@ -118,78 +121,79 @@ That is not all, there is plenty more to see; from sublime coastlines to snow ca
 		<tr>
 			<td><?php echo anchor('asia_countries/afghanistan', 'Afghanistan') ?></td>
 			<td><?php echo anchor('asia_countries/kazakhstan', 'Kazakhstan') ?></td>
+			<td><?php echo anchor('regions/russia', 'Russia') ?></td>
+		</tr>
+		<tr>
+			<td><?php echo anchor('asia_countries/bahrain', 'Bahrain') ?></td>
+			<td><?php echo anchor('asia_countries/kuwait', 'Kuwait') ?></td>
 			<td><?php echo anchor('asia_countries/saudi_arabia', 'Saudi Arabia') ?></td>
 		</tr>
 		<tr>
 			<td><?php echo anchor('asia_countries/bangladesh', 'Bangladesh') ?></td>
-			<td><?php echo anchor('asia_countries/kuwait', 'Kuwait') ?></td>
+			<td><?php echo anchor('asia_countries/kyrgyzstan', 'Kyrgyzstan') ?></td>
 			<td><?php echo anchor('asia_countries/south_korea', 'South Korea') ?></td>
 		</tr>
 		<tr>
 			<td><?php echo anchor('asia_countries/bhutan', 'Bhutan') ?></td>
-			<td><?php echo anchor('asia_countries/kyrgyzstan', 'Kyrgyzstan') ?></td>
+			<td><?php echo anchor('asia_countries/laos', 'Laos') ?></td>
 			<td><?php echo anchor('asia_countries/sri_lanka', 'Sri Lanka') ?></td>
 		</tr>
 		<tr>
 			<td><?php echo anchor('asia_countries/brunei', 'Brunei') ?></td>
-			<td><?php echo anchor('asia_countries/laos', 'Laos') ?></td>
-			<td><?php echo anchor('asia_countries/syria', 'Syria') ?></td>
-		</tr>
-		<tr>
-			<td><?php echo anchor('asia_countries/burma', 'Burma (Myanmar)') ?></td>
 			<td><?php echo anchor('asia_countries/lebanon', 'Lebanon') ?></td>
-			<td><?php echo anchor('asia_countries/taiwan', 'Taiwan') ?></td>
+			<td><?php echo anchor('asia_countries/syria', 'Syria') ?></td>
 		</tr>
 		<tr>
 			<td><?php echo anchor('asia_countries/cambodia', 'Cambodia') ?></td>
 			<td><?php echo anchor('asia_countries/malaysia', 'Malaysia') ?></td>
-			<td><?php echo anchor('asia_countries/tajikistan', 'Tajikistan') ?></td>
+			<td><?php echo anchor('asia_countries/taiwan', 'Taiwan') ?></td>
 		</tr>
 		<tr>
 			<td><?php echo anchor('asia_countries/china', 'China') ?></td>
 			<td><?php echo anchor('asia_countries/maldives', 'Maldives') ?></td>
-			<td><?php echo anchor('asia_countries/thailand', 'Thailand') ?></td>
+			<td><?php echo anchor('asia_countries/tajikistan', 'Tajikistan') ?></td>
 		</tr>
 		<tr>
 			<td><?php echo anchor('asia_countries/east_timor', 'East Timor') ?></td>
 			<td><?php echo anchor('asia_countries/mongolia', 'Mongolia') ?></td>
-			<td><?php echo anchor('asia_countries/turkey', 'Turkey') ?></td>
+			<td><?php echo anchor('asia_countries/thailand', 'Thailand') ?></td>
 		</tr>
 		<tr>
 			<td><?php echo anchor('asia_countries/india', 'India') ?></td>
+			<td><?php echo anchor('asia_countries/myanmar', 'Myanmar (Burma)') ?></td>
+			<td><?php echo anchor('asia_countries/turkey', 'Turkey') ?></td>
+		</tr>
+		<tr>
+			<td><?php echo anchor('regions/indonesia', 'Indonesia') ?></td>
 			<td><?php echo anchor('asia_countries/nepal', 'Nepal') ?></td>
 			<td><?php echo anchor('asia_countries/turkmenistan', 'Turkmenistan') ?></td>
 		</tr>
 		<tr>
-			<td><?php echo anchor('regions/indonesia', 'Indonesia') ?></td>
+			<td><?php echo anchor('asia_countries/iran', 'Iran') ?></td>
 			<td><?php echo anchor('asia_countries/north_korea', 'North Korea') ?></td>
 			<td><?php echo anchor('asia_countries/uae', 'United Arab Emirates') ?></td>
 		</tr>
 		<tr>
-			<td><?php echo anchor('asia_countries/iran', 'Iran') ?></td>
+			<td><?php echo anchor('asia_countries/iraq', 'Iraq') ?></td>
 			<td><?php echo anchor('asia_countries/oman', 'Oman') ?></td>
 			<td><?php echo anchor('asia_countries/uzbekistan', 'Uzbekistan') ?></td>
 		</tr>
 		<tr>
-			<td><?php echo anchor('asia_countries/iraq', 'Iraq') ?></td>
+			<td><?php echo anchor('asia_countries/israel', 'Israel') ?></td>
 			<td><?php echo anchor('asia_countries/pakistan', 'Pakistan') ?></td>
 			<td><?php echo anchor('asia_countries/vietnam', 'Vietnam') ?></td>
 		</tr>
 		<tr>
-			<td><?php echo anchor('asia_countries/israel', 'Israel') ?></td>
+			<td><?php echo anchor('asia_countries/japan', 'Japan') ?></td>
 			<td><?php echo anchor('asia_countries/philippines', 'Philippines') ?></td>
 			<td><?php echo anchor('asia_countries/yemen', 'Yemen') ?></td>
 		</tr>
 		<tr>
-			<td><?php echo anchor('asia_countries/japan', 'Japan') ?></td>
+			<td><?php echo anchor('asia_countries/jordan', 'Jordan') ?></td>
 			<td><?php echo anchor('asia_countries/qatar', 'Qatar') ?></td>
 			<td>&nbsp;</td>
 		</tr>
-		<tr>
-			<td><?php echo anchor('asia_countries/jordan', 'Jordan') ?></td>
-			<td><?php echo anchor('regions/russia', 'Russia') ?></td>
-			<td>&nbsp;</td>
-		</tr>	
+
 	</table>
 </div>	
 <div class="clear"></div>
@@ -199,8 +203,8 @@ That is not all, there is plenty more to see; from sublime coastlines to snow ca
 <div class="right-side">
 <div class="top"></div>
 <div class="middle">
-<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;Asia</span></p>
-<iframe width="180" height="100" src="http://www.youtube-nocookie.com/embed/VQobe3bJsEI?rel=0" frameborder="0" allowfullscreen></iframe>
+<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;<?php echo $heading ?></span></p>
+<iframe width="180" height="110" src="http://www.youtube-nocookie.com/embed/tPRcRnTVuZk" frameborder="0" allowfullscreen></iframe>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" />
 <h2>Facts</h2>
 <ol>
@@ -231,12 +235,12 @@ That is not all, there is plenty more to see; from sublime coastlines to snow ca
 </div>
 <div class="clear"></div>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" style="margin-top:8px"/>
-<h2>Cities</h2>
+<h2>Towns - Cities</h2>
 <ul>
 <li>Bangkok <?php echo anchor('asia_countries/thailand', '(Thailand)') ?></li>
 <li>New Delhi <?php echo anchor('asia_countries/india', '(India)') ?></li>
 <li>Shenzhen <?php echo anchor('asia_countries/china', '(China)') ?></li>
-<li><?php echo anchor('china_provinces/hongkong ', 'Hongkong ') ?> <?php echo anchor('asia_countries/china', '(China)') ?></li>
+<li><?php echo anchor('china_provinces/hong_kong ', 'Hong Kong ') ?> <?php echo anchor('asia_countries/china', '(China)') ?></li>
 </ul>
 </div>
 
@@ -261,16 +265,16 @@ That is not all, there is plenty more to see; from sublime coastlines to snow ca
 <div class="clear"></div>
 <div class="first-column">
 <ul>
-<li><?php echo anchor('home/index', 'HOME') ?></li>
-<li><?php echo anchor('user/index', 'MY PROFILE') ?></li>
-<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
 <li><?php echo anchor('topmenu/worldmap', 'WORLDMAP') ?></li>
+<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
+<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
+<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
 <li><?php echo anchor('regions/africa', 'AFRICA') ?></li>
-<li><?php echo anchor('regions/antarctica', 'ANTARCTICA') ?></li>
+<li><?php echo anchor('regions/antartica', 'ANTARCTICA') ?></li>
 <li class="active"><?php echo anchor('regions/asia', 'ASIA') ?></li>
 <li><?php echo anchor('regions/caribbean', 'CARIBBEAN') ?></li>
 </ul>
@@ -279,16 +283,16 @@ That is not all, there is plenty more to see; from sublime coastlines to snow ca
 <ul>
 <li><?php echo anchor('regions/central_america', 'CENTRAL AMERICA') ?></li>
 <li><?php echo anchor('regions/europe', 'EUROPE') ?></li>
+<li><?php echo anchor('regions/indonesia', 'INDONESIA') ?></li>
 <li><?php echo anchor('regions/middle_east', 'MIDDLE EAST') ?></li>
-<li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
+<li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 <li><?php echo anchor('regions/oceania', 'OCEANIA') ?></li>
 <li><?php echo anchor('regions/south_america', 'SOUTH AMERICA') ?></li>
-<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
-<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
+<li><?php echo anchor('topmenu/helpcenter', 'HELPCENTER') ?></li>
 </ul>
 </div>
 <div class="logo"><center><img src="<?php echo base_url() ?>assets/images/photos.jpg" alt="logo" /></center>
@@ -310,7 +314,7 @@ var siteUrl = "<?php echo site_url('editor/update') ?>";
 
 $(document).ready(function() {
     
-    $('.edit1').editable(siteUrl + '/1', {
+    $('.edit10').editable(siteUrl + '/10', {
         type      : 'textarea',
         cancel    : 'Cancel',
         submit    : 'OK',
@@ -318,8 +322,8 @@ $(document).ready(function() {
         event     : 'edit'
     });
     
-    $('#ed1').bind('click', function(){
-        $('.edit1').trigger('edit');
+    $('#ed10').bind('click', function(){
+        $('.edit10').trigger('edit');
         return false;
     });
 });

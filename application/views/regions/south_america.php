@@ -2,15 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="Beautiful South America!"/>
-<meta name="keywords" content="South America"/>
+<meta name="description" content="<?php echo $heading ?>"/>
+<meta name="keywords" content="<?php echo $heading ?>"/>
 <meta name="author" content="Raymond"/>
 <meta name="robots" content="index, follow"/>
 <meta name="revisit-after" content="1 days"/>
 <meta name="language" content="English" />
 <meta content="<?php echo base_url() ?>assets/images/thumbs/south-america.jpg" property="og:image" />
+<meta name="viewport" content="maximum-scale=1"/>
 
-<title>South America | Holidaysrating</title>
+<title><?php echo $heading ?> | Holidaysrating</title>
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
 <?php echo js('assets/js/jquery.jeditable.min.js') ?>
 </head>
@@ -34,6 +35,7 @@
 <area shape="poly" coords="526,358,537,356,543,360,535,365,526,363," href="<?php echo base_url() ?>index.php/south_america_countries/falkland_islands" alt="Falkland Islands" title="Falkland Islands"   />
 <area shape="poly" coords="403,92,385,91,373,79,348,72,356,60,353,40,339,39,319,36,302,26,292,10,272,6,261,0,318,0,317,16,328,31,341,28,359,31,366,27,395,13,415,18,444,22,464,31,478,45,489,49,504,50,520,57,512,66,499,66,492,66,481,70,471,69,470,58,467,52,457,56,439,58,434,59,440,69,428,75,422,69,404,71,401,80," href="<?php echo base_url() ?>index.php/regions/central_america" alt="Central America" title="Central America"   />
 <area shape="poly" coords="447,0,449,15,472,16,480,6,476,0," href="<?php echo base_url() ?>index.php/regions/caribbean" alt="Caribbean" title="Caribbean"   />
+<p style="font-size:10.5px;margin-left:200px">Click on the map for more info about the country or <a href="https://www.google.com.au/maps/@-29.1353631,-69.4748917,3z" target="_blank">click here</a> for detailed map.</p>
 </map>
 </div>
 <div id="content">
@@ -55,19 +57,19 @@
 <div class="flag" style="float:left"><img src="<?php echo base_url() ?>assets/images/flags/south-america.jpg" alt="South America" width="100px" height="70px" /></div>
 
 <div class="intro">
-<div class="edit1">
+<div class="edit27">
 <p><strong>South America</strong> stretches from the samba at Rio’s Ipanema Beach to <a href="http://www.holidaysrating.com/index.php/south_america_countries/chile">Chile's</a> great glaciers, the abundant wildlife of the Amazon River to the gauchos working <a href="http://www.holidaysrating.com/index.php/south_america_countries/argentina">Argentina’s</a> expansive ranches. <br />
 Explore the history and culture, the wildlife in the Amazon Rainforest and indigenous flora and fauna in Patagonia Mountains. South America is perfect for explorers.</p>
 </div>
 <?php if($this->ion_auth->is_editor()): ?>
-<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed1') ?>
+<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed27') ?>
 <?php endif ?>
 
 </div>
 
 <div class="options">
 <ul>
-<li><?php echo anchor('south_america_cities/south_america_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
+<li><?php echo anchor('cities/south_america_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
 <li><?php echo anchor('http://www.holidaysrating.com/index.php/topmenu/videodump/south_america', img('assets/images/buttonblue-videos-bg.png')); ?></li>
 <li><?php echo anchor('help/external_links', img('assets/images/buttonblue-links-bg.png')); ?></li>
 </ul>
@@ -103,10 +105,8 @@ Explore the history and culture, the wildlife in the Amazon Rainforest and indig
 <div class="right-side">
 <div class="top"></div>
 <div class="middle">
-<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;South 
-America</span></p>
-
-<iframe width="180" height="100" src="http://www.youtube-nocookie.com/embed/a3mQRg_kz-w?rel=0" frameborder="0" allowfullscreen></iframe>
+<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt; <?php echo $heading ?></span></p>
+<iframe width="180" height="110" src="http://www.youtube-nocookie.com/embed/a3mQRg_kz-w?rel=0" frameborder="0" allowfullscreen></iframe>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" />
 <h2>Facts</h2>
 <ol>
@@ -137,7 +137,7 @@ America</span></p>
 
 <div class="clear"></div>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" style="margin-top:8px"/>
-<h2>Cities</h2>
+<h2>Towns - Cities</h2>
 <ul>
 <li>Buenois Aires <?php echo anchor('south_america_countries/argentina', '(Argentina)') ?></li>
 <li>Santiago <?php echo anchor('south_america_countries/chile', '(Chile)') ?></li>
@@ -165,16 +165,16 @@ America</span></p>
 <div class="clear"></div>
 <div class="first-column">
 <ul>
-<li><?php echo anchor('home/index', 'HOME') ?></li>
-<li><?php echo anchor('user/index', 'MY PROFILE') ?></li>
-<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
 <li><?php echo anchor('topmenu/worldmap', 'WORLDMAP') ?></li>
+<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
+<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
+<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
 <li><?php echo anchor('regions/africa', 'AFRICA') ?></li>
-<li><?php echo anchor('regions/antarctica', 'ANTARCTICA') ?></li>
+<li><?php echo anchor('regions/antartica', 'ANTARCTICA') ?></li>
 <li><?php echo anchor('regions/asia', 'ASIA') ?></li>
 <li><?php echo anchor('regions/caribbean', 'CARIBBEAN') ?></li>
 </ul>
@@ -183,16 +183,16 @@ America</span></p>
 <ul>
 <li><?php echo anchor('regions/central_america', 'CENTRAL AMERICA') ?></li>
 <li><?php echo anchor('regions/europe', 'EUROPE') ?></li>
+<li><?php echo anchor('regions/indonesia', 'INDONESIA') ?></li>
 <li><?php echo anchor('regions/middle_east', 'MIDDLE EAST') ?></li>
-<li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
+<li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 <li><?php echo anchor('regions/oceania', 'OCEANIA') ?></li>
-<li><?php echo anchor('regions/south_america', 'SOUTH AMERICA') ?></li>
-<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
-<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
+<li class="active"><?php echo anchor('regions/south_america', 'SOUTH AMERICA') ?></li>
+<li><?php echo anchor('topmenu/helpcenter', 'HELPCENTER') ?></li>
 </ul>
 </div>
 <div class="logo"><center><img src="<?php echo base_url() ?>assets/images/photos.jpg" alt="logo" /></center>
@@ -214,7 +214,7 @@ var siteUrl = "<?php echo site_url('editor/update') ?>";
 
 $(document).ready(function() {
     
-    $('.edit1').editable(siteUrl + '/1', {
+    $('.edit27').editable(siteUrl + '/27', {
         type      : 'textarea',
         cancel    : 'Cancel',
         submit    : 'OK',
@@ -222,8 +222,8 @@ $(document).ready(function() {
         event     : 'edit'
     });
     
-    $('#ed1').bind('click', function(){
-        $('.edit1').trigger('edit');
+    $('#ed27').bind('click', function(){
+        $('.edit27').trigger('edit');
         return false;
     });
 });

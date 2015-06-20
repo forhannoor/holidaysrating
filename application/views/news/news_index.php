@@ -8,8 +8,9 @@
 <meta name="robots" content="index, follow"/>
 <meta name="revisit-after" content="1 days"/>
 <meta content="<?php echo base_url() ?>assets/images/blacklogo-big.JPG" property="og:image" />
+<meta name="viewport" content="maximum-scale=1"/>
 
-<title>Travel News | Holidaysrating</title>
+<title><?php echo $heading ?> | Holidaysrating</title>
 <link rel="alternate" type="application/rss+xml" title="Holidaysrating" href="http/:www.holidaysrating.com" />
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
 </head>
@@ -26,17 +27,56 @@
 
 <div id="top-head-news">
 <div class="main">
-<div class="logo"><img src="<?php echo base_url('assets/images/logo/holidaysrating.png') ?>" alt="Holidaysrating" title="Holidaysrating" /></div>
+<div class="logo"><?php echo anchor('home/index', img('assets/images/logo/holidaysrating.png')); ?></div>
 <div class="menu">
 <ul>
-<li><?php echo anchor('home/index', 'HOME') ?></li>
-<li><?php echo anchor('user/index', 'MY PROFILE') ?></li>
 <li><?php echo anchor('topmenu/worldmap', 'WORLDMAP') ?></li>
 <li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
-<li><?php echo anchor('blog/blog_index', 'BLOG') ?></li>
-<li class="active"><?php echo anchor('news/news_index', 'TRAVELNEWS') ?></li>
-<li><?php echo anchor('topmenu/helpcenter', 'HELPCENTER') ?></li>
+<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
+<li><?php echo anchor('news/news_index', 'TRAVELNEWS') ?></li>
+<li><?php echo anchor('topmenu/helpcenter', 'HELP') ?></li>
 </ul>
+
+<div class="user-submenu">
+<?php if(! $this->ion_auth->logged_in()): ?>
+<a href="<?php echo site_url('home/login') ?>" rel="nofollow">LOGIN</a>
+<?php else: ?>
+<strong><a href="<?php echo site_url('user/index') ?>" rel="nofollow"><?php echo $this->session->userdata('username') ?></a></strong>&nbsp;&nbsp;<a id="q999" style="cursor: pointer">&#9660;</a>
+<div id="a999">
+<table style="border:collapse;border-top:1px solid #A1B8BE;margin-top:2px">
+<tr>
+<td style="padding:0 3px"><?php echo anchor('user/index', 'MY PROFILE') ?></td>
+</tr>
+<tr>
+<td style="padding:0 3px"><?php echo anchor('user/inbox', 'INBOX') ?></td>
+</tr>
+<tr>
+<td style="padding:0 3px"><?php echo anchor('user/bucket', 'BUCKETLIST') ?></td>
+</tr>
+<tr>
+<td style="padding:0 3px"><?php echo anchor('user/settings', 'SETTINGS') ?></td>
+</tr>
+<tr>
+<td style="padding:0 3px"><?php echo anchor('auth/logout', 'LOG OUT') ?></td>
+</tr>
+</table>
+</div>
+<?php endif ?>
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        $("#a999").hide();
+        
+        $("#q999").click(function()
+        {
+            $("#a999").toggle("medium");
+        }
+        );
+    }
+    );
+</script>
+</div>
+
 </div>
 </div>
 </div>
@@ -57,7 +97,9 @@
 
 
 <div id="content">
-<center><img src="<?php echo base_url() ?>assets/images/news/travel-news.png" alt="Travel News" /></center>
+<div id="rss-news">
+<p style="padding-top:17px;margin-left:52px"><a href="http://www.holidaysrating.com/rss.xml"><img src="<?php echo base_url('assets/assets/rss.png') ?>" /></a></p>
+</div>
 <div class="clear"></div>
 <div class="left-side">
 <div class="top-news"></div>
@@ -74,10 +116,10 @@
 <div class="travel-news" style="height:100%">
 <ul class="news-blocks" style="list-style:none">
 <li>
-<h3 style="border-top:none">Updated: 14 December 2013</h3>
+<h3 style="border-top:none">Updated: 11 May 2015</h3>
 <p><img src="<?php echo base_url() ?>assets/images/travel-alert.jpg" alt="travel-alert" />
 Travel alerts, make sure you know everything about your trip. Is it safe to go?  <br />
-<?php echo anchor('news/travel_alerts', 'Read more') ?></p>
+<?php echo anchor('travel_alerts/index', 'Read more') ?></p>
 </li>
 <li>
 <h3>14 December 2013</h3>
@@ -104,15 +146,10 @@ Holidaysrating is a new, fun and social website where you can search for informa
 <div class="top-news"></div>
 <div class="middle-news">
 <p><span>You are here&gt;<?php echo anchor('home/index', 'Home') ?>&gt;Travel News</span></p>
-
-<div style="float:left"><?php echo anchor('http://www.holidaysrating.com/rss.xml', img('assets/images/news/rss.png')); ?></div>
-<p style="font-size:10px;margin-left:4px">Subscribe to our <?php echo anchor('http://www.holidaysrating.com/rss.xml', 'RSS') ?> Feed!</p>
-
-<img src="<?php echo base_url() ?>assets/images/border.png" alt="border" style="margin-top:8px"/>
 <h2 style="margin-bottom:6px">Holidaysrating</h2>
 <iframe width="192" height="120" style="margin-bottom:7px" src="http://www.youtube-nocookie.com/embed/nihFnlZKiGY" frameborder="0" allowfullscreen></iframe>
 <h2 style="margin-bottom:6px">Read also...</h2>
-<p>Visit our <?php echo anchor('blog/blog_index', 'blog') ?> and read the travel stories of other members and/ or guest writers!</p>
+<p>Write your own story about your favorite destination for everyone to read. Go to the country, or adventure and start sharing...</p>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" />
 <h2>Like it..</h2>
 <div class="social">
@@ -155,33 +192,33 @@ Holidaysrating is a new, fun and social website where you can search for informa
 <div class="clear"></div>
 <div class="first-column">
 <ul>
-<li><?php echo anchor('home/index', 'HOME') ?></li>
-<li><?php echo anchor('user/index', 'MY PROFILE') ?></li>
-<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
 <li><?php echo anchor('topmenu/worldmap', 'WORLDMAP') ?></li>
+<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
+<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
+<li class="active"><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
 <li><?php echo anchor('regions/africa', 'AFRICA') ?></li>
+<li><?php echo anchor('regions/antartica', 'ANTARCTICA') ?></li>
 <li><?php echo anchor('regions/asia', 'ASIA') ?></li>
 <li><?php echo anchor('regions/caribbean', 'CARIBBEAN') ?></li>
-<li><?php echo anchor('regions/central_america', 'CENTRAL AMERICA') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
+<li><?php echo anchor('regions/central_america', 'CENTRAL AMERICA') ?></li>
 <li><?php echo anchor('regions/europe', 'EUROPE') ?></li>
+<li><?php echo anchor('regions/indonesia', 'INDONESIA') ?></li>
+<li><?php echo anchor('regions/middle_east', 'MIDDLE EAST') ?></li>
+</ul>
+</div>
+<div class="first-column">
+<ul>
 <li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 <li><?php echo anchor('regions/oceania', 'OCEANIA') ?></li>
 <li><?php echo anchor('regions/south_america', 'SOUTH AMERICA') ?></li>
-</ul>
-</div>
-<div class="first-column">
-<ul>
-<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
-<li class="active"><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
-<li><?php echo anchor('blog/blog_index', 'BLOG') ?></li>
 <li><?php echo anchor('topmenu/helpcenter', 'HELPCENTER') ?></li>
 </ul>
 </div>

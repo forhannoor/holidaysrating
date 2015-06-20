@@ -2,15 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="Amazing North America"/>
-<meta name="keywords" content="North America, America"/>
+<meta name="description" content="<?php echo $heading ?>"/>
+<meta name="keywords" content="<?php echo $heading ?>, America"/>
 <meta name="author" content="Raymond"/>
 <meta name="robots" content="index, follow"/>
 <meta name="revisit-after" content="1 days"/>
 <meta name="language" content="English" />
 <meta content="<?php echo base_url() ?>assets/images/thumbs/north-america.jpg" property="og:image" />
+<meta name="viewport" content="maximum-scale=1"/>
 
-<title>North America | Holidaysrating</title>
+<title><?php echo $heading ?> | Holidaysrating</title>
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
 <?php echo js('assets/js/jquery.jeditable.min.js') ?>
 </head>
@@ -34,6 +35,7 @@
 <area shape="poly" coords="434,358,449,364,436,366," href="<?php echo base_url() ?>index.php/regions/caribbean" alt="Caribbean" title="Caribbean"   />
 <area shape="poly" coords="441,308,438,333,462,320," href="<?php echo base_url() ?>index.php/regions/usa" alt="United States of America" title="United States of America"   />
 <area shape="poly" coords="452,335,466,326,488,342,472,351," href="<?php echo base_url() ?>index.php/regions/caribbean" alt="Caribbean" title="Caribbean"   />
+<p style="font-size:10.5px;margin-left:200px">Click on the map for more info about the country or <a href="https://www.google.com.au/maps/@49.3549318,-128.8340855,3z" target="_blank">click here</a> for detailed map.</p>
 </map>
 </div>
 <div id="content">
@@ -55,20 +57,20 @@
 <div class="flag" style="float:left"><img src="<?php echo base_url() ?>assets/images/flags/north-america.jpg" alt="North America" width="100px" height="70px" /></div>
 
 <div class="intro">
-<div class="edit1">
+<div class="edit23">
 <p><strong>North America</strong> stretches from the <a href="http://www.holidaysrating.com/index.php/usa_states/alaska">Pappua</a>Icebergs to the gambling paradise Las Vegas. The grand canyons and star-spangled southern towns to the coast town Nova Scotia.<br /><br /> 
 Discover this destination with loads of life changing experiences and mind-blowing must-sees.<br /> 
 This region has a size of 21,775,893 square kilometers. English, French and Spanish are commonly spoken but around the 300 North American Indian Languages are also heard.</p>
 </div>
 <?php if($this->ion_auth->is_editor()): ?>
-<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed1') ?>
+<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed23') ?>
 <?php endif ?>
 
 </div>
 
 <div class="options">
 <ul>
-<li><?php echo anchor('north_america_cities/north_america_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
+<li><?php echo anchor('cities/north_america_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
 <li><?php echo anchor('http://www.holidaysrating.com/index.php/topmenu/videodump/north_america', img('assets/images/buttonblue-videos-bg.png')); ?></li>
 <li><?php echo anchor('help/external_links', img('assets/images/buttonblue-links-bg.png')); ?></li>
 </ul>
@@ -104,9 +106,8 @@ This region has a size of 21,775,893 square kilometers. English, French and Span
 <div class="right-side">
 <div class="top"></div>
 <div class="middle">
-<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;North 
-America</span></p>
-<iframe width="180" height="100" src="http://www.youtube-nocookie.com/embed/M1najctAh_c?rel=0" frameborder="0" allowfullscreen></iframe>
+<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt; <?php echo $heading ?></span></p>
+<iframe width="180" height="110" src="http://www.youtube-nocookie.com/embed/M1najctAh_c?rel=0" frameborder="0" allowfullscreen></iframe>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" />
 <h2>Facts</h2>
 <ol>
@@ -136,7 +137,7 @@ America</span></p>
 
 <div class="clear"></div>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" style="margin-top:8px"/>
-<h2>Cities</h2>
+<h2>Towns - Cities</h2>
 <ul>
 <li>Las Vegas <?php echo anchor('usa_states/nevada', '(Nevada)') ?></li>
 <li>Los Angeles <?php echo anchor('usa_states/california', '(California)') ?></li>
@@ -165,16 +166,16 @@ America</span></p>
 <div class="clear"></div>
 <div class="first-column">
 <ul>
-<li><?php echo anchor('home/index', 'HOME') ?></li>
-<li><?php echo anchor('user/index', 'MY PROFILE') ?></li>
-<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
 <li><?php echo anchor('topmenu/worldmap', 'WORLDMAP') ?></li>
+<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
+<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
+<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
 <li><?php echo anchor('regions/africa', 'AFRICA') ?></li>
-<li><?php echo anchor('regions/antarctica', 'ANTARCTICA') ?></li>
+<li><?php echo anchor('regions/antartica', 'ANTARCTICA') ?></li>
 <li><?php echo anchor('regions/asia', 'ASIA') ?></li>
 <li><?php echo anchor('regions/caribbean', 'CARIBBEAN') ?></li>
 </ul>
@@ -183,16 +184,16 @@ America</span></p>
 <ul>
 <li><?php echo anchor('regions/central_america', 'CENTRAL AMERICA') ?></li>
 <li><?php echo anchor('regions/europe', 'EUROPE') ?></li>
+<li><?php echo anchor('regions/indonesia', 'INDONESIA') ?></li>
 <li><?php echo anchor('regions/middle_east', 'MIDDLE EAST') ?></li>
-<li class="active"><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
+<li class="active"><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 <li><?php echo anchor('regions/oceania', 'OCEANIA') ?></li>
 <li><?php echo anchor('regions/south_america', 'SOUTH AMERICA') ?></li>
-<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
-<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
+<li><?php echo anchor('topmenu/helpcenter', 'HELPCENTER') ?></li>
 </ul>
 </div>
 <div class="logo"><center><img src="<?php echo base_url() ?>assets/images/photos.jpg" alt="logo" /></center>
@@ -214,7 +215,7 @@ var siteUrl = "<?php echo site_url('editor/update') ?>";
 
 $(document).ready(function() {
     
-    $('.edit1').editable(siteUrl + '/1', {
+    $('.edit23').editable(siteUrl + '/23', {
         type      : 'textarea',
         cancel    : 'Cancel',
         submit    : 'OK',
@@ -222,8 +223,8 @@ $(document).ready(function() {
         event     : 'edit'
     });
     
-    $('#ed1').bind('click', function(){
-        $('.edit1').trigger('edit');
+    $('#ed23').bind('click', function(){
+        $('.edit23').trigger('edit');
         return false;
     });
 });

@@ -2,15 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="Australia"/>
-<meta name="keywords" content="Australia"/>
+<meta name="description" content="<?php echo $heading ?>"/>
+<meta name="keywords" content="<?php echo $heading ?>"/>
 <meta name="author" content="Raymond"/>
 <meta name="robots" content="index, follow"/>
 <meta name="revisit-after" content="1 days"/>
 <meta name="language" content="English" />
 <meta content="<?php echo base_url() ?>assets/images/flags/australia.gif" property="og:image" />
+<meta name="viewport" content="maximum-scale=1"/>
 
-<title>Australia | Holidaysrating</title>
+<title><?php echo $heading ?> | Holidaysrating</title>
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
 <?php echo js('assets/js/jquery.jeditable.min.js') ?>
 </head>
@@ -30,6 +31,7 @@
 <area shape="poly" coords="555,330,559,283,570,292,583,294,601,310,645,313,647,320,670,330,657,332,648,336,639,333,621,348,604,339,604,330,580,341," href="<?php echo base_url() ?>index.php/australia_states/victoria" alt="Victoria" title="Victoria"   />
 <area shape="poly" coords="395,249,394,186,563,190,552,329,540,321,539,310,533,305,533,296,515,298,521,289,519,283,509,294,500,291,508,282,515,269,512,263,494,281,487,290,482,291,477,276,466,266,449,259,433,257,417,249," href="<?php echo base_url() ?>index.php/australia_states/south_australia" alt="South Australia" title="South Australia"   />
 <area shape="poly" coords="614,401,600,385,594,370,597,363,620,369,633,367,644,370,639,387,633,397,627,394," href="<?php echo base_url() ?>index.php/australia_states/tasmania" alt="Tasmania" title="Tasmania"   />
+<p style="font-size:10.5px;margin-left:200px">Click on the map for more info about the state or <a href="https://www.google.com.au/maps/@-27.9210555,133.247866,4z" target="_blank">click here</a> for detailed map.</p>
 </map>
 </div>
 <div id="content">
@@ -51,21 +53,21 @@
 <div class="flag" style="float:left"><img src="<?php echo base_url() ?>assets/images/flags/australia.jpg" alt="Australia" width="100px" height="70px" /></div>
 
 <div class="intro">
-<div class="edit1">
+<div class="edit11">
 <p><strong>Australia</strong> is a country comprising the mainland, the island of <a href="http://www.holidaysrating.com/index.php/australia_states/tasmania">Tasmania</a>, and numerous smaller islands. Australia is a well-developed country, has many natural resources, like coal, gold, oil, diamants and is one of the wealthiest in the world.<br /><br />
 It has a total size of 7,692,024 square kliometers. Most of the population lives in the Eastern states. The official language is English, but more than 250 languages of Aboriginal origin are also spoken.<br /><br />
-Many tourists/ backpackers spend their holiday here. Australia got it all, from tropical rainforest to enormous deserts, snowy mountains to beautiful skylines...</p>
+Many tourists/ backpackers spend their holiday here. Australia got it all, from tropical rainforest to enormous deserts and the <a href="http://www.holidaysrating.com/index.php/australia_states/outback">Outback</a>. Or the snowy mountains to the beautiful skylines of the major cities...</p>
 </div>
 
 <?php if($this->ion_auth->is_editor()): ?>
-<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed1') ?>
+<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed11') ?>
 <?php endif ?>
 
 </div>
 
 <div class="options">
 <ul>
-<li><?php echo anchor('australia_cities/australia_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
+<li><?php echo anchor('cities/oceania_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
 <li><?php echo anchor('http://www.holidaysrating.com/index.php/topmenu/videodump/oceania', img('assets/images/buttonblue-videos-bg.png')); ?></li>
 <li><?php echo anchor('help/external_links', img('assets/images/buttonblue-links-bg.png')); ?></li>
 </ul>
@@ -96,16 +98,16 @@ Many tourists/ backpackers spend their holiday here. Australia got it all, from 
 
 <div class="country-menu">
 <ul>
-<li><?php echo anchor('australia_before_you_go/australia', img('assets/images/countries/menu/before-you-go.png')); ?></li>
-<li><?php echo anchor('australia_entry/australia', img('assets/images/countries/menu/entry.png')); ?></li>
-<li><?php echo anchor('australia_adventures/australia', img('assets/images/countries/menu/adventures.png')); ?></li>
-<li><?php echo anchor('australia_must_see/australia', img('assets/images/countries/menu/must-see.png')); ?></li>
+<li><?php echo anchor('oceania_before_you_go/australia', img('assets/images/countries/menu/before-you-go.png')); ?></li>
+<li><?php echo anchor('oceania_entry/australia', img('assets/images/countries/menu/entry.png')); ?></li>
+<li><?php echo anchor('oceania_adventures/australia', img('assets/images/countries/menu/adventures.png')); ?></li>
+<li><?php echo anchor('oceania_must_see/australia', img('assets/images/countries/menu/must-see.png')); ?></li>
 </ul>
 <ul>
-<li><?php echo anchor('australia_getting_around/australia', img('assets/images/countries/menu/getting-around.png')); ?></li>
-<li><?php echo anchor('australia_health/australia', img('assets/images/countries/menu/health.png')); ?></li>
-<li><?php echo anchor('australia_local_food/australia', img('assets/images/countries/menu/food.png')); ?></li>
-<li><?php echo anchor('australia_public_holidays/australia', img('assets/images/countries/menu/holidays.png')); ?></li>
+<li><?php echo anchor('oceania_getting_around/australia', img('assets/images/countries/menu/getting-around.png')); ?></li>
+<li><?php echo anchor('oceania_health/australia', img('assets/images/countries/menu/health.png')); ?></li>
+<li><?php echo anchor('oceania_local_food/australia', img('assets/images/countries/menu/food.png')); ?></li>
+<li><?php echo anchor('oceania_public_holidays/australia', img('assets/images/countries/menu/holidays.png')); ?></li>
 </ul>
 </div>
 
@@ -117,16 +119,16 @@ Many tourists/ backpackers spend their holiday here. Australia got it all, from 
 <div class="right-side">
 <div class="top"></div>
 <div class="middle">
-<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;<?php echo anchor('regions/oceania', 'Oceania') ?>&gt;Australia</span></p>
+<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;<?php echo anchor('regions/oceania', 'Oceania') ?>&gt;<?php echo $heading ?></span></p>
 
-<iframe width="180" height="100" src="http://www.youtube-nocookie.com/embed/6leHGHCKeSg?rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe width="180" height="110" src="http://www.youtube-nocookie.com/embed/6leHGHCKeSg?rel=0" frameborder="0" allowfullscreen></iframe>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" />
 
 <div class="key-facts">	
 <h2>Key Facts</h2>
 <ul>
 <li><strong>Capital city:</strong></li>
-<li><img src="<?php echo base_url() ?>assets/assets/city.png" style="margin-right:5px" alt="size"/>Canberra</li>
+<li><img src="<?php echo base_url() ?>assets/assets/city.png" style="margin-right:5px" alt="size"/><?php echo anchor('australia_cities/canberra', 'Canberra') ?></li>
 
 <li><strong>Size:</strong></li>
 <li><img src="<?php echo base_url() ?>assets/assets/size.png" style="margin-right:5px" alt="size"/>7,692,024 km2</li>
@@ -148,7 +150,8 @@ Many tourists/ backpackers spend their holiday here. Australia got it all, from 
 <ol>
 <li><?php echo anchor('australia_states/tasmania', 'Tasmania') ?> has the cleanest air in the world.</li>
 <li>The Great Barrier Reef is the largest reef in the World and visible form outer space. It also has a mailbox. You can take the ferry and send a postcard, stamped with the only Great Barrier Reef stamp.</li>
-<li>Australia has the world's largest cattle station (ranch). At 30,029 km2 it is almost the same size as <?php echo anchor('europe_countries/belgium', 'Belgium') ?></li>
+<li>Australia has the world's largest cattle station (ranch). At 30,029 km2 it is almost the same size as <?php echo anchor('europe_countries/belgium', 'Belgium') ?>.</li>
+<li>There is still lots of undiscovered land in the <?php echo anchor('australia_states/outback', 'Outback') ?>.</li>
 </ol>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" style="margin-top:8px"/>
 <h2>Like it..</h2>
@@ -171,13 +174,13 @@ Many tourists/ backpackers spend their holiday here. Australia got it all, from 
 </div>
 <div class="clear"></div>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" style="margin-top:8px"/>
-<h2>Cities</h2>
+<h2>Towns - Cities</h2>
 <ul>
-<li>Mackay <?php echo anchor('australia_states/queensland', '(Queensland)') ?></li>
-<li>Cairns <?php echo anchor('australia_states/queensland', '(Queensland)') ?></li>
-<li>Sydney <?php echo anchor('australia_states/new_south_wales', '(New South Wales)') ?></li>
-<li>Adelaide <?php echo anchor('australia_states/south_australia', '(South Australia)') ?></li>
-<li>Melbourne <?php echo anchor('australia_states/victoria', '(Victoria)') ?></li>
+<li><?php echo anchor('australia_cities/brisbane', 'Brisbane') ?>, <?php echo anchor('australia_states/queensland', '(Queensland)') ?></li>
+<li><?php echo anchor('australia_cities/perth', 'Perth') ?>, <?php echo anchor('australia_states/queensland', '(Queensland)') ?></li>
+<li><?php echo anchor('australia_cities/Sydney', 'Sydney') ?>, <?php echo anchor('australia_states/new_south_wales', '(New South Wales)') ?></li>
+<li><?php echo anchor('australia_cities/adelaide', 'Adelaide') ?>, <?php echo anchor('australia_states/south_australia', '(South Australia)') ?></li>
+<li><?php echo anchor('australia_cities/melbourne', 'Melbourne') ?>, <?php echo anchor('australia_states/victoria', '(Victoria)') ?></li>
 </ul>
 </div>
 
@@ -220,7 +223,7 @@ var siteUrl = "<?php echo site_url('editor/update') ?>";
 
 $(document).ready(function() {
     
-    $('.edit1').editable(siteUrl + '/1', {
+    $('.edit12').editable(siteUrl + '/12', {
         type      : 'textarea',
         cancel    : 'Cancel',
         submit    : 'OK',
@@ -228,8 +231,8 @@ $(document).ready(function() {
         event     : 'edit'
     });
     
-    $('#ed1').bind('click', function(){
-        $('.edit1').trigger('edit');
+    $('#ed12').bind('click', function(){
+        $('.edit12').trigger('edit');
         return false;
     });
 });

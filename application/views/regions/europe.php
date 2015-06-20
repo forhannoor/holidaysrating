@@ -2,15 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="Wonderful Europe"/>
-<meta name="keywords" content="Europe"/>
+<meta name="description" content="<?php echo $heading ?>"/>
+<meta name="keywords" content="<?php echo $heading ?>"/>
 <meta name="author" content="Raymond"/>
 <meta name="robots" content="index, follow"/>
 <meta name="revisit-after" content="1 days"/>
 <meta name="language" content="English" />
 <meta content="<?php echo base_url() ?>assets/images/thumbs/europe.jpg" property="og:image" />
+<meta name="viewport" content="maximum-scale=1"/>
 
-<title>Europe | Holidaysrating</title>
+<title><?php echo $heading ?> | Holidaysrating</title>
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
 <?php echo js('assets/js/jquery.jeditable.min.js') ?>
 </head>
@@ -49,7 +50,7 @@
 <area shape="poly" coords="307, 147, 309, 111, 363, 91, 406, 50, 395, 46, 477, 12, 510, 15, 503, 22, 485, 22, 477, 37, 452, 32, 443, 35, 443, 44, 427, 43, 421, 47, 395, 86, 395, 92, 385, 92, 375, 97, 377, 124, 378, 135, 372, 136, 370, 144, 359, 142, 328, 154" href="<?php echo base_url() ?>index.php/europe_countries/norway" alt="Norway" title="Norway"   />
 <area shape="poly" coords="444, 39, 465, 46, 474, 69, 466, 70, 457, 81, 459, 87, 455, 95, 433, 103, 427, 111, 425, 129, 444, 137, 422, 152, 423, 174, 399, 176, 395, 185, 380, 185, 380, 171, 368, 149, 373, 136, 380, 136, 383, 122, 378, 115, 378, 101, 386, 93, 397, 91, 397, 87, 394, 84, 413, 60, 424, 50, 441, 44" href="<?php echo base_url() ?>index.php/europe_countries/sweden" alt="Sweden" title="Sweden"   />
 <area shape="poly" coords="449, 36, 453, 34, 459, 38, 467, 39, 478, 40, 484, 33, 485, 24, 493, 23, 507, 28, 502, 34, 507, 42, 518, 46, 516, 54, 527, 66, 526, 74, 536, 83, 536, 89, 549, 95, 533, 122, 485, 135, 467, 126, 462, 102, 487, 79, 492, 79, 491, 72, 479, 68, 477, 60, 470, 47" href="<?php echo base_url() ?>index.php/europe_countries/finland" alt="Finland" title="Finland"   />
-<area shape="poly" coords="416, 294, 459, 294, 464, 309, 455, 313, 453, 319, 424, 305" href="<?php echo base_url() ?>index.php/europe_countries/bosnia_herzegovina" alt="Bosnia Herzegovina" title="Bosnia & Herzegovina"   />
+<area shape="poly" coords="416, 294, 459, 294, 464, 309, 455, 313, 453, 319, 424, 305" href="<?php echo base_url() ?>index.php/europe_countries/bosnia_herzegovina" alt="Bosnia and Herzegovina" title="Bosnia and Herzegovina"   />
 <area shape="poly" coords="452, 247, 468, 248, 488, 247, 499, 249, 494, 256, 478, 254, 471, 259, 462, 259, 453, 260, 451, 264, 437, 264, 432, 260, 411, 258, 403, 260, 391, 257, 402, 255, 405, 253, 421, 256, 434, 254" href="<?php echo base_url() ?>index.php/europe_countries/slovakia" alt="Slovakia" title="Slovakia"   />
 <area shape="poly" coords="433, 265, 454, 266, 462, 260, 469, 262, 477, 257, 495, 257, 505, 260, 497, 264, 487, 278, 455, 284, 440, 284, 425, 278, 425, 270" href="<?php echo base_url() ?>index.php/europe_countries/hungary" alt="Hungary" title="Hungary"   />
 <area shape="poly" coords="461, 285, 476, 282, 482, 290, 491, 292, 491, 297, 508, 299, 509, 308, 515, 312, 510, 320, 497, 321, 489, 325, 475, 319, 468, 324, 458, 321, 468, 307, 467, 296" href="<?php echo base_url() ?>index.php/europe_countries/serbia" alt="Serbia" title="Serbia"   />
@@ -72,6 +73,7 @@
 <area shape="poly" coords="201, 90, 193, 99, 205, 106, 212, 96" href="<?php echo base_url() ?>index.php/europe_countries/denmark"  alt="Denmark" title="Denmark"   />
 <area shape="poly" coords="691,379,722,371,728,385,695,388," href="<?php echo base_url() ?>index.php/europe_countries/cyprus" alt="Cyprus" title="Cyprus"   />
 <area shape="poly" coords="245, 114, 254, 125, 241, 132, 237, 125" href="<?php echo base_url() ?>index.php/europe_countries/united_kingdom" alt="United kingdom" title="United kingdom"   />
+<p style="font-size:10.5px;margin-left:200px">Click on the map for more info about the country or <a href="https://www.google.com.au/maps/@53.80627,-2.3588942,4z" target="_blank">click here</a> for detailed map.</p>
 </map>
 </div>
 <div id="content">
@@ -93,21 +95,20 @@
 <div class="flag" style="float:left"><img src="<?php echo base_url() ?>assets/images/flags/europe.jpg" alt="Europe" width="100px" height="70px" /></div>
 
 <div class="intro">
-<div class="edit1">
-<p><strong>Europe</strong> stretches from the vulcanic ground in Iceland to the wonderous eiffeltower in Paris, the cold winters in Moskou, <a href="http://www.holidaysrating/index.php/regions/russia">Russia</a> to the romantic gondola rides in Venice. <br />
+<div class="edit15">
+<p><strong>Europe</strong> stretches from the vulcanic ground in <a href="http://www.holidaysrating/index.php/europe_countries/iceland">Iceland</a> to the wonderous eiffeltower in <a href="http://www.holidaysrating/index.php/europe_cities/paris">Paris</a>, the cold winters in <a href="http://www.holidaysrating/index.php/europe_cities/moskou">Moskou</a>, <a href="http://www.holidaysrating/index.php/regions/russia">Russia</a> to the romantic gondola rides in <a href="http://www.holidaysrating/index.php/europe_cities/venice">Venice</a>. <br />
 Europe is the world's most visited continent and has a wide range of natural and manmade attractions, a excellent transport network and numerous of large cities.<br />
 It has a total size of 23,048,931 square kilometers. There are many different cultures and languages in Europe.</p>
 </div>
-
 <?php if($this->ion_auth->is_editor()): ?>
-<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed1') ?>
+<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed15') ?>
 <?php endif ?>
 
 </div>
 
 <div class="options">
 <ul>
-<li><?php echo anchor('europe_cities/europe_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
+<li><?php echo anchor('cities/europe_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
 <li><?php echo anchor('http://www.holidaysrating.com/index.php/topmenu/videodump/africa', img('assets/images/buttonblue-videos-bg.png')); ?></li>
 <li><?php echo anchor('help/external_links', img('assets/images/buttonblue-links-bg.png')); ?></li>
 </ul>
@@ -120,75 +121,74 @@ It has a total size of 23,048,931 square kilometers. There are many different cu
 		<tr>
 			<td><?php echo anchor('europe_countries/albania', 'Albania') ?></td>
 			<td><?php echo anchor('europe_countries/france', 'France') ?></td>
-			<td><?php echo anchor('europe_countries/norway', 'Norway') ?></td>
+			<td><?php echo anchor('europe_countries/netherlands', 'Netherlands') ?></td>
 		</tr>
 		<tr>
 			<td><?php echo anchor('europe_countries/armenia', 'Armenia') ?></td>
 			<td><?php echo anchor('europe_countries/georgia', 'Georgia') ?></td>
-			<td><?php echo anchor('europe_countries/poland', 'Poland') ?></td>
+			<td><?php echo anchor('europe_countries/norway', 'Norway') ?></td>
 		</tr>
 		<tr>
 			<td><?php echo anchor('europe_countries/austria', 'Austria') ?></td>
 			<td><?php echo anchor('europe_countries/germany', 'Germany') ?></td>
-			<td><?php echo anchor('europe_countries/portugal', 'Portugal') ?></td>
+			<td><?php echo anchor('europe_countries/poland', 'Poland') ?></td>
 		</tr>
 		<tr>
 			<td><?php echo anchor('europe_countries/azerbaijan', 'Azerbaijan') ?></td>
 			<td><?php echo anchor('europe_countries/greece', 'Greece') ?></td>
-			<td><?php echo anchor('europe_countries/romania', 'Romania') ?></td>
+			<td><?php echo anchor('europe_countries/portugal', 'Portugal') ?></td>
 		</tr>
 		<tr>
 			<td><?php echo anchor('europe_countries/belarus', 'Belarus') ?></td>
 			<td><?php echo anchor('europe_countries/hungary', 'Hungary') ?></td>
-			<td><?php echo anchor('europe_countries/serbia', 'Serbia') ?></td>
+			<td><?php echo anchor('europe_countries/romania', 'Romania') ?></td>
 		</tr>
 		<tr>
 			<td><?php echo anchor('europe_countries/belgium', 'Belgium') ?></td>
 			<td><?php echo anchor('europe_countries/iceland', 'Iceland') ?></td>
-			<td><?php echo anchor('europe_countries/slovakia', 'Slovakia') ?></td>
+			<td><?php echo anchor('europe_countries/serbia', 'Serbia') ?></td>
 		</tr>
 		<tr>
-			<td><?php echo anchor('europe_countries/bosnia_herzegovina', 'Bosnia - Herzegovina') ?></td>
+			<td><?php echo anchor('europe_countries/bosnia_herzegovina', 'Bosnia and Herzegovina') ?></td>
 			<td><?php echo anchor('europe_countries/ireland', 'Ireland') ?></td>
-			<td><?php echo anchor('europe_countries/slovenia', 'Slovenia') ?></td>
+			<td><?php echo anchor('europe_countries/slovakia', 'Slovakia') ?></td>
 		</tr>
 		<tr>
 			<td><?php echo anchor('europe_countries/bulgaria', 'Bulgaria') ?></td>
 			<td><?php echo anchor('europe_countries/italy', 'Italy') ?></td>
-			<td><?php echo anchor('europe_countries/spain', 'Spain') ?></td>
+			<td><?php echo anchor('europe_countries/slovenia', 'Slovenia') ?></td>
 		</tr>
 		<tr>
 			<td><?php echo anchor('europe_countries/croatia', 'Croatia') ?></td>
 			<td><?php echo anchor('europe_countries/latvia', 'Latvia') ?></td>
-			<td><?php echo anchor('europe_countries/sweden', 'Sweden') ?></td>
+			<td><?php echo anchor('europe_countries/spain', 'Spain') ?></td>
 		</tr>
 		<tr>
 			<td><?php echo anchor('europe_countries/cyprus', 'Cyprus') ?></td>
+			<td><?php echo anchor('europe_countries/liechtenstein', 'Liechtenstein') ?></td>
+			<td><?php echo anchor('europe_countries/sweden', 'Sweden') ?></td>
+		</tr>
+		<tr>
+			<td><?php echo anchor('europe_countries/czech_republic', 'Czech Republic') ?></td>
 			<td><?php echo anchor('europe_countries/lithuania', 'Lithuania') ?></td>
 			<td><?php echo anchor('europe_countries/switzerland', 'Switzerland') ?></td>
 		</tr>
 		<tr>
-			<td><?php echo anchor('europe_countries/czech_republic', 'Czech Republic') ?></td>
+			<td><?php echo anchor('europe_countries/denmark', 'Denmark') ?></td>
 			<td><?php echo anchor('europe_countries/luxembourg', 'Luxembourg') ?></td>
 			<td><?php echo anchor('europe_countries/ukraine', 'Ukraine') ?></td>
 		</tr>
 		<tr>
-			<td><?php echo anchor('europe_countries/denmark', 'Denmark') ?></td>
+			<td><?php echo anchor('europe_countries/estonia', 'Estonia') ?></td>
 			<td><?php echo anchor('europe_countries/macedonia', 'Macedonia') ?></td>
 			<td><?php echo anchor('europe_countries/united_kingdom', 'United Kingdom') ?></td>
 		</tr>
 		<tr>
-			<td><?php echo anchor('europe_countries/estonia', 'Estonia') ?></td>
+			<td><?php echo anchor('europe_countries/finland', 'Finland') ?></td>
 			<td><?php echo anchor('europe_countries/moldova', 'Moldova') ?></td>
 			<td><?php echo anchor('europe_countries/vatican_city', 'Vatican City') ?></td>
 		</tr>
-		<tr>
-			<td><?php echo anchor('europe_countries/finland', 'Finland') ?></td>
-			<td><?php echo anchor('europe_countries/netherlands', 'Netherlands') ?></td>
-			<td>&nbsp;</td>
-		</tr>
 	</table>
-
 </div>
 <div class="clear"></div>
 
@@ -197,8 +197,8 @@ It has a total size of 23,048,931 square kilometers. There are many different cu
 <div class="right-side">
 <div class="top"></div>
 <div class="middle">
-<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;Europe</span></p>
-<iframe width="180" height="100" src="http://www.youtube-nocookie.com/embed/5KD3RnSGDTY?rel=0" frameborder="0" allowfullscreen></iframe>
+<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;<?php echo $heading ?></span></p>
+<iframe width="180" height="110" src="http://www.youtube-nocookie.com/embed/5KD3RnSGDTY?rel=0" frameborder="0" allowfullscreen></iframe>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" />
 <h2>Facts</h2>
 <ol>
@@ -206,6 +206,7 @@ It has a total size of 23,048,931 square kilometers. There are many different cu
 <li>Europe has six of the world's most visited countries in the world.</li>
 <li>The smallest country in Europe is <?php echo anchor('europe_countries/vatican_city', 'Vatican City') ?> – actually only 110 acres in total and with a population of just more than 800. It is located within the city of Rome and is the home of Catholicism.</li>
 </ol>
+
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" style="margin-top:8px"/>
 <h2>Like it..</h2>
 <div class="social">
@@ -228,7 +229,7 @@ It has a total size of 23,048,931 square kilometers. There are many different cu
 
 <div class="clear"></div>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" style="margin-top:8px"/>
-<h2>Cities</h2>
+<h2>Towns - Cities</h2>
 <ul>
 <li>Amsterdam <?php echo anchor('europe_countries/netherlands', 'Netherlands') ?></li>
 <li>Paris <?php echo anchor('europe_countries/france', 'France') ?></li>
@@ -237,7 +238,6 @@ It has a total size of 23,048,931 square kilometers. There are many different cu
 <li>Lisbon <?php echo anchor('europe_countries/portugal', 'Portugal') ?></li>
 <li>Prague <?php echo anchor('europe_countries/czech_republic', 'Czech Republic') ?></li>
 </ul>
-
 </div>
 
 <div class="bottom"></div>
@@ -261,16 +261,16 @@ It has a total size of 23,048,931 square kilometers. There are many different cu
 <div class="clear"></div>
 <div class="first-column">
 <ul>
-<li><?php echo anchor('home/index', 'HOME') ?></li>
-<li><?php echo anchor('user/index', 'MY PROFILE') ?></li>
-<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
 <li><?php echo anchor('topmenu/worldmap', 'WORLDMAP') ?></li>
+<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
+<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
+<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
 <li><?php echo anchor('regions/africa', 'AFRICA') ?></li>
-<li><?php echo anchor('regions/antarctica', 'ANTARCTICA') ?></li>
+<li><?php echo anchor('regions/antartica', 'ANTARCTICA') ?></li>
 <li><?php echo anchor('regions/asia', 'ASIA') ?></li>
 <li><?php echo anchor('regions/caribbean', 'CARIBBEAN') ?></li>
 </ul>
@@ -279,16 +279,16 @@ It has a total size of 23,048,931 square kilometers. There are many different cu
 <ul>
 <li><?php echo anchor('regions/central_america', 'CENTRAL AMERICA') ?></li>
 <li class="active"><?php echo anchor('regions/europe', 'EUROPE') ?></li>
+<li><?php echo anchor('regions/indonesia', 'INDONESIA') ?></li>
 <li><?php echo anchor('regions/middle_east', 'MIDDLE EAST') ?></li>
-<li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
+<li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 <li><?php echo anchor('regions/oceania', 'OCEANIA') ?></li>
 <li><?php echo anchor('regions/south_america', 'SOUTH AMERICA') ?></li>
-<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
-<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
+<li><?php echo anchor('topmenu/helpcenter', 'HELPCENTER') ?></li>
 </ul>
 </div>
 <div class="logo"><center><img src="<?php echo base_url() ?>assets/images/photos.jpg" alt="logo" /></center>
@@ -310,7 +310,7 @@ var siteUrl = "<?php echo site_url('editor/update') ?>";
 
 $(document).ready(function() {
     
-    $('.edit1').editable(siteUrl + '/1', {
+    $('.edit15').editable(siteUrl + '/15', {
         type      : 'textarea',
         cancel    : 'Cancel',
         submit    : 'OK',
@@ -318,11 +318,10 @@ $(document).ready(function() {
         event     : 'edit'
     });
     
-    $('#ed1').bind('click', function(){
-        $('.edit1').trigger('edit');
+    $('#ed15').bind('click', function(){
+        $('.edit15').trigger('edit');
         return false;
-    });
-        
+    });       
 });
 </script>
 <?php endif ?>

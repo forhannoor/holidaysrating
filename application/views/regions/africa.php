@@ -2,15 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="Amazing Africa, see the big 5!"/>
-<meta name="keywords" content="Africa"/>
+<meta name="description" content="<?php echo $heading ?>"/>
+<meta name="keywords" content="<?php echo $heading ?>"/>
 <meta name="author" content="Raymond"/>
 <meta name="robots" content="index, follow"/>
 <meta name="revisit-after" content="1 days"/>
 <meta name="language" content="English" />
 <meta content="<?php echo base_url() ?>assets/images/thumbs/africa.jpg" property="og:image" />
+<meta name="viewport" content="maximum-scale=1"/>
 
-<title>Africa | Holidaysrating</title>
+<title><?php echo $heading ?> | Holidaysrating</title>
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
 <?php echo js('assets/js/jquery.jeditable.min.js') ?>
 </head>
@@ -77,8 +78,10 @@
 <area shape="rect" coords="672, 256, 712, 295" href="<?php echo base_url() ?>index.php/africa_countries/comoros" alt="Comoros" title="Comoros" />
 <area shape="poly" coords="739, 283, 742, 303, 734, 315, 704, 357, 693, 356, 687, 359, 680, 354, 680, 347, 678, 339, 688, 327, 688, 313, 693, 305, 709, 303" href="<?php echo base_url() ?>index.php/africa_countries/madagascar" alt="Madagascar" title="Madagascar" />
 <area shape="poly" coords="737,249,750,248,750,261,739,258," href="<?php echo base_url() ?>index.php/africa_countries/seychelles" alt="Seychelles" title="Seychelles"   />
+<p style="font-size:10.5px;margin-left:200px">Click on the map for more info about the country or <a href="https://www.google.com.au/maps/@-4.9691475,17.82333,3z" target="_blank">click here</a> for detailed map.</p>
 </map>
 </div>
+
 <div id="content">
 <h1><?php echo $heading ?></h1>
 <div class="clear"></div>
@@ -98,22 +101,21 @@
 <div class="flag" style="float:left"><img src="<?php echo base_url() ?>assets/images/flags/africa.jpg" alt="Africa" width="100px" height="70px" /></div>
 
 <div class="intro">
-<div class="edit1">
+<div class="edit8">
 <p><strong>Africa</strong> is the second largest continent after <a href="http://www.holidaysrating.com/index.php/regions/asia">Asia</a>. It covers 30.2 million square kilometers of land surface which is one-fifth of the total land surface of the Earth. People from the West sometimes consider Africa as one single land but Africa has 54 sovereign countries. 
 Africa is the second largest continent in terms of both land population and area. Africa is larger than the three great southward projections from the largest landmass of the Earth which is nicely surrounded by the Atlantic Ocean to the west, by the Mediterranean Sea to the north, by the Indian Ocean to the southeast and by the Red Sea to the northeast. <br><br> 
 Amazingly, Africa is a very diverse continent, with each country having its own unique culture, language and scenic beauty. It is the abode of many prominent natural wonders, from the Nile River, the world's longest river, to the Victoria Falls. The continent has got two of the world's four volcanoes with permanent lava lakes. <br><br> 
 Sadly, many people consider Africa as a land of poverty, fraud, war and famine, and just as a land of distress. This is a misunderstanding and spread by the media. Africa today is a vast continent with many active metropolises, pleasant people, and remarkably diverse and gorgeous landscapes.</p>
 </div>
-
 <?php if($this->ion_auth->is_editor()): ?>
-<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed1') ?>
+<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed8') ?>
 <?php endif ?>
 
 </div>
 
 <div class="options">
 <ul>
-<li><?php echo anchor('africa_cities/africa_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
+<li><?php echo anchor('cities/africa_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
 <li><?php echo anchor('http://www.holidaysrating.com/index.php/topmenu/videodump/africa', img('assets/images/buttonblue-videos-bg.png')); ?></li>
 <li><?php echo anchor('help/external_links', img('assets/images/buttonblue-links-bg.png')); ?></li>
 </ul>
@@ -222,8 +224,8 @@ Sadly, many people consider Africa as a land of poverty, fraud, war and famine, 
 <div class="right-side">
 <div class="top"></div>
 <div class="middle">
-<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;Africa</span></p>
-<iframe width="180" height="100"  src="http://www.youtube-nocookie.com/embed/PdiD_LkEPC0?rel=0" frameborder="0" allowfullscreen></iframe>	
+<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;<?php echo $heading ?></span></p>
+<iframe width="180" height="110"  src="http://www.youtube-nocookie.com/embed/IdScbGNLguI" frameborder="0" allowfullscreen></iframe>	
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" />
 <h2>Facts</h2>
 <ol>
@@ -256,7 +258,7 @@ Sadly, many people consider Africa as a land of poverty, fraud, war and famine, 
 
 <div class="clear"></div>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" style="margin-top:8px"/>
-<h2>Cities</h2>
+<h2>Towns - Cities</h2>
 <ul>
 <li><?php echo anchor ('africa_cities/cape_town', 'Cape Town') ?> <?php echo anchor ('africa_countries/south_africa', '(South Africa)') ?></li>
 <li><?php echo anchor ('africa_cities/cairo', 'Cairo') ?> <?php echo anchor ('africa_countries/egypt', '(Egypt)') ?></li>
@@ -288,16 +290,16 @@ Sadly, many people consider Africa as a land of poverty, fraud, war and famine, 
 <div class="clear"></div>
 <div class="first-column">
 <ul>
-<li><?php echo anchor('home/index', 'HOME') ?></li>
-<li><?php echo anchor('user/index', 'MY PROFILE') ?></li>
-<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
 <li><?php echo anchor('topmenu/worldmap', 'WORLDMAP') ?></li>
+<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
+<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
+<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
 <li class="active"><?php echo anchor('regions/africa', 'AFRICA') ?></li>
-<li><?php echo anchor('regions/antarctica', 'ANTARCTICA') ?></li>
+<li><?php echo anchor('regions/antartica', 'ANTARCTICA') ?></li>
 <li><?php echo anchor('regions/asia', 'ASIA') ?></li>
 <li><?php echo anchor('regions/caribbean', 'CARIBBEAN') ?></li>
 </ul>
@@ -306,16 +308,16 @@ Sadly, many people consider Africa as a land of poverty, fraud, war and famine, 
 <ul>
 <li><?php echo anchor('regions/central_america', 'CENTRAL AMERICA') ?></li>
 <li><?php echo anchor('regions/europe', 'EUROPE') ?></li>
+<li><?php echo anchor('regions/indonesia', 'INDONESIA') ?></li>
 <li><?php echo anchor('regions/middle_east', 'MIDDLE EAST') ?></li>
-<li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
+<li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 <li><?php echo anchor('regions/oceania', 'OCEANIA') ?></li>
 <li><?php echo anchor('regions/south_america', 'SOUTH AMERICA') ?></li>
-<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
-<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
+<li><?php echo anchor('topmenu/helpcenter', 'HELPCENTER') ?></li>
 </ul>
 </div>
 <div class="logo"><center><img src="<?php echo base_url() ?>assets/images/photos.jpg" alt="logo" /></center>
@@ -337,7 +339,7 @@ var siteUrl = "<?php echo site_url('editor/update') ?>";
 
 $(document).ready(function() {
     
-    $('.edit1').editable(siteUrl + '/1', {
+    $('.edit8').editable(siteUrl + '/8', {
         type      : 'textarea',
         cancel    : 'Cancel',
         submit    : 'OK',
@@ -345,8 +347,8 @@ $(document).ready(function() {
         event     : 'edit'
     });
     
-    $('#ed1').bind('click', function(){
-        $('.edit1').trigger('edit');
+    $('#ed8').bind('click', function(){
+        $('.edit8').trigger('edit');
         return false;
     });
 });

@@ -2,15 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="Oceania; which island would you choice?"/>
-<meta name="keywords" content="Oceania, South Pacific"/>
+<meta name="description" content="<?php echo $heading ?>"/>
+<meta name="keywords" content="<?php echo $heading ?>, South Pacific"/>
 <meta name="author" content="Raymond"/>
 <meta name="robots" content="index, follow"/>
 <meta name="revisit-after" content="1 days"/>
 <meta name="language" content="English" />
 <meta content="<?php echo base_url() ?>assets/images/thumbs/oceania.jpg" property="og:image" />
+<meta name="viewport" content="maximum-scale=1"/>
 
-<title>Oceania | Holidaysrating</title>
+<title><?php echo $heading ?> | Holidaysrating</title>
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
 <?php echo js('assets/js/jquery.jeditable.min.js') ?>
 </head>
@@ -44,6 +45,7 @@
 <area shape="poly" coords="250, 48, 250, 60, 270, 58, 269, 46" href="<?php echo base_url() ?>index.php/oceania_countries/northern_mariana_islands" alt="Northern Mariana Islands" title="Northern Mariana Islands"   />
 <area shape="poly" coords="245, 172, 254, 191, 259, 190, 273, 214, 292, 222, 305, 232, 323, 250, 325, 267, 319, 289, 310, 292, 298, 321, 284, 322, 274, 328, 262, 323, 251, 326, 221, 319, 221, 308, 204, 309, 209, 290, 195, 302, 175, 285, 153, 283, 132, 288, 118, 287, 105, 296, 75, 298, 59, 304, 41, 297, 41, 281, 26, 255, 26, 241, 29, 230, 49, 222, 81, 217, 96, 201, 101, 204, 124, 187, 148, 193, 157, 175, 201, 179, 195, 197, 228, 209, 237, 184" href="<?php echo base_url() ?>index.php/regions/australia" alt="Australia" title="Australia"   />
 <area shape="poly" coords="259, 342, 273, 367, 289, 358, 287, 345" href="<?php echo base_url() ?>index.php/regions/australia" alt="Australia" title="Australia"   />
+<p style="font-size:10.5px;margin-left:200px">Click on the map for more info about the country or <a href="https://www.google.com.au/maps/@-27.0917777,170.8174649,4z" target="_blank">click here</a> for detailed map.</p>
 </map>
 </div>
 <div id="content">
@@ -65,21 +67,21 @@
 <div class="flag" style="float:left"><img src="<?php echo base_url() ?>assets/images/flags/oceania.jpg" alt="Oceania" width="100px" height="70px" /></div>
 
 <div class="intro">
-<div class="edit1">
-<p><strong>Oceania</strong>, the best word to describe would probably be; distance. It stretches from the untouched charm of the Cook islands to the distinctive biodiversity of New Zealand. <br />
+<div class="edit24">
+<p><strong>Oceania</strong>, also known as South Pacific; the best word to describe would probably be; distance. It stretches from the untouched charm of the Cook islands to the distinctive biodiversity of New Zealand. <br />
 From the sunshine coast in Australia to the many undiscovered species of plants and animals in the world's least explored Papua New Guinea.<br /><br />
 This region has a total size of 8,563,295 square kilometers. There are three main-languages spoken in this region; Austronesian, such languages as Indonesian, Filipino, and Polynesian languages such as Maori and Hawaiian.<br />
 Then the Aboriginal Australian languages and the Papuan languages of <a href="http://www.holidaysrating.com/index.php/oceania_countries/papua_new_guinea">Papua New Guinea</a> and neighbouring islands.</p>
 </div>
 <?php if($this->ion_auth->is_editor()): ?>
-<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed1') ?>
+<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed24') ?>
 <?php endif ?>
 
 </div>
 
 <div class="options">
 <ul>
-<li><?php echo anchor('oceania_cities/oceania_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
+<li><?php echo anchor('cities/oceania_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
 <li><?php echo anchor('http://www.holidaysrating.com/index.php/topmenu/videodump/oceania', img('assets/images/buttonblue-videos-bg.png')); ?></li>
 <li><?php echo anchor('help/external_links', img('assets/images/buttonblue-links-bg.png')); ?></li>
 </ul>
@@ -130,9 +132,8 @@ Then the Aboriginal Australian languages and the Papuan languages of <a href="ht
 <div class="right-side">
 <div class="top"></div>
 <div class="middle">
-<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt; 
-Oceania</span></p>
-<iframe width="180" height="100" src="http://www.youtube-nocookie.com/embed/ZfrI4qrPLpU?list=PL1DBC7497FCA841A5?rel=0" frameborder="0" allowfullscreen></iframe>
+<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;<?php echo $heading ?></span></p>
+<iframe width="180" height="110" src="http://www.youtube-nocookie.com/embed/ZfrI4qrPLpU?list=PL1DBC7497FCA841A5?rel=0" frameborder="0" allowfullscreen></iframe>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" />
 <h2>Facts</h2>
 <ol>
@@ -163,7 +164,7 @@ Oceania</span></p>
 </div>
 <div class="clear"></div>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" style="margin-top:8px"/>
-<h2>Cities</h2>
+<h2>Towns - Cities</h2>
 <ul>
 <li>Christchurch <?php echo anchor('oceania_countries/new_zealand', 'New Zealand') ?></li>
 <li>Suva <?php echo anchor('oceania_countries/fiji', 'Fiji') ?></li>
@@ -192,16 +193,16 @@ Oceania</span></p>
 <div class="clear"></div>
 <div class="first-column">
 <ul>
-<li><?php echo anchor('home/index', 'HOME') ?></li>
-<li><?php echo anchor('user/index', 'MY PROFILE') ?></li>
-<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
 <li><?php echo anchor('topmenu/worldmap', 'WORLDMAP') ?></li>
+<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
+<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
+<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
 <li><?php echo anchor('regions/africa', 'AFRICA') ?></li>
-<li><?php echo anchor('regions/antarctica', 'ANTARCTICA') ?></li>
+<li><?php echo anchor('regions/antartica', 'ANTARCTICA') ?></li>
 <li><?php echo anchor('regions/asia', 'ASIA') ?></li>
 <li><?php echo anchor('regions/caribbean', 'CARIBBEAN') ?></li>
 </ul>
@@ -210,16 +211,16 @@ Oceania</span></p>
 <ul>
 <li><?php echo anchor('regions/central_america', 'CENTRAL AMERICA') ?></li>
 <li><?php echo anchor('regions/europe', 'EUROPE') ?></li>
+<li><?php echo anchor('regions/indonesia', 'INDONESIA') ?></li>
 <li><?php echo anchor('regions/middle_east', 'MIDDLE EAST') ?></li>
-<li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
+<li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 <li class="active"><?php echo anchor('regions/oceania', 'OCEANIA') ?></li>
 <li><?php echo anchor('regions/south_america', 'SOUTH AMERICA') ?></li>
-<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
-<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
+<li><?php echo anchor('topmenu/helpcenter', 'HELPCENTER') ?></li>
 </ul>
 </div>
 <div class="logo"><center><img src="<?php echo base_url() ?>assets/images/photos.jpg" alt="logo" /></center>
@@ -241,7 +242,7 @@ var siteUrl = "<?php echo site_url('editor/update') ?>";
 
 $(document).ready(function() {
     
-    $('.edit1').editable(siteUrl + '/1', {
+    $('.edit24').editable(siteUrl + '/24', {
         type      : 'textarea',
         cancel    : 'Cancel',
         submit    : 'OK',
@@ -249,8 +250,8 @@ $(document).ready(function() {
         event     : 'edit'
     });
     
-    $('#ed1').bind('click', function(){
-        $('.edit1').trigger('edit');
+    $('#ed24').bind('click', function(){
+        $('.edit24').trigger('edit');
         return false;
     });
 });

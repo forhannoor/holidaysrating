@@ -2,15 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="Lets say latin!"/>
-<meta name="keywords" content="Central America, Latin America"/>
+<meta name="description" content="<?php echo $heading ?>"/>
+<meta name="keywords" content="<?php echo $heading ?>, Latin America"/>
 <meta name="author" content="Raymond"/>
 <meta name="robots" content="index, follow"/>
 <meta name="revisit-after" content="1 days"/>
 <meta name="language" content="English" />
 <meta content="<?php echo base_url() ?>assets/images/thumbs/central-america.jpg" property="og:image" />
+<meta name="viewport" content="maximum-scale=1"/>
 
-<title>Central America | Holidaysrating</title>
+<title><?php echo $heading ?> | Holidaysrating</title>
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
 <?php echo js('assets/js/jquery.jeditable.min.js') ?>
 </head>
@@ -40,6 +41,7 @@
 <area shape="poly" coords="448, 36, 449, 47, 459, 41" href="<?php echo base_url() ?>index.php/regions/north_america" alt="North America" title="North America"   />
 <area shape="poly" coords="431, 150, 450, 155, 470, 165, 484, 166, 480, 173, 487, 174, 494, 159, 490, 153, 505, 147, 514, 152, 530, 145, 534, 138, 549, 133, 552, 141, 558, 150, 581, 143, 596, 145, 606, 137, 614, 148, 625, 156, 649, 163, 680, 168, 701, 179, 707, 179, 712, 188, 701, 201, 695, 212, 690, 211, 688, 227, 679, 254, 653, 261, 635, 269, 639, 279, 613, 310, 587, 308, 599, 320, 596, 328, 574, 328, 571, 339, 560, 339, 564, 354, 559, 361, 569, 370, 565, 386, 593, 399, 558, 395, 521, 365, 513, 341, 504, 324, 506, 299, 501, 285, 497, 237, 454, 220, 453, 214, 427, 184, 419, 181, 418, 171, 424, 165, 421, 163, 424, 152" href="<?php echo base_url() ?>index.php/regions/south_america" alt="South America" title="South America"   />
 <area shape="poly" coords="411,39,440,43,446,31,453,27,474,36,492,50,511,64,531,65,545,70,559,83,556,104,551,109,540,103,538,94,529,87,516,87,509,99,503,101,492,93,493,81,481,78,468,77,450,79,435,70,438,64,424,59,414,63,403,63,400,51," href="<?php echo base_url() ?>index.php/regions/caribbean" alt="Caribbean" title="Caribbean"   />
+<p style="font-size:10.5px;margin-left:200px">Click on the map for more info about the country or <a href="https://www.google.com.au/maps/@15.8037866,-88.2929719,5z" target="_blank">click here</a> for detailed map.</p>
 </map>
 </div>
 <div id="content">
@@ -61,20 +63,20 @@
 <div class="flag" style="float:left"><img src="<?php echo base_url() ?>assets/images/flags/central-america.jpg" alt="Central America" width="100px" height="70px" /></div>
 
 <div class="intro">
-<div class="edit1">
+<div class="edit14">
 <p><strong>Central America</strong> stretches from the ancient Maya ruines in <a href="http://www.holidaysrating.com/index.php/central_america_countries/belize">Belize</a>, <a href="http://www.holidaysrating.com/index.php/central_america_countries/honduras">Honduras</a> or <a href="http://www.holidaysrating.com/index.php/central_america_countries/guatemala">Guatemala</a> to the wonderful dance culture in amazing <a href="http://www.holidaysrating.com/index.php/central_america_countries/panama">Panama</a>. There is enough to explore.<br />
 From the Andes mountains and Amazon rainforest in <a href="http://www.holidaysrating.com/index.php/central_america_countries/venezuela">Venezuela</a> to the luxurious resorts and beaches in the <a href="http://www.holidaysrating.com/index.php/regions/caribbean">Caribbean</a>. <br /><br />
 This region has a rich history, hundreds of different cultures and has a total size of 20,546,598 square kilometers.</p>
 </div>
 <?php if($this->ion_auth->is_editor()): ?>
-<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed1') ?>
+<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed14') ?>
 <?php endif ?>
 
 </div>
 
 <div class="options">
 <ul>
-<li><?php echo anchor('central_america_cities/central_america_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
+<li><?php echo anchor('cities/central_america_index', img('assets/images/buttonblue-cities-bg.png')); ?></li>
 <li><?php echo anchor('http://www.holidaysrating.com/index.php/topmenu/videodump/central_america', img('assets/images/buttonblue-videos-bg.png')); ?></li>
 <li><?php echo anchor('help/external_links', img('assets/images/buttonblue-links-bg.png')); ?></li>
 </ul>
@@ -119,8 +121,8 @@ This region has a rich history, hundreds of different cultures and has a total s
 <div class="right-side">
 <div class="top"></div>
 <div class="middle">
-<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt; Central America</span></p>
-<iframe width="180" height="100" src="http://www.youtube-nocookie.com/embed/5nCCkHGxFbY?rel=0" frameborder="0" allowfullscreen></iframe>
+<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt; <?php echo $heading ?></span></p>
+<iframe width="180" height="110" src="http://www.youtube-nocookie.com/embed/5nCCkHGxFbY?rel=0" frameborder="0" allowfullscreen></iframe>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" />
 <h2>Facts</h2>
 <ol>
@@ -149,7 +151,7 @@ This region has a rich history, hundreds of different cultures and has a total s
 <!-- AddThis Button END -->
 </div>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" style="margin-top:8px"/>
-<h2>Cities</h2>
+<h2>Towns - Cities</h2>
 <ul>
 <li>San Jose <?php echo anchor('central_america_countries/costa_rica', '(Costa Rica)') ?></li>
 <li>Guatemala City <?php echo anchor('central_america_countries/guatemala', '(Guatemala)') ?></li>
@@ -179,16 +181,16 @@ This region has a rich history, hundreds of different cultures and has a total s
 <div class="clear"></div>
 <div class="first-column">
 <ul>
-<li><?php echo anchor('home/index', 'HOME') ?></li>
-<li><?php echo anchor('user/index', 'MY PROFILE') ?></li>
-<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
 <li><?php echo anchor('topmenu/worldmap', 'WORLDMAP') ?></li>
+<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
+<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
+<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
 <li><?php echo anchor('regions/africa', 'AFRICA') ?></li>
-<li><?php echo anchor('regions/antarctica', 'ANTARCTICA') ?></li>
+<li><?php echo anchor('regions/antartica', 'ANTARCTICA') ?></li>
 <li><?php echo anchor('regions/asia', 'ASIA') ?></li>
 <li><?php echo anchor('regions/caribbean', 'CARIBBEAN') ?></li>
 </ul>
@@ -197,16 +199,16 @@ This region has a rich history, hundreds of different cultures and has a total s
 <ul>
 <li class="active"><?php echo anchor('regions/central_america', 'CENTRAL AMERICA') ?></li>
 <li><?php echo anchor('regions/europe', 'EUROPE') ?></li>
+<li><?php echo anchor('regions/indonesia', 'INDONESIA') ?></li>
 <li><?php echo anchor('regions/middle_east', 'MIDDLE EAST') ?></li>
-<li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
+<li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 <li><?php echo anchor('regions/oceania', 'OCEANIA') ?></li>
 <li><?php echo anchor('regions/south_america', 'SOUTH AMERICA') ?></li>
-<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
-<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
+<li><?php echo anchor('topmenu/helpcenter', 'HELPCENTER') ?></li>
 </ul>
 </div>
 <div class="logo"><center><img src="<?php echo base_url() ?>assets/images/photos.jpg" alt="logo" /></center>
@@ -228,7 +230,7 @@ var siteUrl = "<?php echo site_url('editor/update') ?>";
 
 $(document).ready(function() {
     
-    $('.edit1').editable(siteUrl + '/1', {
+    $('.edit14').editable(siteUrl + '/14', {
         type      : 'textarea',
         cancel    : 'Cancel',
         submit    : 'OK',
@@ -236,8 +238,8 @@ $(document).ready(function() {
         event     : 'edit'
     });
     
-    $('#ed1').bind('click', function(){
-        $('.edit1').trigger('edit');
+    $('#ed14').bind('click', function(){
+        $('.edit14').trigger('edit');
         return false;
     });
 });
