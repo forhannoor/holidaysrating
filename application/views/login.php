@@ -19,7 +19,7 @@
 <div id="top-head">
 <div class="main">
 <div class="logo"><?php echo anchor('home/index', img('assets/images/logo/holidaysrating.png')); ?></div>
-<a href="http://www.holidaysrating.com/index.php/auth/register" rel="nofollow" style="float:right;padding-top:10px" onmouseover='this.style.textDecoration="opactity:0.8"'><img src="<?php echo base_url('assets/assets/register.png') ?>"/></a>
+<a href="<?php echo site_url('auth/register') ?>" rel="nofollow" style="float:right;padding-top:10px" onmouseover='this.style.textDecoration="opactity:0.8"'><img src="<?php echo base_url('assets/assets/register.png') ?>"/></a>
 </div>
 </div>
 
