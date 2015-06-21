@@ -678,6 +678,12 @@ class Auth extends CI_Controller {
 			{
                 // login successful
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
+                $login_page = $this->session->flashdata('login_page');
+            
+                if(strlen($login_page) > 0) // login from home/login
+                {
+                    redirect('user/index', 'refresh');
+                }                
 			}
             
 			else
@@ -686,17 +692,7 @@ class Auth extends CI_Controller {
                 $this->session->set_flashdata('error', 'Invalid credential');
 			}
 			
-            $login_page = $this->session->flashdata('login_page');
-            
-            if(strlen($login_page) > 0) // login from home/login
-            {
-                redirect('home', 'refresh');
-            }
-            
-            else
-            {
-                echo "<script type = \"text/javascript\">window.location.replace(document.referrer)</script>";
-            }
+            echo "<script type = \"text/javascript\">window.location.replace(document.referrer)</script>";
 		}
 		
         else
