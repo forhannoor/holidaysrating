@@ -2,9 +2,9 @@
 <p><?php echo $story->body ?></p>
 
 <?php if(strlen($author->display_name) > 0): // display name is available ?>
-<p>by <?php echo $author->display_name ?></p>
+<p><strong>Author:</strong> <?php echo $author->display_name ?></p>
 <?php else: ?>
-<p>by <?php echo $author->name ?></p>
+<p><strong>Author:</strong> <?php echo $author->name ?></p>
 <?php endif ?>
 
 <?php if(! $story->approved): ?>
