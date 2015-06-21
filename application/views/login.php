@@ -10,7 +10,6 @@
 <meta name="revisit-after" content="1 days"/>
 <meta content="<?php echo base_url('assets/images/logo/mediumtrans.png') ?>" property="og:image" />
 <meta name="viewport" content="maximum-scale=1"/>
-
 <title>Holidaysrating | The Social Travel Community</title>
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
 </head>
@@ -18,8 +17,8 @@
 <body>
 <div id="top-head">
 <div class="main">
-<div class="logo"><?php echo anchor('home/index', img('assets/images/logo/holidaysrating.png')); ?></div>
-<a href="<?php echo site_url('auth/register') ?>" rel="nofollow" style="float:right;padding-top:10px" onmouseover='this.style.textDecoration="opactity:0.8"'><img src="<?php echo base_url('assets/assets/register.png') ?>"/></a>
+<div class="logo"><?php echo anchor('home/index', img('assets/images/logo/holidaysrating.png')) ?></div>
+<a href="<?php echo site_url('auth/register') ?>" rel="nofollow" style="float:right;padding-top:10px" onmouseover='this.style.textDecoration="opactity:0.8"'><?php echo img('assets/assets/register.png') ?></a>
 </div>
 </div>
 
@@ -38,9 +37,11 @@
 <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"') ?>
 </p>
 <?php $error = $this->session->flashdata('error') ?>
+
 <?php if(strlen($error) > 0): ?>
 <p><?php echo $error ?></p>
 <?php endif ?>
+
 <p><label></label><?php echo form_submit('', 'Login') ?></p>
 <p><label></label><a href="#" onClick="history.go(-1)">Cancel</a></p>
 <p><label></label><?php echo anchor('auth/forgot_password', 'Forgot Your Password?', 'rel = "nofollow"') ?></p>
