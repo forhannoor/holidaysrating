@@ -24,25 +24,28 @@
 </div>
 
 <div id="slider" style="padding-top:40px">
-<div id="login-page">
+<div id="home-login-page">
 <?php echo form_open('auth/login') ?>
+<p>
 <?php echo form_label('Email', 'identity') ?>
 <?php echo form_input('identity', '', 'required') ?>
-<br />
+</p>
+<p>
 <?php echo form_label('Password', 'password') ?>
 <?php echo form_password('password', '', 'required') ?>
-<p style = "color: black; margin-top: 8px;">Remember Me
+</p>
+<p><label>Remember Me</label>
 <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"') ?>
 </p>
 <?php $error = $this->session->flashdata('error') ?>
 <?php if(strlen($error) > 0): ?>
 <p><?php echo $error ?></p>
-<?php endif ?>        
-<?php echo form_submit('', 'Login') ?> <a href="#" onClick="history.go(-1)">Cancel</a>
-<?php echo form_close() ?>
+<?php endif ?>
+<p><label></label><?php echo form_submit('', 'Login') ?></p>
+<p><label></label><a href="#" onClick="history.go(-1)">Cancel</a></p>
+<p><label></label><?php echo anchor('auth/forgot_password', 'Forgot Your Password?', 'rel = "nofollow"') ?></p>
+ <?php echo form_close() ?>
 <?php $this->session->set_flashdata('login_page', 'login') ?>
-<br />
-<?php echo anchor('auth/forgot_password', 'Forgot Your Password?', 'rel = "nofollow"') ?>
 </div>
 </div>
 
@@ -51,4 +54,22 @@
 </div>
 <?php echo css('assets/css/holiday.css') ?>
 </body>
+
+<style type="text/css">
+#home-login-page form  { display: table;}
+#home-login-page p     { display: table-row; padding: 3px;}
+#home-login-page label { display: table-cell; padding: 3px;}
+#home-login-page input { display: table-cell; padding: 3px;}
+#home-login-page input[type=submit]{
+    position: relative;
+    width: 82px;
+    height: 32px;
+    border: none;
+    background: url('<?php echo base_url() ?>assets/images/button-bg.png') no-repeat;
+    color: #FFF;
+    font-size:13px;
+    font-weight:bold;
+    float: left;
+}
+</style>
 </html>
