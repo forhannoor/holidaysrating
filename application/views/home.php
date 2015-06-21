@@ -47,9 +47,11 @@
 <div class="text"><h4><?php echo anchor('news/news_index', 'Travel News') ?></h4></div>
 <div class="latest-news">
 <p>Snow in Cairo for the first time in 112 years! <br />
-When you think of Cairo, you definetly don't think of snow and freezing cold... <?php echo anchor('news/snow_in_cairo', 'Read more') ?></p>
+When you think of Cairo, you definetly don't think of snow and freezing cold...</p>
+<?php echo anchor('news/snow_in_cairo', 'Read more') ?>
 </div>
 <div class="latest-news">
 <p>Travel alerts, make sure you know everything about your trip.<br />
-Is it safe to go? <?php echo anchor('news/travel_alerts', 'Read more') ?></p>
+Is it safe to go?</p>
+<?php echo anchor('news/travel_alerts', 'Read more') ?>
 </div>
