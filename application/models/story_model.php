@@ -34,17 +34,12 @@ class Story_model extends MY_Model
     
     public function get_all()
     {
-        if(func_num_args() > 0)
-        {
-            $stories = R::find($this->_table, ' `country` = :country AND `approved` = :approved ORDER BY `created_at` DESC LIMIT 0, :limit', array(':country' => func_get_arg(0), ':approved' => 1, ':limit' => func_get_arg(1)));
-        }
-        
-        else
-        {
-            $stories = R::findAll($this->_table);
-        }
-        
-        return $stories;
+        $this->db->select('stories.id AS id, stories.author AS author, stories.title AS title, stories.body AS body, stories.approved AS approved, stories.created_at AS created_at, stories.country AS country, stories.num_views AS num_views, users.id AS user_id, users.username AS username');
+        $this->db->from($this->_table);
+        $this->db->join('users', "$this->_table . author = users.id");
+        $this->db->order_by('created_at', 'DESC');
+        $stories = $this->db->get();
+        return $stories->result();
     }
     
     public function set_approved($id, $approve)
