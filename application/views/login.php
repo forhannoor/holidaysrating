@@ -40,16 +40,15 @@
 <?php endif ?>        
 <?php echo form_submit('', 'Login') ?> <a href="#" onClick="history.go(-1)">Cancel</a>
 <?php echo form_close() ?>
+<?php $this->session->set_flashdata('login_page', 'login') ?>
 <br />
 <?php echo anchor('auth/forgot_password', 'Forgot Your Password?', 'rel = "nofollow"') ?>
 </div>
 </div>
-
 
 <div id="last-line">
 <p><?php echo anchor('privacy/privacy_policy', 'Privacy Policy', 'rel = "nofollow"') ?> | <?php echo anchor('privacy/terms_of_use', 'Terms of Use', 'rel = "nofollow"') ?> | <?php echo anchor('home/contact_us', 'Contact Us', 'rel = "nofollow"') ?> | &copy; Copyright <?php echo date('Y') ?> Holidaysrating All Rights Reserved</p>
 </div>
 <?php echo css('assets/css/holiday.css') ?>
 </body>
-
 </html>
