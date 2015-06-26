@@ -42,8 +42,12 @@
 <p><?php echo $error ?></p>
 <?php endif ?>
 
-<p><label></label><?php echo form_submit('', 'Login') ?></p>
-<p><label></label><a href="<?php echo site_url('home') ?>" id="login-cancel">Cancel</a></p>
+<p>
+    <label></label>
+    <?php echo form_submit('', 'Login') ?>
+    <a href="<?php echo site_url('home') ?>" id="login-cancel">Cancel</a>
+</p>
+
 <p><label></label><?php echo anchor('auth/forgot_password', 'Forgot Your Password?', 'rel = "nofollow"') ?></p>
  <?php echo form_close() ?>
 <?php $this->session->set_flashdata('login_page', 'login') ?>
@@ -66,11 +70,12 @@
     width: 82px;
     height: 32px;
     border: none;
-    background: url('<?php echo base_url() ?>assets/images/button-bg.png') no-repeat;
+    background: url('<?php echo base_url() ?>assets/assets/green.png') no-repeat;
     color: #FFF;
     font-size:13px;
-    float: left;
     font-weight: bold;
+    float: left;
+    margin-right: 15px;
 }
 #login-cancel{
     text-decoration: none;
@@ -81,10 +86,10 @@
     background: url('<?php echo base_url() ?>assets/assets/orange.png') no-repeat;
     color: #FFF;
     font-size:13px;
-    float: left;
     text-align: center;
     line-height: 30px;
     font-weight: bold;
+    float: left;
 }
 #home-login-page input[type=submit]:hover, #login-cancel:hover{
     opacity: 0.8;
