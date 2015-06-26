@@ -86,5 +86,9 @@
     line-height: 30px;
     font-weight: bold;
 }
+#home-login-page input[type=submit]:hover, #login-cancel:hover{
+    opacity: 0.8;
+    cursor: pointer;   
+}
 </style>
 </html>
