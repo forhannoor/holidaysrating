@@ -43,7 +43,7 @@
 <?php endif ?>
 
 <p><label></label><?php echo form_submit('', 'Login') ?></p>
-<p><label></label><a href="#" onClick="history.go(-1)">Cancel</a></p>
+<p><label></label><a href="<?php echo site_url('home') ?>" id="login-cancel">Cancel</a></p>
 <p><label></label><?php echo anchor('auth/forgot_password', 'Forgot Your Password?', 'rel = "nofollow"') ?></p>
  <?php echo form_close() ?>
 <?php $this->session->set_flashdata('login_page', 'login') ?>
@@ -60,7 +60,7 @@
 #home-login-page form  { display: table;}
 #home-login-page p     { display: table-row; padding: 3px;}
 #home-login-page label { display: table-cell; padding: 3px;}
-#home-login-page input { display: table-cell; padding: 3px;}
+#home-login-page input { display: table-cell; padding: 3px; margin-bottom: 3px;}
 #home-login-page input[type=submit]{
     position: relative;
     width: 82px;
@@ -69,8 +69,22 @@
     background: url('<?php echo base_url() ?>assets/images/button-bg.png') no-repeat;
     color: #FFF;
     font-size:13px;
-    font-weight:bold;
     float: left;
+    font-weight: bold;
+}
+#login-cancel{
+    text-decoration: none;
+    position: relative;
+    width: 82px;
+    height: 32px;
+    border: none;
+    background: url('<?php echo base_url() ?>assets/assets/orange.png') no-repeat;
+    color: #FFF;
+    font-size:13px;
+    float: left;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
 }
 </style>
 </html>
