@@ -13,6 +13,11 @@ $(document).ready(function() {
 });
 </script>
 
+<?php if($this->ion_auth->is_admin()): ?>
+    <?php $this->session->set_userdata('referral_page', 'topmenu') ?>
+    <p><?php echo anchor('admin/video_delete/' . $video->id, 'Delete Video') ?></p>
+<?php endif ?>
+
 <p>Times viewed: <?php echo $video->viewed ?></p>
 <br />
 <h2>Comments</h2>

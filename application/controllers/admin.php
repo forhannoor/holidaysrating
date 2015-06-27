@@ -65,7 +65,15 @@ class Admin extends Base_Admin_Controller
     public function video_delete()
     {
         $this->Admin_model->delete_video($this->uri->segment(3));
-        redirect('admin/videos', 'refresh');       
+        $referral_page = $this->session->userdata('referral_page');
+        
+        if(strlen($referral_page) > 0) // video is deleted from topmenu/video page
+        {
+            $this->session->unset_userdata('referral_page');
+            redirect('topmenu/videodump', 'refresh');
+        }
+        
+        redirect('admin/videos', 'refresh'); 
     }
     
     public function users()
