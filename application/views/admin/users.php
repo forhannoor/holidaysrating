@@ -13,7 +13,6 @@
             <th style="width:100px">Username</th>
             <th style="width:100px">First Name</th>
             <th style="width:100px">Last Name</th>
-            <th style="width:75px">Country</th>
             <th>IP</th>
             <th>Email</th>
             <th style="width:50px">Role</th>
@@ -34,7 +33,6 @@
             <td><?php echo $user->username ?></td>
             <td><?php echo $user->first_name ?></td>
             <td><?php echo $user->last_name ?></td>
-            <td><?php echo $user->country ?></td>
             <td>
                 <?php echo $user->ip_address ?>
             </td>

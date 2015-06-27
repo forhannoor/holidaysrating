@@ -87,6 +87,20 @@ class Admin_model extends CI_Model
         return $users;
     }
     
+    public function get_user_by_ip($ip)
+    {
+        $users = R::find('users', ' ip_address = :ip', array(':ip' => $ip));
+        
+        foreach($users as $user)
+        {
+            $ip_hex = $user->ip_address;
+            $ip_dec = hexdec($ip_hex);
+            $user->ip_address = long2ip($ip_dec);
+        }
+        
+        return $users;
+    }
+    
     public function delete_user($id)
     {
         $user = R::load('users', $id);
@@ -197,11 +211,6 @@ class Admin_model extends CI_Model
         $user_group = R::findOne('users_groups', ' user_id = :user_id', array(':user_id' => (int) $user_id));
         $user_group->group_id = (int) $group->id;
         R::store($user_group);      
-    }
-    
-    public function get_user_by_ip($ip)
-    {
-        return R::find('users', ' ip_address = :ip', array(':ip' => $ip));
     }
     
     public function set_user_status($user_id, $status)
