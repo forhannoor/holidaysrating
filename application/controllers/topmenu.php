@@ -82,7 +82,7 @@ class topmenu extends CI_Controller
         $data['main'] = 'topmenu/dump_video.php';
         $data['heading'] = 'Video Upload';
    		$data['last_line'] = 'layouts/last_line';
-        $data['allowed_types'] = 'mp4|gif|jpg|png|bmp';
+        $data['allowed_types'] = 'mp4|flv|avi';
         $data['banner'] = $this->User_model->get_banner($this->ion_auth->user()->row()->id);
         $data['num_uploaded_stories'] = $this->Story_model->count_where('author', $this->session->userdata('user_id'));
         $this->load->view('template_user', $data);
@@ -107,7 +107,6 @@ class topmenu extends CI_Controller
         {
             $this->session->set_userdata('upload_status', 0);
             echo 'Upload failed';
-            //redirect('topmenu/dump_video', 'refresh');
         }
     }
     
@@ -115,11 +114,7 @@ class topmenu extends CI_Controller
     public function success()
     {
         $upload_status = $this->session->userdata('upload_status');
-        
-        if(strlen($upload_status) > 0)
-        {
-            $this->session->unset_userdata('upload_status');
-        }
+        $this->session->unset_userdata('upload_status');
         
         if($upload_status == 1) // video upload successful
         {
