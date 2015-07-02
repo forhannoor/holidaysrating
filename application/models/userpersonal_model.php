@@ -16,10 +16,10 @@ class Userpersonal_Model extends MY_Model
             5   => 'about',
             6   => 'privacy',
             7   => 'display_name',
-            9   => 'gender',
-            10  => 'date_of_birth',
-            11  => 'countries_to_visit',
-            12  => 'travel_motto'
+            8   => 'gender',
+            9  => 'date_of_birth',
+            10  => 'countries_to_visit',
+            11  => 'travel_motto'
         );
         
         $this->rules = array(
@@ -59,18 +59,17 @@ class Userpersonal_Model extends MY_Model
     {
         $udata = $this->upload->data();
         $data = array(
-            'uid'                   => $user_id,
-            'avatar'                => $udata['file_name'] ,
-            'location'              => $this->input->post('location'),
-            'display_name'          => $this->input->post('display_name'),
-            'favorite_destination'  => $this->input->post('favorite_destination'),
-            'about'                 => $this->input->post('about'),
-            'privacy'               => $this->input->post('privacy'),
-            'name'                  => $this->input->post('name'),
-            'gender'                => $this->input->post('gender'),
-            'date_of_birth'			=> date('Y-m-d', strtotime($this->input->post('date_of_birth'))),        
-            'countries_to_visit'    => implode(',', $this->input->post('countries_to_visit')),
-            'travel_motto'          => $this->input->post('travel_motto')
+            $this->_fields[1]     => $user_id,
+            $this->_fields[2]     => $udata['file_name'] ,
+            $this->_fields[3]     => $this->input->post('location'),
+            $this->_fields[4]     => $this->input->post('favorite_destination'),
+            $this->_fields[5]     => $this->input->post('about'),
+            $this->_fields[6]     => $this->input->post('privacy'),
+            $this->_fields[7]     => $this->input->post('display_name'),
+            $this->_fields[8]     => $this->input->post('gender'),
+            $this->_fields[9]     => date('Y-m-d', strtotime($this->input->post('date_of_birth'))),        
+            $this->_fields[10]    => implode(',', $this->input->post('countries_to_visit')),
+            $this->_fields[11]    => $this->input->post('travel_motto')
         );
 
         $this->db->where('uid', $user_id);
