@@ -37,7 +37,7 @@ class Story_model extends MY_Model
         $this->db->select('stories.id AS id, stories.author AS author, stories.title AS title, stories.body AS body, stories.approved AS approved, stories.created_at AS created_at, stories.country AS country, stories.num_views AS num_views, users.id AS user_id, users.username AS username');
         $this->db->from($this->_table);
         $this->db->join('users', "$this->_table . author = users.id");
-        $this->db->order_by('created_at', 'DESC');
+        $this->db->order_by($this->_fields[5], 'DESC');
         $stories = $this->db->get();
         return $stories->result();
     }
@@ -45,7 +45,7 @@ class Story_model extends MY_Model
     public function set_approved($id, $approve)
     {
         $data = array(
-            'approved' => $approve
+            $this->_fields[4] => $approve
         );
         
         $this->update($id, $data);

@@ -6,13 +6,20 @@ class Picture_model extends MY_Model
     {
         parent::__construct();
         $this->_table = 'pictures';
+        
+        $this->_fields = array(
+            0 => 'id', 
+            1 => 'uploader', 
+            2 => 'name',
+            3 => 'created_at',
+        );
     }
     
     /* insert uploaded image */
     public function save($uploader)
     {
         $picture_data = $this->upload->data();        
-        $picture = R::dispense('pictures');
+        $picture = R::dispense($this->_table);
         $picture->uploader = $uploader;
         $picture->name = $picture_data['file_name'];
         R::store($picture);

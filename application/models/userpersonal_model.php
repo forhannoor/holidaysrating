@@ -72,23 +72,23 @@ class Userpersonal_Model extends MY_Model
             $this->_fields[11]    => $this->input->post('travel_motto')
         );
 
-        $this->db->where('uid', $user_id);
-        $record = $this->db->get('users_personal')->row();
+        $this->db->where($this->_fields[1], $user_id);
+        $record = $this->db->get($this->_table)->row();
         
         if(count($record) == 0)   // record doesn't exist
         {
-            $this->db->insert('users_personal', $data);
+            $this->db->insert($this->_table, $data);
         }
         
         else    // record already exists
         {
-            if(strlen($data['avatar']) == 0 && strlen($record->avatar) > 0) // avatar already exists and user didn't upload a new one
+            if(strlen($data[$this->_fields[2]]) == 0 && strlen($record->avatar) > 0) // avatar already exists and user didn't upload a new one
             {
-                $data['avatar'] = $record->avatar;
+                $data[$this->_fields[2]] = $record->avatar;
             }
             
-            $this->db->where('uid', $user_id);
-            $this->db->update('users_personal', $data);
+            $this->db->where($this->_fields[1], $user_id);
+            $this->db->update($this->_table, $data);
         }
     }
 }

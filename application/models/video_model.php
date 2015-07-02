@@ -25,31 +25,31 @@ class Video_model extends MY_Model
     public function get($limit = 0, $offset = 0, $ascending = 1)
     {
         if(! $limit && ! $offset && $ascending) // get all videos in ascending order
-            $videos = R::findAll('videos');
+            $videos = R::findAll($this->_table);
             
         else if(! $ascending && ! $limit)   // get all videos in descending order
-            $videos = R::findAll('video', ' ORDER BY uploaded_at DESC');
+            $videos = R::findAll($this->_table, ' ORDER BY uploaded_at DESC');
             
         else if($ascending && $limit)   // get videos with limit in ascending order
-            $videos = R::findAll('videos', ' LIMIT :limit OFFSET :offset', array(':limit' => $limit, ':offset' => $offset));
+            $videos = R::findAll($this->_table, ' LIMIT :limit OFFSET :offset', array(':limit' => $limit, ':offset' => $offset));
             
         else if(! $ascending && $limit) // get videos with limit in descending order
-            $videos = R::findAll('videos', ' ORDER BY uploaded_at DESC LIMIT :limit OFFSET :offset', array(':limit' => $limit, ':offset' => $offset));        
+            $videos = R::findAll($this->_table, ' ORDER BY uploaded_at DESC LIMIT :limit OFFSET :offset', array(':limit' => $limit, ':offset' => $offset));        
             
         return $videos;
     }
     
     public function get_videos($region)
     {
-        $this->db->where('region', $region);
-        return $this->db->get('videos');
+        $this->db->where($this->_fields[3], $region);
+        return $this->db->get($this->_table);
     }
     
     /* upload and convert video */
     public function upload_video()
     {
         $data = $this->upload->get_multi_upload_data();
-        $video = R::dispense('videos');
+        $video = R::dispense($this->_table);
         $video->name = $data[0]['file_name'];
         $video->title = $this->input->post('title');
         $video->thumbnail = $data[1]['file_name'];
@@ -69,10 +69,10 @@ class Video_model extends MY_Model
     public function find_by_uploader($id, $limit = 0)
     {
         if($limit == 0)
-            $videos = R::find('videos', ' uploader = ? ', array($id));
+            $videos = R::find($this->_table, ' uploader = ? ', array($id));
             
         else
-            $videos = R::find('videos', ' uploader = :uploader ORDER BY uploaded_at DESC LIMIT :limit ', array(':uploader' => $id, ':limit' => $limit));
+            $videos = R::find($this->_table, ' uploader = :uploader ORDER BY uploaded_at DESC LIMIT :limit ', array(':uploader' => $id, ':limit' => $limit));
             
         return $videos;
     }

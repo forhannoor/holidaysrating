@@ -34,15 +34,15 @@ class Recipe_m extends MY_Model
         $this->db->from($this->_table);
         $this->db->limit($limit, $offset);
         $this->db->join('recipe_ratings', 'recipes.id = recipe_ratings.recipe', 'left');
-        $this->db->where('country', $country);
-        $this->db->where('approved', 1);
+        $this->db->where($this->_fields[2], $country);
+        $this->db->where($this->_fields[9], 1);
         $this->db->group_by('recipes.id');
         return $this->db->get()->result();
     }
     
     public function set_recipe_approved($recipe_id, $approved)
     {
-        $record = R::load('recipes', $recipe_id);
+        $record = R::load($this->_table, $recipe_id);
         
         if($record->id != 0) // record exists
         {

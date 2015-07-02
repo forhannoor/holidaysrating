@@ -6,12 +6,14 @@ class Recipe_rating_m extends MY_Model
     {
         parent::__construct();
         $this->_table = 'recipe_ratings';
+        
         $this->_fields = array(
             0 => 'id',
             1 => 'recipe',
             2 => 'rater',
             3 => 'rating'
         );
+        
         $this->rules = array(
             array(
                 'field' => 'rating',
@@ -29,7 +31,7 @@ class Recipe_rating_m extends MY_Model
     
     public function get_rating($recipe_id)
     {
-        $rating = $this->db->select_avg('rating')->where('recipe', $recipe_id)->get($this->_table)->row();
+        $rating = $this->db->select_avg($this->_fields[3])->where($this->_fields[1], $recipe_id)->get($this->_table)->row();
         return $rating->rating;
     }
 }
