@@ -92,28 +92,49 @@ class topmenu extends CI_Controller
     public function dump_video_process()
     {
         $config['upload_path']='./uploads/media/videos';
-        $config['allowed_types']='mp4|gif|jpg|png|bmp';
+        $config['allowed_types']='mp4|flv|avi';
         $config['max_size']='1024000';
         $config['encrypt_name'] = TRUE;
         $this->load->library('upload', $config);
         
         if($this->upload->do_upload('file1')) // upload successful
         {
-            echo 'Success';
+            $this->session->set_userdata('upload_status', 1);
+            echo 'Upload successful';
         }
         
         else // upload failed
         {
-            redirect('topmenu/dump_video', 'refresh');
+            $this->session->set_userdata('upload_status', 0);
+            echo 'Upload failed';
+            //redirect('topmenu/dump_video', 'refresh');
         }
     }
     
     /* video upload success */
     public function success()
     {
-        $str = '<h3>File has been uploaded successfully. Redirecting to your profile page...</h3>';
+        $upload_status = $this->session->userdata('upload_status');
+        
+        if(strlen($upload_status) > 0)
+        {
+            $this->session->unset_userdata('upload_status');
+        }
+        
+        if($upload_status == 1) // video upload successful
+        {
+            $str = '<h3>File upload successful. Redirecting to your profile page...</h3>';
+            $url = site_url('user');
+        }
+        
+        else // video upload failed
+        {
+            $str = '<h3>File upload failed. Redirecting back to the page...</h3>';
+            $url = site_url('topmenu/dump_video');
+        }
+        
         echo $str;
-        header("Refresh:3; url=" . site_url('user'));
+        header("Refresh:3; url=" . $url);
     }
     
     /* video playback */   

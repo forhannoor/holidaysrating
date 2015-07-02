@@ -45,7 +45,8 @@ function abortHandler(event){
 <?php endif ?>
 
 <?php echo form_open_multipart() ?>
-<p>Video: (Allowed format - mp4)</p>
+<label>Video</label>
+<br />
 <?php echo form_upload('file1', '', 'id = \'file1\'') ?>
 <br /><br />
 <?php $regions = array('asia' => 'Asia', 'africa' => 'Africa', 'antarctica' => 'Antarctica', 'caribbean' => 'Caribbean', 'central_america' => 'Central America', 'europe' => 'Europe', 'north_america' => 'North America', 'oceania' => 'Oceania', 'south_america' => 'South America') ?>
@@ -63,7 +64,7 @@ function abortHandler(event){
 <br />
 <?php echo form_textarea('description') ?>
 <br /><br />
-<progress id="progressBar" value="0" max="100" style="width:300px;"></progress>
+<progress id="progressBar" value="0" max="100" style="width:300px; height: 25px;"></progress>
 <br /><br />
 <input type="button" value="Upload File" onclick="uploadFile()">
 <h3 id="status"></h3>
