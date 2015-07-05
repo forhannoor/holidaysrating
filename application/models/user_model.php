@@ -229,21 +229,6 @@ class User_model extends CI_Model
         $this->db->where('id', $message_id);
         return $this->db->get('personal_messages');       
     }
-    
-    /* add to bucket list */
-    public function add_to_bucket($user_id)
-    {
-        $bucket = R::dispense('bucket_list');
-        $bucket->user_id = $user_id;
-        $bucket->url = $this->session->flashdata('redirectUrl');
-        R::store($bucket);
-    }
-    
-    public function get_bucket_list($user_id)
-    {
-        $bucket_list = R::find('bucket_list', ' user_id = :user_id LIMIT 10', array(':user_id' => $user_id));
-        return $bucket_list;
-    }
 
     /* returns display name based on id */
     public function get_display_name($user_id)

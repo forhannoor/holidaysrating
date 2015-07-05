@@ -373,11 +373,12 @@ class User extends MY_Controller
     
     public function bucket()
     {
+        $this->load->model('Bucket_m');
         $data['banner']=$this->User_model->get_banner($this->session->userdata('user_id'));
         $data['heading']='Bucket List';
         $data['main']='user/bucket.php';
         $data['users_online'] = $this->Ion_auth_model->users_online();
-        $data['bucket_list'] = $this->User_model->get_bucket_list($this->session->userdata('user_id'));
+        $data['bucket_list'] = $this->Bucket_m->get_where('user_id', $this->session->userdata('user_id'), 10);
         $data['num_uploaded_stories'] = $this->Story_model->count_where('author', $this->session->userdata('user_id'));
         $this->load->view($this->_layout, $data);
     }
