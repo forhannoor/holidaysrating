@@ -24,8 +24,7 @@
     <br/>
     
     <div class="highlight">
-        <p>First Name: <?php echo $profile_info->first_name ?></p>
-        <p>Last Name: <?php echo $profile_info->last_name ?></p>
+        <p>Name: <?php echo $name ?></p>
         <p>Gender: <?php echo ($profile_info->gender) ? 'Female' : 'Male' ?></p>
         <p>Date of Birth: <?php echo $profile_info->date_of_birth ?></p>
         <p>Location: <?php echo $profile_info->location ?></p>
@@ -40,9 +39,16 @@
     
     <br />
     
-    <div class="highlight">    
+    <div class="highlight">
+        <?php $countries_to_visit = explode(',', $profile_info->countries_to_visit) ?>    
         <p>Countries would like to visit:<br />
-        <?php  echo $profile_info->countries_to_visit ?></p>
+        
+        <?php foreach($countries_to_visit as $country): ?>
+            <li><?php echo $country_list[$country] ?></li>
+        <?php endforeach ?>
+        
+        </p>
+        <br />
         <p>Favorite Destination:<br />
         <?php echo $profile_info->favorite_destination ?></p>
     </div>
@@ -83,4 +89,5 @@
 
 <style type="text/css">
 .highlight{border-radius: 10px; border: 2px solid #CCCCCC; padding: 10px}
+.highlight li{color: #5F6A6F;}
 </style>

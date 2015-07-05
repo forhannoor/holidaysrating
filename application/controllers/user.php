@@ -14,12 +14,15 @@ class User extends MY_Controller
     public function index()
     {
         $this->load->model('Video_model');
+        $this->load->model('Country_model');
         $this->load->model('Usermeta_model');
         
         $data['heading']='My Profile';
         $data['main']='user/index.php';
         $data['banner']=$this->User_model->get_banner($this->session->userdata('user_id'));
+        $data['name'] = $this->User_model->get_name($this->session->userdata('user_id'));
         $data['profile_info'] = $this->User_model->get_profile_information($this->session->userdata('user_id'));
+        $data['country_list'] = $this->Country_model->country_list();
         $data['pictures'] = $this->Picture_model->find_by_uploader($this->session->userdata('user_id'), 4);
         $data['videos']=$this->Video_model->find_by_uploader($this->session->userdata('user_id'), 4);
         $data['bucket_list'] = $this->User_model->get_bucket_list($this->session->userdata('user_id'));
