@@ -14,6 +14,7 @@ class User extends MY_Controller
     public function index()
     {
         $this->load->model('Video_model');
+        $this->load->model('Bucket_m');
         $this->load->model('Country_model');
         $this->load->model('Usermeta_model');
         
@@ -25,7 +26,7 @@ class User extends MY_Controller
         $data['country_list'] = $this->Country_model->country_list();
         $data['pictures'] = $this->Picture_model->find_by_uploader($this->session->userdata('user_id'), 4);
         $data['videos']=$this->Video_model->find_by_uploader($this->session->userdata('user_id'), 4);
-        $data['bucket_list'] = $this->User_model->get_bucket_list($this->session->userdata('user_id'));
+        $data['bucket_list'] = $this->Bucket_m->get_where('user_id', $this->session->userdata('user_id'), 10);
         $data['users_online'] = $this->Ion_auth_model->users_online();
         $data['user_meta'] = $this->Usermeta_model->get($this->session->userdata('user_id'));
         $data['num_uploaded_stories'] = $this->Story_model->count_where('author', $this->session->userdata('user_id'));
