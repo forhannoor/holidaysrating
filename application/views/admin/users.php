@@ -50,43 +50,43 @@
             <td><?php echo date('d/m/Y H:i', $user->last_login) ?></td>
             <td style="text-align: left;">
                 <?php if(! $this->ion_auth->is_admin($user->id)): ?>
-                <?php echo anchor('admin/pm/' . $user->id, '<i class = \'icon-envelope\'></i>') ?>
+                <?php echo anchor('admin/pm/' . $user->id, '<i class = \'icon-envelope\'></i>', 'title = \'send message\'') ?>
                 
                 &nbsp;
                 
                 <?php if($user->group_id != 3): ?>
-                <?php echo anchor('admin/assign_editor/' . $user->id, '<i class = \'icon-pencil\'></i>', array('onclick' => "return confirm('You are about to assign this user to Editor position. Do you want to proceed?')")) ?>
+                <?php echo anchor('admin/assign_editor/' . $user->id, '<i class = \'icon-pencil\'></i>', array('title' => 'assign as editor', 'onclick' => "return confirm('You are about to assign this user to Editor position. Do you want to proceed?')")) ?>
                 <?php else: ?>
-                <?php echo anchor('admin/dissociate_editor/' . $user->id, '<i class = \'icon-share\'></i>', array('onclick' => "return confirm('You are about to remove this user from Editor position. Do you want to proceed?')")) ?>
+                <?php echo anchor('admin/dissociate_editor/' . $user->id, '<i class = \'icon-share\'></i>', array('title' => 'remove from editor', 'onclick' => "return confirm('You are about to remove this user from Editor position. Do you want to proceed?')")) ?>
                 <?php endif ?>
                 
                 &nbsp;
                 
                 <?php if(! $this->ion_auth->is_admin($user->id)): ?>
-                <?php echo anchor('admin/assign_admin/' . $user->id, '<i class = \'icon-star\'></i>', array('onclick' => "return confirm('You are about to assign this user as an Admin. Do you want to proceed?')")) ?>
+                <?php echo anchor('admin/assign_admin/' . $user->id, '<i class = \'icon-star\'></i>', array('title' => 'assign as admin', 'onclick' => "return confirm('You are about to assign this user as an Admin. Do you want to proceed?')")) ?>
                 <?php endif ?>
                 
                 &nbsp;
                 
-                <?php echo anchor('admin/avatar_delete/' . $user->id, '<i class = \'icon-picture\'></i>', array('onclick' => "return confirm('You are about to delete the avatar of this user. This cannot be undone. Are you sure?')")) ?>
+                <?php echo anchor('admin/avatar_delete/' . $user->id, '<i class = \'icon-picture\'></i>', array('title' => 'delete avatar', 'onclick' => "return confirm('You are about to delete the avatar of this user. This cannot be undone. Are you sure?')")) ?>
                 
                 &nbsp;
                 
                 <?php if($user->active == 1): ?>
-                <?php echo anchor('admin/deactivate_user/' . $user->id, '<i class = \'icon-ban-circle\'></i>', array('onclick' => "return confirm('You are about to ban this user. Are you sure?')")) ?>
+                <?php echo anchor('admin/deactivate_user/' . $user->id, '<i class = \'icon-ban-circle\'></i>', array('title' => 'deactivate user', 'onclick' => "return confirm('You are about to ban this user. Are you sure?')")) ?>
                 <?php elseif($user->active == 0): ?>
-                <?php echo anchor('admin/activate_user/' . $user->id, '<i class = \'icon-ok\'></i>') ?>
+                <?php echo anchor('admin/activate_user/' . $user->id, '<i class = \'icon-ok\'></i>', array('title' => 'activate user')) ?>
                 <?php endif ?>
                 
                 &nbsp;
                 
-                <?php echo btn_delete('admin/user_delete/' . $user->id) ?>
+                <?php echo btn_delete('admin/user_delete/' . $user->id, array('title' => 'delete user')) ?>
                 
                 <?php else: ?>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <?php echo anchor('admin/remove_admin/' . $user->id, '<i class = \'icon-star-empty\'></i>', array('onclick' => "return confirm('You are about to remove this user from Admin position. Do you want to proceed?')")) ?>
+                <?php echo anchor('admin/remove_admin/' . $user->id, '<i class = \'icon-star-empty\'></i>', array('title' => 'remove from admin', 'onclick' => "return confirm('You are about to remove this user from Admin position. Do you want to proceed?')")) ?>
                 &nbsp;
-                <?php echo anchor('admin/avatar_delete/' . $user->id, '<i class = \'icon-picture\'></i>', array('onclick' => "return confirm('You are about to delete the avatar of this user. This cannot be undone. Are you sure?')")) ?>
+                <?php echo anchor('admin/avatar_delete/' . $user->id, '<i class = \'icon-picture\'></i>', array('title' => 'delete avatar', 'onclick' => "return confirm('You are about to delete the avatar of this user. This cannot be undone. Are you sure?')")) ?>
                 <?php endif ?>
             </td>
         </tr>
