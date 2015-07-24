@@ -45,21 +45,6 @@ class Video_model extends MY_Model
         return $this->db->get($this->_table);
     }
     
-    /* upload and convert video */
-    public function upload_video()
-    {
-        $data = $this->upload->get_multi_upload_data();
-        $video = R::dispense($this->_table);
-        $video->name = $data[0]['file_name'];
-        $video->title = $this->input->post('title');
-        $video->thumbnail = $data[1]['file_name'];
-        $video->uploader = $this->input->post('uploader');
-        $video->region = $this->input->post('region');
-        $video->description = $this->input->post('description');
-        
-        R::store($video);
-    }
-    
     public function get_comments($video_name)
     {
         $this->db->where('pid', $video_name);

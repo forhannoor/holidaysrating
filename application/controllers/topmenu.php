@@ -92,15 +92,39 @@ class topmenu extends CI_Controller
     public function dump_video_process()
     {
         $config['upload_path']='./uploads/media/videos';
-        $config['allowed_types']='mp4|flv|avi';
+        $config['allowed_types']='*';
         $config['max_size']='1024000';
         $config['encrypt_name'] = TRUE;
         $this->load->library('upload', $config);
         
         if($this->upload->do_upload('file1')) // upload successful
         {
+            $data = $this->upload->data();
+            $original_file = $data['file_name'];
+            $converted_file = sha1($original_file) . '.mp4';
+            $thumbnail = sha1($original_file) . '.jpg';
+            $ffmpeg = 'ffmpeg\\ffmpeg';
+            $file_path = 'uploads/media/videos/';
+            $conversion_command = $ffmpeg . ' -i ' . $file_path . $original_file . ' -vcodec h264 -acodec aac -strict -2 ' . $file_path . $converted_file;
+            $thumbnail_command = $ffmpeg . ' -i ' . $file_path . $converted_file . ' -ss 00:00:05 -vframes 1 ' . $file_path . $thumbnail;
+            $form_data = $this->input->post('formdata');
+            $form = json_decode($form_data);
+            exec($conversion_command); // convert file to mp4
+            exec($thumbnail_command); // create thumbnail
+            unlink($data['full_path']); // delete original file
+            $insert_data = array(
+                'name' => $converted_file,
+                'uploader' => $form->uploader,
+                'region' => $form->region,
+                'title' => $form->title,
+                'description' => $form->description,
+                'thumbnail' => $thumbnail
+            );
+            
+            $this->Video_model->insert($insert_data);
             $this->session->set_userdata('upload_status', 1);
             echo 'Upload successful';
+            var_dump($insert_data);
         }
         
         else // upload failed
@@ -129,7 +153,7 @@ class topmenu extends CI_Controller
         }
         
         echo $str;
-        header("Refresh:3; url=" . $url);
+        header("Refresh:2; url=" . $url);
     }
     
     /* video playback */   

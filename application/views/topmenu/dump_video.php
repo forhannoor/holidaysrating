@@ -10,8 +10,18 @@ function _(el){
 function uploadFile(){
 	var file = _("file1").files[0];
 	var formdata = new FormData();
+    var formElement = document.querySelector("form");
 	formdata.append("file1", file);
-	var ajax = new XMLHttpRequest();
+    
+    var data = {
+        'region'        : formElement[1].value,
+        'title'         : formElement[2].value,
+        'uploader'      : formElement[3].value,
+        'description'   : formElement[4].value
+    };
+    
+    formdata.append('formdata', JSON.stringify(data));
+    var ajax = new XMLHttpRequest();
 	ajax.upload.addEventListener("progress", progressHandler, false);
 	ajax.addEventListener("load", completeHandler, false);
 	ajax.addEventListener("error", errorHandler, false);

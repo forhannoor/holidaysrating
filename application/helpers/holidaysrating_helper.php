@@ -75,7 +75,7 @@ function urlsafe_b64decode($string)
     return base64_decode($data);
 }
 
-function dd($value)
+function dd($value = array())
 {
     echo '<pre>';
     var_dump($value);
