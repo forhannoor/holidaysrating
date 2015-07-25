@@ -45,15 +45,11 @@ class Admin_model extends CI_Model
     
     public function get_videos()
     {
-        $sql = '
-            SELECT v.id, v.name, v.name, v.title, v.uploader, u.username 
-            FROM videos as v
-            JOIN users as u
-            ON v.uploader = u.id
-        ';
-        
-        $rows = R::getAll($sql);
-        return $rows;
+        $this->db->select('videos.id, videos.name, videos.uploader, videos.region, videos.uploaded_at, videos.title, videos.description, videos.thumbnail, videos.viewed, users_personal.uid AS user_id, users_personal.display_name');
+        $this->db->from('videos');
+        $this->db->join('users_personal', 'videos.uploader = users_personal.uid');
+        $this->db->order_by('videos.uploaded_at', 'DESC');
+        return $this->db->get()->result();
     }
     
     public function delete_video($id)

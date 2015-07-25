@@ -78,8 +78,7 @@
 <div class="thumbnails">
 <?php if(count($videos) > 0): ?>
     <?php foreach($videos as $video): ?>
-        <?php $thumbnail = array('src' => 'assets/images/thumbnail.jpg', 'title' => $video->title) ?>
-        <?php echo anchor('topmenu/video/' . urlsafe_b64encode($video->name), img($thumbnail)) ?>
+        <?php echo anchor('topmenu/video/' . urlsafe_b64encode($video->name), img(array('src' => 'uploads/media/videos/' . $video->thumbnail, 'title' => $video->title))) ?>
     <?php endforeach ?>
     <p><?php echo anchor('user/show_video/all', 'Show All') ?></p>
 <?php else: ?>
