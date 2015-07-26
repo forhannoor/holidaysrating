@@ -62,6 +62,13 @@ class Admin extends Base_Admin_Controller
         $this->load->view($this->_layout, $data);
     }
     
+    public function video($id)
+    {
+        $data['main']='admin/video.php';
+        $data['video'] = $this->Admin_model->get_video($id);
+        $this->load->view($this->_layout, $data);
+    }
+    
     public function video_delete()
     {
         $this->Admin_model->delete_video($this->uri->segment(3));

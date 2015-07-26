@@ -52,6 +52,16 @@ class Admin_model extends CI_Model
         return $this->db->get()->result();
     }
     
+    public function get_video($id)
+    {
+        $this->db->select('videos.id, videos.name, videos.uploader, videos.region, videos.uploaded_at, videos.title, videos.description, videos.thumbnail, videos.viewed, users_personal.uid AS user_id, users_personal.display_name');
+        $this->db->from('videos');
+        $this->db->join('users_personal', 'videos.uploader = users_personal.uid');
+        $this->db->where('videos.id', $id);
+        $this->db->order_by('videos.uploaded_at', 'DESC');
+        return $this->db->get()->row();
+    }
+    
     public function delete_video($id)
     {
         $video = R::load('videos', $id);
