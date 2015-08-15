@@ -16,20 +16,10 @@ class Story_model extends MY_Model
             
             array(
                 'field'     => 'body',
-                'label'     => 'Body',
+                'label'     => 'Story',
                 'rules'     => 'trim|required|max_length[500]|sanitize'
             ),
         );
-    }
-    
-    public function create($author)
-    {
-        $story = R::dispense($this->_table);
-        $story->author = $author;
-        $story->title = $this->input->post('title');
-        $story->body = $this->input->post('body');
-        $story->country = $this->input->post('country');
-        R::store($story);
     }
     
     public function get_all()

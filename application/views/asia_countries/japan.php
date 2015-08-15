@@ -2,36 +2,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="Japan, Asia"/>
-<meta name="keywords" content="Japan"/>
-<meta name="author" content="Raymond"/>
+<meta name="description" content="<?php echo $heading ?>, Asia"/>
+<meta name="keywords" content="<?php echo $heading ?>, Coordinates, Population, Travel, Flora and fauna, Climate, Explore, Discover, Information, Story, Highest point, Capital city"/>
+<meta name="author" content="Holidaysrating.com"/>
 <meta name="robots" content="index, follow"/>
 <meta name="revisit-after" content="1 days"/>
 <meta name="language" content="English" />
 <meta content="<?php echo base_url() ?>assets/images/flags/asia/japan.gif" property="og:image" />
 
-<title>Japan | Asia</title>
+<title><?php echo $heading ?> | Asia</title>
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
 <?php echo js('assets/js/jquery.jeditable.min.js') ?>
 </head>
 
 <body>
 <div id="top-head">
-<div class="main">
-<div class="logo">
-	<img src="<?php echo base_url() ?>assets/images/logo.png" width="350" height="78" alt="logo" /></div>
-<div class="menu">
-<ul>
-<li><?php echo anchor('home/index', 'HOME') ?></li>
-<li><?php echo anchor('user/index', 'MY PROFILE') ?></li>
-<li><?php echo anchor('topmenu/worldmap', 'WORLDMAP') ?></li>
-<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
-<li><?php echo anchor('blog/blog_index', 'BLOG') ?></li>
-<li><?php echo anchor('news/news_index', 'TRAVELNEWS') ?></li>
-<li><?php echo anchor('topmenu/helpcenter', 'HELPCENTER') ?></li>
-</ul>
-</div>
-</div>
+<?php $this->load->view($header) ?>
 </div>
 
 <div id="slider">
@@ -45,58 +31,21 @@
 <div class="top"></div>
 <div class="middle">
 <div class="my_login">
-<?php if($this->ion_auth->logged_in()): ?>
-<h2>Welcome</h2>
-<?php if(isset($profile_info) && strlen($profile_info->avatar) > 0): ?>
-<p class="avatar"><?php echo anchor('user/index', img('./uploads/'.$profile_info->avatar)) ?></p>
-<?php else: ?>
-<p class="avatar"><?php echo anchor('user/index', img('assets/assets/avatar.jpg')) ?></p>
-<?php endif ?>
-<br />
-<?php echo $this->session->userdata('username') ?>
-<br />
-<?php echo 'Member since&nbsp;: ' . date("d-m-Y" , $this->session->userdata('created_on')) ?>
-<br />
-<?php echo 'Last logged in: ' . date("d-m-Y" , $this->session->userdata('old_last_login')) ?>
-<?php $CI = & get_instance() ?>
-<?php $CI->load->model('Message_model') ?>
-<?php $new_message_counter = $CI->Message_model->count_new($this->session->userdata('user_id')) ?>
-<br/>
-<br/>
-<?php echo anchor('user/inbox', "Inbox ($new_message_counter new)") ?>
-<br/>
-<br/>
-<?php echo anchor('auth/logout', 'Logout') ?>
-<?php else: ?>
-<h2>Member Login</h2>
-<?php $this->load->view('auth/my_login') ?>
-<br />
-<?php echo anchor('auth/forgot_password', 'Forgot Password') ?>
-&nbsp;&nbsp;&nbsp;
-<?php echo anchor('auth/register', 'Register') ?>
-<?php endif ?>
+<?php $this->load->view($sidebar) ?>
 </div>
-<img src="<?php echo base_url('assets/images/border.png') ?>" alt="Holiday" style="margin-top:12px" />
-<?php $CI = &get_instance() ?>
-<?php $CI->load->model('Session_model') ?>
-<h2>Members online</h2>
-<p style="font-size:10px">Total: <?php echo $CI->Session_model->member_online() ?></p>
-<br/>
-<ul class="profile-items">
-<?php $members_online = $CI->Session_model->member_online_list() ?>
-<?php foreach($members_online as $key => $value): ?>
-<li><?php echo anchor('user/browse/' . $key, $value) ?></li>
-<?php endforeach ?>
-</ul>
-<br />
-<h2>Guests online</h2>
-<p style="font-size:10px">Total:<?php echo $CI->Session_model->guest_online() ?></p>
+<img src="<?php echo base_url() ?>assets/images/border.png" alt="Holidayrating" style="margin:8px 0 4px 0" />
+<h2 style="margin-bottom:5px">Explore <?php echo $heading ?></h2>
+<div class="edit1124">
+<p>Coming soon </p>
+</div>
+
+<?php if($this->ion_auth->is_editor()): ?>
+<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed1124') ?>
+<?php endif ?>
+
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="Holiday" style="margin-top:8px" />
-
 <?php $this->load->view($left_sidebar) ?>
-
 </div>
-
 <div class="bottom"></div>
 </div>
 
@@ -107,15 +56,43 @@
 <h5 class="alert"><?php echo $msg ?></h5>
 <?php  endif?>
 <h1>Introduction</h1>
-<div class="flag" style="float:left"><img src="<?php echo base_url() ?>assets/images/flags/asia/japan.jpg" alt="Japan" /></div>
+<div class="flag" style="float:left"><?php echo img(array('src' => 'assets/images/flags/asia/japan.jpg', 'alt' => 'Japan')) ?></div>
 
-<div class="edit1">
-<p><strong>Bangladesh</strong> is a country in....<a href="http://www.holidaysrating.com/index.php/regions/asia">Asia</a>, with a size of ... square kilometres. The official language is ....</p>
+<div class="edit1125">
+<p><strong>Japan</strong> is a country in east <a href="http://www.holidaysrating.com/index.php/regions/asia">Asia</a>, located in the Pacific Ocean. Japan is rich in natural beauty, culture, myth and technological advancement and research. 
+A journey to this great land could be mesmerizing as well as memorable. Japanese people speak Japanese language but English is understood very well. The capital Tokyo is the hub of a number of activities. Japan is a land of 377,944 square kilometer with approximately a population of 127 million. 
+Culturally, Japan will present an exclusive and stirring fusion of the traditional and the modern. The rapid rise of technological and economical advancement of Japan is quite unimaginable.</p>
 </div>
 
 <?php if($this->ion_auth->is_editor()): ?>
-<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed1') ?>
+<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed1125') ?>
 <?php endif ?>
+
+<div style="margin-top:10px">
+<center>
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13421785.408969791!2d134.37569025!3d34.78573239999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sau!4v1431738573311" width="430" height="200" frameborder="0" style="border:0"></iframe>
+</center>
+</div>
+
+<h1>Climate</h1>
+<div class="edit1126">
+<p>Japan is a country of four seasons which are the spring, summer, autumn, and winter. Spring is the best time in Japan. The temperature is quite moderate and favorable to the travelers. The summer comes with rain in June. The temperature in summer goes above 35°C sometimes. The autumn is felt in September. Like spring, autumn is also a good time for travel. The winter could be miserable sometimes. Sometimes heavy snowfall occurs in Hokkaido and northeast Japan because of the cold wind blasts from Siberia.</p>
+</div>
+
+<?php if($this->ion_auth->is_editor()): ?>
+<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed1126') ?>
+<?php endif ?>
+
+<h1>Flora and Fauna</h1>
+<div class="edit1127">
+<p>A greater part of the land of Japan is forested. Trees include spruce, oak, maple, hinoki, sugi and pine. The northern part of the country focuses forests which are coniferous. Most Japanese forests have needle trees and broad-leaf. Animals include wild boar, foxes and deer. In the past, wolves inhabited in the country’s jungle areas, but they are no more now. many kinds of animals like the Japanese serow, tanuki and the Japanese macaque. Tanuki are common as raccoon dogs, but they are unconnected to raccoons.</p>
+</div>
+
+<?php if($this->ion_auth->is_editor()): ?>
+<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed41127') ?>
+<?php endif ?>
+
+<?php echo anchor('asia_national_parks/japan', '(Go to National Parks)') ?>
 
 <div class="country-menu">
 <ul>
@@ -132,69 +109,28 @@
 </ul>
 </div>
 
-<h1>Climate</h1>
-<div class="edit2">
-<p>Coming soon.</p>
-</div>
-
-<?php if($this->ion_auth->is_editor()): ?>
-<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed2') ?>
-<?php endif ?>
-
-<h1>Flora and Fauna</h1>
-<div class="edit3">
-<p>Comnng soon.</p>
-</div>
-
-<?php if($this->ion_auth->is_editor()): ?>
-<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed3') ?>
-<?php endif ?>
-
-<?php echo anchor('asia_national_parks/bangladesh', '(Go to National Parks)') ?>
-
 <!-- Currency Converter script - fx-rate.net --> 
 <div style="width:474px; background-color:white;border:2px solid #888;text-align:center;margin-top:10px;padding:0px"> 
-<div style="background-color:#AEAF61 ;border-bottom:1px solid #888;width:100%;margin:0px;padding:0px;align:center;text-align:center;">
+<div style="background-color:#62ffe0 ;border-bottom:1px solid #888;width:100%;margin:0px;padding:0px;align:center;text-align:center;">
 <a title="Japanese Yen Converter" class="HS1label" style="font-size:12px!important; line-height:16px!important;font-family: arial;text-decoration:none;color:#132105;margin-bottom:6px;" target="_blank" href="http://fx-rate.net/JPY/"><b>Japanese Yen Converter</b></a>
 </div> <script type="text/javascript" src="http://fx-rate.net/converter.php?size=short&layout=horizontal&currency=JPY"></script></div> 
 <!-- End of Currency Converter script --> 
 
-<h1>Flora and Fauna</h1>
-<p>National parks in Japan; Rishiri-Rebun-Sarobetsu National Park, Shiretoko National Park, Daisetsuzan National Park, Akan National Park, Kushiro Shitsugen National Park, Shikotsu-Tōya National Park, Towada-Hachimantai National Park, 
-Rikuchū Kaigan National Park, Bandai-Asahi National Park, Nikkō National Park, Oze National Park, Chichibu-Tama-Kai National Park, Jōshinetsu Kogen National Park, Ogasawara National Park, Fuji-Hakone-Izu National Park, Chūbu-Sangaku National Park, Hakusan National Park, Minami Alps National Park, Ise-Shima National Park, 
-Yoshino-Kumano National Park, Sanin Kaigan National Park, Daisen-Oki National Park, Setonaikai National Park, Ashizuri-Uwakai National Park, Saikai National Park, Unzen-Amakusa National Park, Aso-Kujū National Park, Kirishima-Yaku National Park, Iriomote-Ishigaki National Park.</p>
-
-<h1>Things to do</h1>
-<p>Coming soon</p>
-
-
-
-
-
-
-
 </div>
-
-<div class="clear"></div>
-<div class="comment">
-<img src="<?php echo base_url() ?>assets/images/comments.png" alt="comment" style="margin-left:300px" /><?php echo anchor('user/make_comment/japan', 'Leave a comment') ?>
 </div>
-
-</div>
-
 
 <div class="right-side">
 <div class="top"></div>
 
 <div class="middle">
-<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;<?php echo anchor('regions/asia', 'Asia') ?>&gt; Japan</span></p>
-
-<iframe width="175" height="120" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.au/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=japan&amp;aq=&amp;sll=31.046051,34.851612&amp;sspn=6.135287,13.392334&amp;ie=UTF8&amp;hq=&amp;hnear=Japan&amp;t=m&amp;ll=37.579413,137.988281&amp;spn=8.355458,15.292969&amp;z=4&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com.au/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=japan&amp;aq=&amp;sll=31.046051,34.851612&amp;sspn=6.135287,13.392334&amp;ie=UTF8&amp;hq=&amp;hnear=Japan&amp;t=m&amp;ll=37.579413,137.988281&amp;spn=8.355458,15.292969&amp;z=4" target="_blank" style="color:#5F6A6F;text-align:left">View Larger Map</a></small>
-<img src="<?php echo base_url() ?>assets/images/border.png" alt="border" style="margin-top:8px"/>
+<p><span>You are here&gt; <?php echo anchor('home/index', 'Home') ?>&gt;<?php echo anchor('topmenu/worldmap', 'Worldmap') ?>&gt;<?php echo anchor('regions/asia', 'Asia') ?>&gt; <?php echo $heading ?></span></p>
 	
 <div class="key-facts">	
 <h2>Key Facts</h2>
 <ul>
+<li><strong>Coordinates:</strong></li>
+<li><img src="<?php echo base_url() ?>assets/assets/globe.png" style="margin-right:5px" alt="coordinates"/><a href="http://tools.wmflabs.org/geohack/geohack.php?pagename=Japan&params=35_N_136_E_type:country" target="_blank">35° N 136° E</a></li>
+
 <li><strong>Capital city:</strong></li>
 <li><img src="<?php echo base_url() ?>assets/assets/city.png" style="margin-right:5px" alt="city"/><?php echo anchor('asia_cities/tokyo', 'Tokyo') ?></li>
 
@@ -204,6 +140,9 @@ Yoshino-Kumano National Park, Sanin Kaigan National Park, Daisen-Oki National Pa
 
 <li><strong>Water:</strong></li>
 <li><img src="<?php echo base_url() ?>assets/assets/water.png" style="margin-right:5px" alt="water"/>0.8%</li>
+
+<li><strong>Population:</strong></li>
+<li><img src="<?php echo base_url() ?>assets/assets/population.png" style="margin-right:5px" alt="population"/>127,338,621 <span>(2013)</span></li>
 
 <li><strong>Highest point:</strong></li>
 <li><img src="<?php echo base_url() ?>assets/assets/mountain.png" style="margin-right:5px" alt="mountain"/>Mount Fuji</li>
@@ -220,14 +159,34 @@ Yoshino-Kumano National Park, Sanin Kaigan National Park, Daisen-Oki National Pa
 </ul>
 </div>
 
-<h2>Cities</h2>
+<h2>Towns - Cities</h2>
 <ul>
 <li><?php echo anchor('asia_cities/ichikawa', 'Ichikawa') ?></li>
 <li><?php echo anchor('asia_cities/kurashiki', 'Kurashiki') ?></li>
-<li><?php echo anchor('asia_cities/machida', 'machida') ?></li>
+<li><?php echo anchor('asia_cities/machida', 'Machida') ?></li>
 <li><?php echo anchor('asia_cities/matsudo', 'Matsudo') ?></li>
-
+<li style="font-size:10px;margin-top:5px"><a href="http://www.holidaysrating.com/index.php/cities/asia_index?q=13">(More info)</a></li>
 </ul>
+
+<img src="<?php echo base_url() ?>assets/images/border.png" alt="border" style="margin-top:8px"/>
+
+<h2>Stories</h2>
+<ul>
+<?php foreach($stories as $story): ?>
+<li><?php echo anchor('story/read?id=' . $story->id . '&title=' . urlsafe_b64encode($story->title), $story->title)  ?></li>
+<?php endforeach ?>
+</ul>
+
+<?php if(count($stories) > 0): ?>
+<?php echo anchor('story/all?country=' . urlsafe_b64encode($this->uri->segment(2)), 'View All') ?>
+<?php else: ?>
+<p style="margin-top:5px">Be the first to submit a story</p>
+<?php endif ?>
+
+<p><center><?php echo anchor('story/create?country=' . $this->uri->segment(2), img('assets/assets/story.png')) ?></center></p>
+<?php if(strlen($this->session->flashdata('msg')) > 0): ?>
+<p><?php echo $this->session->flashdata('msg') ?></p>
+<?php endif ?> 
 
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="border" style="margin-top:8px"/>
 <h2>Like it..</h2>
@@ -249,7 +208,6 @@ Yoshino-Kumano National Park, Sanin Kaigan National Park, Daisen-Oki National Pa
 <!-- AddThis Button END -->
 </div>
 
-
 <div class="clear"></div>
 
 <div class="google-right">
@@ -263,21 +221,8 @@ Yoshino-Kumano National Park, Sanin Kaigan National Park, Daisen-Oki National Pa
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 </div>
-
-<div class="clear"></div>
-
-<h2 style="margin-bottom:5px">Explore Japan</h2>
-<div class="edit4">
-<p>Coming soon </p>
-</div>
-
-<?php if($this->ion_auth->is_editor()): ?>
-<?php echo anchor('', img('assets/images/edit-icon.png'), 'id=ed4') ?>
-<?php endif ?>
-
 </div>
 <div class="bottom"></div>
-
 </div>
 
 <div class="clear"></div>
@@ -295,44 +240,13 @@ Yoshino-Kumano National Park, Sanin Kaigan National Park, Daisen-Oki National Pa
 </script>
 </div>
 <div class="clear"></div>
-<div class="first-column">
-<ul>
-<li><?php echo anchor('home/index', 'HOME') ?></li>
-<li><?php echo anchor('user/index', 'MY PROFILE') ?></li>
-<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
-<li><?php echo anchor('topmenu/worldmap', 'WORLDMAP') ?></li>
-</ul>
-</div>
-<div class="first-column">
-<ul>
-<li><?php echo anchor('regions/africa', 'AFRICA') ?></li>
-<li><?php echo anchor('regions/asia', 'ASIA') ?></li>
-<li><?php echo anchor('regions/caribbean', 'CARIBBEAN') ?></li>
-<li><?php echo anchor('regions/central_america', 'CENTRAL AMERICA') ?></li>
-</ul>
-</div>
-<div class="first-column">
-<ul>
-<li><?php echo anchor('regions/europe', 'EUROPE') ?></li>
-<li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
-<li><?php echo anchor('regions/oceania', 'OCEANIA') ?></li>
-<li><?php echo anchor('regions/south_america', 'SOUTH AMERICA') ?></li>
-</ul>
-</div>
-<div class="first-column">
-<ul>
-<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
-<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
-<li><?php echo anchor('blog/blog_index', 'BLOG') ?></li>
-<li><?php echo anchor('topmenu/helpcenter', 'HELPCENTER') ?></li>
-</ul>
-</div>
+<?php $this->load->view($footer) ?>
 <div class="logo"><center><img src="<?php echo base_url() ?>assets/images/photos.jpg" alt="logo" /></center>
 <div class="slogin">You are our <span>travelguide!</span>
 </div>
 </div>
 <div class="clear"></div>
-<p> <?php echo anchor('privacy/privacy_policy', 'Privacy Policy') ?> | <?php echo anchor('privacy/terms_of_use', 'Terms of Use') ?> | <?php echo anchor('home/contact_us', 'Contact Us') ?> | &copy; Copyright <?php echo date('Y') ?> Holidaysrating All Rights Reserved</p>
+<?php $this->load->view($last_line) ?>
 </div>
 </div>
 <?php echo css('assets/css/country.css') ?>
@@ -346,7 +260,7 @@ var siteUrl = "<?php echo site_url('editor/update') ?>";
 
 $(document).ready(function() {
     
-    $('.edit1').editable(siteUrl + '/1', {
+    $('.edit1124').editable(siteUrl + '/1124', {
         type      : 'textarea',
         cancel    : 'Cancel',
         submit    : 'OK',
@@ -354,12 +268,12 @@ $(document).ready(function() {
         event     : 'edit'
     });
     
-    $('#ed1').bind('click', function(){
-        $('.edit1').trigger('edit');
+    $('#ed1124').bind('click', function(){
+        $('.edit1124').trigger('edit');
         return false;
     });
     
-    $('.edit2').editable(siteUrl + '/2', {
+    $('.edit1125').editable(siteUrl + '/1125', {
         type      : 'textarea',
         cancel    : 'Cancel',
         submit    : 'OK',
@@ -367,12 +281,12 @@ $(document).ready(function() {
         event     : 'edit'
     });
     
-    $('#ed2').bind('click', function(){
-        $('.edit2').trigger('edit');
+    $('#ed1125').bind('click', function(){
+        $('.edit1125').trigger('edit');
         return false;
     });
     
-    $('.edit3').editable(siteUrl + '/3', {
+    $('.edit1126').editable(siteUrl + '/1126', {
         type      : 'textarea',
         cancel    : 'Cancel',
         submit    : 'OK',
@@ -380,12 +294,12 @@ $(document).ready(function() {
         event     : 'edit'
     });
     
-    $('#ed3').bind('click', function(){
-        $('.edit3').trigger('edit');
+    $('#ed1126').bind('click', function(){
+        $('.edit1126').trigger('edit');
         return false;
     });
     
-    $('.edit4').editable(siteUrl + '/4', {
+    $('.edit1127').editable(siteUrl + '/1127', {
         type      : 'textarea',
         cancel    : 'Cancel',
         submit    : 'OK',
@@ -393,8 +307,8 @@ $(document).ready(function() {
         event     : 'edit'
     });
     
-    $('#ed4').bind('click', function(){
-        $('.edit4').trigger('edit');
+    $('#ed1127').bind('click', function(){
+        $('.edit1127').trigger('edit');
         return false;
     });
 });

@@ -424,5 +424,17 @@ class Admin_db extends Base_Admin_Controller
         );
         
         $this->dbforge->add_column('recipes', $column);
+    }
+    
+    public function alter_stories_add_images()
+    {
+        $column = array(
+            'images' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 200,
+            )
+        );
+        
+        $this->dbforge->add_column('stories', $column);
     }   
 }

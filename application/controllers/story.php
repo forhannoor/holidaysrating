@@ -88,9 +88,60 @@ class story extends CI_Controller
         
         $this->form_validation->set_rules($this->Story_model->rules);        
         
-        if($this->form_validation->run() == TRUE)
+        $config['upload_path']='./uploads/media/story';
+        $config['allowed_types']='*';
+        $config['max_size']='10240';
+        $config['encrypt_name'] = TRUE;
+        $this->load->library('upload', $config);
+        
+        $large_thumbnail_width = 300;
+        $large_thumbnail_height = 150;
+        $small_thumbnail_width = 200;
+        $small_thumbnail_height = 100;
+        
+        if($this->form_validation->run() == TRUE && $this->upload->do_multi_upload('images'))
         {
-            $this->Story_model->create($this->session->userdata('user_id'));
+            $upload_data = $this->upload->get_multi_upload_data();
+            $this->load->library('image_lib'); 
+            $this->image_lib->clear();
+            $image_config['image_library'] = 'gd2';
+            $image_config['source_image'] = $upload_data[0]['full_path'];
+            $image_config['create_thumb'] = FALSE;
+            $image_config['maintain_ratio'] = TRUE;
+            $image_config['width'] = $large_thumbnail_width;
+            $image_config['height'] = $large_thumbnail_height;
+            $this->image_lib->initialize($image_config);
+            $this->image_lib->resize();
+
+            $image_config['source_image'] = $upload_data[1]['full_path'];
+            $image_config['width'] = $small_thumbnail_width;
+            $image_config['height'] = $small_thumbnail_height;
+            $this->image_lib->clear();
+            $this->image_lib->initialize($image_config);
+            $this->image_lib->resize();
+
+            $image_config['source_image'] = $upload_data[2]['full_path'];
+            $image_config['width'] = $small_thumbnail_width;
+            $image_config['height'] = $small_thumbnail_height;
+            $this->image_lib->clear();
+            $this->image_lib->initialize($image_config);
+            $this->image_lib->resize();
+
+            $image_data = array(
+                $upload_data[0]['file_name'],
+                $upload_data[1]['file_name'],
+                $upload_data[2]['file_name']
+            );
+            
+            $insert_data = array(
+                'author' => $this->session->userdata('user_id'),
+                'title' => $this->input->post('title'),
+                'body' => $this->input->post('body'),
+                'country' => $this->input->post('country'),
+                'images' => serialize($image_data)
+            );
+
+            $this->Story_model->insert($insert_data);
             $this->session->set_flashdata('msg', 'Your story is waiting for approval');
             redirect('story', 'refresh');
         }
