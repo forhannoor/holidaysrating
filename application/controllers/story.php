@@ -86,7 +86,7 @@ class story extends CI_Controller
             echo "<script type = \"text/javascript\">window.location.replace(document.referrer)</script>";
         }
         
-        $this->form_validation->set_rules($this->Story_model->rules);        
+        $this->form_validation->set_rules($this->Story_model->rules);
         
         $config['upload_path']='./uploads/media/story';
         $config['allowed_types']='*';
@@ -155,6 +155,10 @@ class story extends CI_Controller
        		$data['last_line']  = 'layouts/last_line';
         	$data['sidebar']    = 'layouts/sidebar';
             $data['main'] = 'story/create.php';
+            $data['large_thumbnail_width'] = $large_thumbnail_width;
+            $data['large_thumbnail_height'] = $large_thumbnail_height;
+            $data['small_thumbnail_width'] = $small_thumbnail_width;
+            $data['small_thumbnail_height'] = $small_thumbnail_height;
             $data['profile_info'] = $this->User_model->get_profile_information($this->session->userdata('user_id'));
             $this->load->view($this->layout, $data);
         }
