@@ -436,5 +436,52 @@ class Admin_db extends Base_Admin_Controller
         );
         
         $this->dbforge->add_column('stories', $column);
+    }
+    
+    public function create_adventures()
+    {
+        $fields = array(
+            'id' => array(
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => TRUE,
+                'auto_increment' => TRUE,
+            ),
+            
+            'author' => array(
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => TRUE,
+            ),
+            
+            'country' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 50,
+            ),
+            
+            'title' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 250,
+            ),
+            
+            'description' => array(
+                'type' => 'text',
+            ),
+            
+            'created_at' => array(
+                'type' => 'timestamp',
+                'default' => 'CURRENT_TIMESTAMP',
+            ),
+            
+            'approved' => array(
+                'type' => 'TINYINT',
+                'constraint' => 1,
+                'default' => 0,
+            ),
+        );
+        
+        $this->dbforge->add_field($fields);
+        $this->dbforge->add_key('id', TRUE);
+        $this->dbforge->create_table('adventures');   
     }   
 }
