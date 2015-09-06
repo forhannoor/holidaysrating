@@ -15,67 +15,55 @@ class MY_Model extends CI_Model
     
     public function get($id)
     {
-        return R::load($this->_table, $id);
+        return $this->db->where('id', $id)->get($this->_table)->row();
     }
     
-    public function get_where($field, $value, $limit = 1000000000)
+    public function get_where($field, $value, $limit = 1000000000, $offset = 0, $order_by = '', $order = 'ASC')
     {
+        $this->db->where($field, $value);
+        
+        if(strlen($order_by) > 0)
+        {
+            $this->db->order_by($order_by, $order);
+        }
+        
+        $this->db->limit($limit, $offset);
+        
         if($limit == 1)
         {
-            $record = R::findOne($this->_table, ' `' . $field . '` = :value', array(':value' => $value));
+            return $this->db->get($this->_table)->row();
         }
         
-        else
-        {
-            $record = R::find($this->_table, ' `' . $field . '` = :value LIMIT :limit', array(':value' => $value, ':limit' => $limit));
-        }
-        
-        return $record;
+        return $this->db->get($this->_table)->result();
     }
     
     public function get_all()
     {
-        return R::findAll($this->_table);
+        return $this->db->get($this->_table)->result();
     }
     
     public function count_all()
     {
-        return R::count($this->_table);
+        return $this->db->count_all_($this->_table);
     }
     
     public function count_where($field, $value)
     {
-        return R::count($this->_table, ' `' . $field . '` = :value', array(':value' => $value));
+        return $this->db->where($field, $value)->count_all_results($this->_table);
     }
     
     public function insert($data)
     {
-        R::setStrictTyping(false);
-        $record = R::dispense($this->_table);
-        
-        foreach($data as $key => $value)
-        {
-            $record->$key = $value;
-        }
-        
-        R::store($record);
+        $this->db->insert($this->_table, $data);
     }
     
     public function update($id, $data)
     {
-        $record = R::load($this->_table, $id);
-        
-        foreach($data as $key => $value)
-        {
-            $record->$key = $value;
-        }
-        
-        R::store($record);
+        $this->db->where('id', $id)->update($this->_table, $data);
     }
     
     public function delete($id)
     {
-        $record = R::load($this->_table, $id);
-        R::trash($record);
+        $this->db->delete($this->_table, array('id' => $id)); 
     }
 }
