@@ -34,7 +34,10 @@ class MY_Model extends CI_Model
             return $this->db->get($this->_table)->row();
         }
         
-        return $this->db->get($this->_table)->result();
+        else
+        {
+            return $this->db->get($this->_table)->result();
+        }
     }
     
     public function get_all()

@@ -71,18 +71,6 @@ class User_model extends CI_Model
         $this->db->insert('banners', $data);
     }
     
-    public function get_banner($user_id)
-    {
-        $banners = R::findOne('banners', ' uploader = :uploader ORDER BY time DESC LIMIT 1', array(':uploader' => $user_id));
-        
-        if(is_null($banners))
-        {
-            $banners = R::findOne('banners', ' uploader = 0');
-        }
-            
-        return $banners;
-    }
-    
     public function make_comment($user_id)
     {
         $data=array(

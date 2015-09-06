@@ -81,8 +81,10 @@ fjs.parentNode.insertBefore(js, fjs);
 </div>
 </div>
 <div id="banner">
-<?php if(isset($banner)): ?>
-<?php echo img('./uploads/banners/'.$banner->name) ?>
+<?php if(isset($banner) && count($banner) > 0): ?>
+<?php echo img('./uploads/banners/' . $banner->name) ?>
+<?php else: ?>
+<?php echo img('./uploads/banners/default.png') ?>
 <?php endif ?>
 </div>
 <div id="content"><br />
