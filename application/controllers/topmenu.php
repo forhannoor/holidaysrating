@@ -161,7 +161,8 @@ class topmenu extends CI_Controller
         $this->load->model('Comment_m');
         $vid = $this->Video_model->get_where('name', urlsafe_b64decode($name), 1);
         $vid->viewed += 1;
-        R::store($vid);
+        $this->Video_model->update($vid->id, $vid);
+        
         $data['video'] = $vid;
         $data['related_videos'] = $this->Video_model->get_where('region', $vid->region, 6);
         $data['main'] = 'topmenu/video_view';
