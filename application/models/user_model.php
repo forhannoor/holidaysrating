@@ -1,10 +1,31 @@
 <?php
 
-class User_model extends CI_Model
+class User_model extends MY_Model
 {
 	public function __construct()
 	{
 		parent::__construct();
+        $this->_table = 'users';
+        
+        $this->_fields = array(
+            0   => 'id',
+            1   => 'ip_address',
+            2   => 'username',
+            3   => 'password',
+            4   => 'salt',
+            5   => 'email',
+            6   => 'activation_code',
+            7   => 'forgotten_password_code',
+            8   => 'forgotten_password_time',
+            9   => 'remember_code',
+            10  => 'created_on',
+            11  => 'last_login',
+            12  => 'active',
+            13  => 'first_name',
+            14  => 'last_name',
+            15  => 'company',
+            16  => 'phone'
+        );
 	}
     
     public function get_profile_info($user_id)
@@ -237,15 +258,8 @@ class User_model extends CI_Model
     /* returns fullname of user */
     public function get_name($user_id)
     {
-        $sql = '
-            SELECT CONCAT(first_name, \' \', last_name) as name
-            FROM users
-            WHERE id = '. $user_id .'
-            LIMIT 1
-        ';
-        
-        $result = R::getRow($sql);
-        return $result['name'];
+        $record = $this->db->select("CONCAT(first_name, ' ', last_name) AS name", false)->where('id', $user_id)->get($this->_table)->row();
+        return $record->name;   
     }
     
     public function get_privacy($user_id)

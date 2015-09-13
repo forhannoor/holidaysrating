@@ -15,6 +15,7 @@ class Home extends CI_Controller
     
     public function index()
     {
+        $this->output->enable_profiler(true);
         $this->load->model('Video_model');
         $this->load->model('User_model');
         $data['main']='home';

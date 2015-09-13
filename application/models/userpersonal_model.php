@@ -38,7 +38,7 @@ class Userpersonal_Model extends MY_Model
             array(
                 'field'     => 'display_name',
                 'label'     => 'Display Name',
-                'rules'     => 'trim|sanitize'
+                'rules'     => 'trim|required|sanitize'
             ),
             
             array(
@@ -89,6 +89,22 @@ class Userpersonal_Model extends MY_Model
             
             $this->db->where($this->_fields[1], $user_id);
             $this->db->update($this->_table, $data);
+        }
+    }
+    
+    public function get_display_name($user_id)
+    {
+        $record = $this->get_where('uid', $user_id, 1);
+        
+        if(count($record) > 0) // userpersonal record exists
+        {
+            return $record->display_name;
+        }
+        
+        else // userpersonal record doesn't exist
+        {
+            $this->load->model('User_model');
+            return $this->User_model->get_name($user_id);
         }
     }
 }
