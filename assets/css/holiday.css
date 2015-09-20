@@ -1104,14 +1104,13 @@ body {
 }*/
 
 .homepage {
-	margin:0px;
-	padding:0px;
 	width:100%;
 	background:url('../images/homepage-img.jpg') no-repeat #c0dde9 center;
     height: 430px;
-    background-position: 50% 50%;
-    background-size: cover;
+    /*background-position: 50% 50%;*/
+    /*background-size: cover;*/
 }
+
 .homepage ul {
 	margin:0px;
 	padding:0px;
@@ -1125,64 +1124,40 @@ body {
 	display:inline;
 }
 
+.homepage ul li a{
+    font-size:24px;
+	/*color: #FFFFFF;*/
+    color: darkorchid;
+	font-weight:bold;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	text-decoration:none;
+}
+
 .homepage ul li a:hover{
 	color: #96B5D3;
 	cursor:pointer;	
 }
 
 .homepage .text1 a {
-	font-size:24px;
-	color: #FFFFFF;
-	font-weight:bold;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	text-decoration:none;
+	margin-left:-30px;
 }
+
 .homepage .text2 a {
-	font-size:24px;
-	color: #FFFFFF;
-	font-weight:bold;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	text-decoration:none;
 	margin-right:150px;
 }
 .homepage .text3 a {
-	font-size:24px;
-	color: #FFFFFF;
-	font-weight:bold;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	text-decoration:none;
-	margin-left:150px;
+	margin-left:160px;
 }
 .homepage .text4 a {
-	font-size:24px;
-	color: #FFFFFF;
-	font-weight:bold;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	text-decoration:none;
 	margin-right:190px;
 }
 .homepage .text5 a {
-	font-size:24px;
-	color: #FFFFFF;
-	font-weight:bold;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	text-decoration:none;
-	margin-left:190px;
+	margin-left:200px;
 }
 .homepage .text6 a {
-	font-size:24px;
-	color: #FFFFFF;
-	font-weight:bold;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	text-decoration:none;
 	margin-right:220px;
 }
 .homepage .text7 a {
-	font-size:24px;
-	color: #FFFFFF;
-	font-weight:bold;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	text-decoration:none;
 	margin-left:100px;
 }
 
