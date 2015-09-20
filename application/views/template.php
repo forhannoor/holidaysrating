@@ -149,20 +149,18 @@ var base_url = "<?php echo base_url() ?>";
 </form>
 <div id="countrylist"></div>
 <img src="<?php echo base_url('assets/images/border.png') ?>" alt="Holidaysrating" title="Holidaysrating" style="margin-top:12px" />
-<?php $CI = &get_instance() ?>
-<?php $CI->load->model('Session_model') ?>
 <h2>Members online</h2>
-<p style="font-size:10px">Total: <?php echo $CI->Session_model->member_online() ?></p>
+<p style="font-size:10px">Total: <?php echo $this->Session_model->member_online() ?></p>
 <br/>
 <ul class="profile-items">
-<?php $members_online = $CI->Session_model->member_online_list() ?>
+<?php $members_online = $this->Session_model->member_online_list() ?>
 <?php foreach($members_online as $key => $value): ?>
 <li><?php echo anchor('user/browse/' . $key, $value) ?></li>
 <?php endforeach ?>
 </ul>
 <br />
 <h2>Guests online</h2>
-<p style="font-size:10px">Total:<?php echo $CI->Session_model->guest_online() ?></p>
+<p style="font-size:10px">Total:<?php echo $this->Session_model->guest_online() ?></p>
 </div>
 <div class="bottom"></div>
 </div>

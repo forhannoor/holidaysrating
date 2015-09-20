@@ -22,7 +22,7 @@
 </div>
 </div>
 
-<div id="slider" style="padding-top:40px">
+<div id="slider">
 <div id="home-login-page">
 <?php echo form_open('auth/login') ?>
 <p>
@@ -61,10 +61,11 @@
 </body>
 
 <style type="text/css">
-#home-login-page form  { display: table;}
-#home-login-page p     { display: table-row; padding: 3px;}
-#home-login-page label { display: table-cell; padding: 3px;}
-#home-login-page input { display: table-cell; padding: 3px; margin-bottom: 3px;}
+#home-login-page form{display: table;}
+#home-login-page p{display: table-row; padding: 3px;}
+#home-login-page label{display: table-cell; padding: 3px;}
+#home-login-page input{display: table-cell; padding: 3px; margin-bottom: 3px; border: none; border-radius: 4px;}
+#home-login-page input[type=text], input[type=password]{width: 220px;}
 #home-login-page input[type=submit]{
     position: relative;
     width: 82px;
@@ -91,9 +92,9 @@
     font-weight: bold;
     float: left;
 }
-#home-login-page input[type=submit]:hover, #login-cancel:hover{
-    opacity: 0.8;
-    cursor: pointer;   
-}
+#home-login-page input[type=submit]:hover, #login-cancel:hover{opacity: 0.8; cursor: pointer;}
+#home-login-page form{margin: 0px auto 0px auto; display: block; width: 30%;}
+#home-login-page form p{line-height: 22px;}
+#home-login-page{top: 25%;position: relative;}
 </style>
 </html>

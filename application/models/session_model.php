@@ -1,11 +1,12 @@
 <?php
 
-class Session_model extends CI_Model
+class Session_model extends MY_Model
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('User_model');
+        $this->_table = 'ci_sessions';
+        $this->_fields = array(0 => 'session_id', 1 => 'ip_address', 2 => 'user_agent', 3 => 'last_activity', 4 => 'user_data');
     }
     
     /*
@@ -15,7 +16,7 @@ class Session_model extends CI_Model
     public function member_online_list()
     {
         $this->db->where('user_data !=', '');
-        $records = $this->db->get('ci_sessions')->result();
+        $records = $this->db->get($this->_table)->result();
         $names = array();
         
         foreach($records as $r)
@@ -46,7 +47,7 @@ class Session_model extends CI_Model
     public function guest_online()
     {
         $counter = 0;
-        $records = $this->db->get('ci_sessions');
+        $records = $this->db->get($this->_table);
         
         foreach($records->result() as $r)
         {
@@ -76,7 +77,7 @@ class Session_model extends CI_Model
     public function member_online()
     {
         $counter = 0;
-        $records = $this->db->get('ci_sessions');
+        $records = $this->db->get($this->_table);
         
         foreach($records->result() as $r)
         {

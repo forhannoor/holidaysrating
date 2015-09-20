@@ -10,7 +10,7 @@
 <meta name="revisit-after" content="1 days"/>
 <meta name="language" content="English" />
 <meta property="og:title" content="<?php echo $video->title ?>" />
-<meta property="og:type" content="video">
+<meta property="og:type" content="video" />
 
 <?php if(isset($video)): ?>
     <title><?php echo $video->title ?></title>
@@ -44,7 +44,6 @@ height: auto;
 </div>
 <br />
 <div id="content">
-<!--h1><?php echo $heading ?></h1-->
 <div class="clear"></div>
 <div class="left-side">
 <div class="top-player"></div>
@@ -53,7 +52,7 @@ height: auto;
 <?php if($this->ion_auth->logged_in()): ?>
 <h2>Welcome</h2>
 <?php if(isset($profile_info) && strlen($profile_info->avatar) > 0): ?>
-<p class="avatar"><?php echo anchor('user/index', img('./uploads/'.$profile_info->avatar)) ?></p>
+<p class="avatar"><?php echo anchor('user/index', img('./uploads/' . $profile_info->avatar)) ?></p>
 <?php else: ?>
 <p class="avatar"><?php echo anchor('user/index', img('assets/assets/avatar.jpg')) ?></p>
 <?php endif ?>
@@ -141,10 +140,10 @@ height: auto;
 <h2 style="margin-bottom:8px">Related Videos</h2>
 <table class="thumbnails" style="border: thin gray solid;padding:10px;width:180px;border-radius:7px">
 <?php foreach($related_videos as $r): ?>
-<?php $thumbnail = array('src' => strlen($r->thumbnail) > 0 ? 'uploads/media/videos/' . $r->thumbnail : 'assets/images/thumbnail.jpg', 'title' => $r['title']) ?>
+<?php $thumbnail = array('src' => strlen($r->thumbnail) > 0 ? 'uploads/media/videos/' . $r->thumbnail : 'assets/images/thumbnail.jpg', 'title' => $r->title) ?>
 <tr>
-    <td><p><?php echo anchor('topmenu/video/' . urlsafe_b64encode($r['name']), img($thumbnail), array('target' => '_blank')) ?></p></td>
-    <td><p><?php echo $r['title'] ?></p></td>
+    <td><p><?php echo anchor('topmenu/video/' . urlsafe_b64encode($r->name), img($thumbnail), array('target' => '_blank')) ?></p></td>
+    <td><p><?php echo $r->title ?></p></td>
 </tr>
 <?php endforeach ?>
 </table>

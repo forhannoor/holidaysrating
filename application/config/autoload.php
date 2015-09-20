@@ -10,7 +10,7 @@ $autoload['config'] = array('holidaysrating');
 
 $autoload['language'] = array();
 
-$autoload['model'] = array('Ion_auth_model', 'Picture_model', 'User_model');
+$autoload['model'] = array('Ion_auth_model', 'Picture_model', 'User_model', 'Session_model');
 
 /* End of file autoload.php */
 /* Location: ./application/config/autoload.php */
