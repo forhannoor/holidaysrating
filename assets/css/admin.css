@@ -1,0 +1,57 @@
+body{
+    background: #F5E5C5;
+}
+
+.content{
+    margin-top: 45px;
+    margin-bottom: 30px;
+    padding: 4px;
+}
+
+.banners img{
+    width: 300px;
+    height: 160px;
+}
+
+.thumbnails img{
+    width: 210px;
+    height: 130px;
+}
+
+.users_table{
+    border: solid 1px;
+    border-collapse: collapse;
+    font-size: small;
+}
+
+.users_table tr, .users_table td, .users_table th{
+    border: solid 1px;
+    text-align: center;
+    padding: 4px 5px 4px 5px;
+}
+
+.users_table img{
+    max-height: 64px;
+    max-width: 64px;
+}
+
+.table-narrow{
+    width: 50%;
+}
+
+.thumbnails h6{
+    text-align: center;
+}
+
+.note{
+    padding: 3px 5px 3px 5px;
+    width: 570px;
+    background: url(../img/note.jpg);
+    background-position: -10px -10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px;
+}
+
+input[type=text], textarea{
+    width: 35%;
+}
