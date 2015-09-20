@@ -16,6 +16,9 @@
 </head>
 
 <body>
+<script type="text/javascript">
+var base_url = "<?php echo base_url() ?>";
+</script>
 <div id="top-head">
 <div class="main">
 <div class="logo"><?php echo anchor('home/index', img('assets/images/logo/holidaysrating.png')); ?></div>

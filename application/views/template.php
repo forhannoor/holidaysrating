@@ -39,7 +39,13 @@ var base_url = "<?php echo base_url() ?>";
 </ul>
 <br /><br /><br />
 <ul>
-<li class="text2"><?php echo anchor('home/login', 'Login') ?></li>
+<li class="text2">
+    <?php if($this->ion_auth->logged_in()): ?>
+        <?php echo anchor('user', $this->session->userdata('username')) ?>
+    <?php else: ?>
+        <?php echo anchor('home/login', 'Login') ?>
+    <?php endif ?>
+</li>
 <li class="text3"><?php echo anchor('topmenu/videodump', 'Videos') ?></li>
 </ul>
 <br /><br /><br />

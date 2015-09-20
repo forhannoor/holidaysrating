@@ -58,6 +58,7 @@ class MY_Model extends CI_Model
     public function insert($data)
     {
         $this->db->insert($this->_table, $data);
+        return $this->db->insert_id();
     }
     
     public function update($id, $data)
