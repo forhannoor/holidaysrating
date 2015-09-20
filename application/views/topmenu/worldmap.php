@@ -4,35 +4,73 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="content-language" content="en-us" />
 <meta name="description" content="Explore the world"/>
-<meta name="keywords" content="world, worldmap, explore, map"/>
-<meta name="author" content="Raymond"/>
+<meta name="keywords" content="<?php echo $heading ?>, world, explore, map, world population"/>
+<meta name="author" content="Holidaysrating.com"/>
 <meta name="robots" content="index, follow"/>
 <meta name="revisit-after" content="1 days"/>
 <meta content="<?php echo base_url() ?>assets/images/thumbs/world.jpg" property="og:image" />
 
-<title>Worldmap | Holidaysrating</title>
+<title><?php echo $heading ?> | Holidaysrating</title>
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
+<?php echo js('assets/js/ajax.js') ?>
 </head>
 
 <body>
 <div id="top-head">
 <div class="main">
-<div class="logo"><img src="<?php echo base_url('assets/images/logo/holidaysrating.png') ?>" alt="Holidaysrating" title="Holidaysrating" /></div>
+<div class="logo"><?php echo anchor('home/index', img('assets/images/logo/holidaysrating.png')); ?></div>
 <div class="menu">
 <ul>
-<li><?php echo anchor('home/index', 'HOME') ?></li>
-<li><?php echo anchor('user/index', 'MY PROFILE') ?></li>
 <li class="active"><?php echo anchor('topmenu/worldmap', 'WORLDMAP') ?></li>
 <li><?php echo anchor('topmenu/videodump', 'VIDEOS') ?></li>
 <li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
 <li><?php echo anchor('news/news_index', 'TRAVELNEWS') ?></li>
 <li><?php echo anchor('topmenu/helpcenter', 'HELP') ?></li>
 </ul>
+
+<div class="user-submenu">
+<?php if(! $this->ion_auth->logged_in()): ?>
+<a href="<?php echo site_url('home/login') ?>" rel="nofollow">LOGIN</a>
+<?php else: ?>
+<strong><a href="<?php echo site_url('user/index') ?>" rel="nofollow"><?php echo $this->session->userdata('username') ?></a></strong>&nbsp;&nbsp;<a id="q999" style="cursor: pointer">&#9660;</a>
+<div id="a999">
+<table style="border:collapse;border-top:1px solid #A1B8BE;margin-top:2px">
+<tr>
+<td style="padding:0 3px"><?php echo anchor('user/index', 'MY PROFILE') ?></td>
+</tr>
+<tr>
+<td style="padding:0 3px"><?php echo anchor('user/inbox', 'INBOX') ?></td>
+</tr>
+<tr>
+<td style="padding:0 3px"><?php echo anchor('user/bucket', 'BUCKETLIST') ?></td>
+</tr>
+<tr>
+<td style="padding:0 3px"><?php echo anchor('user/settings', 'SETTINGS') ?></td>
+</tr>
+<tr>
+<td style="padding:0 3px"><?php echo anchor('auth/logout', 'LOG OUT') ?></td>
+</tr>
+</table>
 </div>
-</div>
+<?php endif ?>
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        $("#a999").hide();
+        
+        $("#q999").click(function()
+        {
+            $("#a999").toggle("medium");
+        }
+        );
+    }
+    );
+</script>
 </div>
 
-
+</div>
+</div>
+</div>
 <div id="slider" >
 <center><img src="<?php echo base_url() ?>assets/images/world.jpg" height="412" width="940" alt="Worldmap" title="Worldmap" usemap="#worldmap"/></center>
 <map name="worldmap">
@@ -64,7 +102,7 @@
 <br />
 <?php echo $this->session->userdata('username') ?>
 <br />
-<?php echo 'Member since&nbsp;: ' . date("d-m-Y" , $this->session->userdata('created_on')) ?>
+<?php echo 'Member since: ' . date("d-m-Y" , $this->session->userdata('created_on')) ?>
 <br />
 <?php echo 'Last logged in: ' . date("d-m-Y" , $this->session->userdata('old_last_login')) ?>
 <?php $CI = & get_instance() ?>
@@ -80,13 +118,42 @@
 <h2>Member Login</h2>
 <?php $this->load->view('auth/my_login') ?>
 <br />
-<?php echo anchor('auth/forgot_password', 'Forgot Password') ?>
+<center>
+<?php echo anchor('auth/register', 'Sign Up!', 'rel = "nofollow"') ?>
 &nbsp;&nbsp;&nbsp;
-<?php echo anchor('auth/register', 'Register') ?>
+<?php echo anchor('auth/forgot_password', 'Forgot Password?', 'rel = "nofollow"') ?>
+</center>
 <?php endif ?>
 </div>
 <img src="<?php echo base_url('assets/images/border.png') ?>" alt="Holiday" style="margin-top:12px" />
-<div style="border-radius: 10px; overflow: hidden;padding:0px 3px;padding-top:3px; width:190px; align:center; text-align:center;margin-left: -5px;margin-top: 8px;"><iframe src="http://localtimes.info/timediff.php?lcid=USNY0996,CUXX0003,JAXX0085,NLXX0002,RSXX0063,CHXX0008,BRXX0201,ASXX0112&cp=000000,ffffff&uc=0" seamless="" frameborder="0" width="190" height="293" style="background:white"></iframe></div>
+<form name="Search">
+<h2>Search</h2>
+<select name="Region">
+<option value="">-- Choose region --</option>
+<option value="africa">Africa</option>
+<option value="asia">Asia</option>
+<option value="caribbean">Caribbean</option>
+<option value="central_america">Central America</option>
+<option value="europe">Europe</option>
+<option value="middle_east">Middle East</option>
+<option value="north_america">North America</option>
+<option value="oceania">Oceania</option>
+<option value="south_america">South America</option>
+</select>
+<br />
+<br />
+<!--div class="button" id="search">Go</div -->
+</form>
+<div id="countrylist"></div>
+<img src="<?php echo base_url('assets/images/border.png') ?>" alt="Holiday" style="margin-top:12px" />
+<!--Currency Converter widget - HTML code - fx-rate.net --> 
+<div style="width: 160px; border:1px solid #000;background-color:#fff;align:center;text-align;left;margin:12px 0px 10px 10px;padding:0px 0px;"> 
+<div style="text-align:center;font-size:11px; line-height:16px;font-family: arial;color:#173a00; font-weight:bold;background:#FFFFFF;padding:3px 3px;"> 
+<a href="http://fx-rate.net/USD/" title="American Dollar Exchange Rate" style="text-decoration:none;color:#173a00;font-size:11px; line-height:16px;font-family: arial;" target="_blank"> <img border="" width="16" height="11" style="margin:0;padding:0;border:0;" src = "http://fx-rate.net/images/countries/us.png"></img> &#160; Dollar Exchange Rate</a> 
+</div>		
+<script type="text/javascript" src="http://fx-rate.net/fx-rates.php?currency=USD&length=short&label_type=currency_code"></script>
+</div>
+<!--end of code-->
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="Holiday" style="margin-top:12px" />
 <?php $CI = &get_instance() ?>
 <?php $CI->load->model('Session_model') ?>
@@ -175,11 +242,12 @@
 <div class="right-side">
 <div class="top"></div>
 <div class="middle">
-<p><span>You are here&gt;<?php echo anchor('home/index', 'Home') ?>&gt;Worldmap</span></p>
+<p><span>You are here&gt;<?php echo anchor('home/index', 'Home') ?>&gt; <?php echo $heading ?></span></p>
 
 <h2 style="margin-bottom:6px">World Facts</h2>
-<p><strong>World population: <a href="http://www.worldometers.info/world-population" style="text-decoration:none;color:#AA99AE" target="_blank">7,251,789,856</a></strong><br />
-<span style="font-size:x-small">(last updated:06/08/2014)</span></p>
+<p><strong>World population:<br />
+<a href="http://www.worldometers.info/world-population" style="text-decoration:none;font-size:17px;margin-left:4px;color:#AA99AE" target="_blank">7,307,239,607</a></strong><br />
+<span style="font-size:x-small;margin-left:4px">(last updated:1th of April 2015)</span></p>
 <p>There are 196 independent countries around the world, all with their own capital city. <br /><br />
 <?php echo anchor('africa_countries/south_sudan', 'South Sudan') ?> is the world's newest country. On July 9, 2011 South Sudan peacefully seceded from <?php echo anchor('africa_countries/sudan', 'Sudan') ?> following a January 2011 referendum.</p>
 <p>The world's largest desert is the North African desert; the Saharan. The Arabian Desert in the <?php echo anchor('regions/middle_east', 'Middle East') ?> is the second largest desert.</p>
@@ -205,16 +273,7 @@
 
 <div class="clear"></div>
 <img src="<?php echo base_url() ?>assets/images/border.png" alt="Holiday" style="margin-top:8px" />
-
-<!--Currency Converter widget - HTML code - fx-rate.net --> 
-<div style="width: 160px; border:1px solid #000;background-color:#fff;align:center;text-align;left;margin:12px 0px 10px 10px;padding:0px 0px;"> 
-<div style="text-align:center;font-size:11px; line-height:16px;font-family: arial;color:#173a00; font-weight:bold;background:#FFFFFF;padding:3px 3px;"> 
-<a href="http://fx-rate.net/USD/" title="American Dollar Exchange Rate" style="text-decoration:none;color:#173a00;font-size:11px; line-height:16px;font-family: arial;" target="_blank"> <img border="" width="16" height="11" style="margin:0;padding:0;border:0;" src = "http://fx-rate.net/images/countries/us.png"></img> &#160; Dollar Exchange Rate</a> 
-</div>		
-<script type="text/javascript" src="http://fx-rate.net/fx-rates.php?currency=USD&length=short&label_type=currency_code"></script>
-</div>
-<!--end of code-->
-
+<div style="border-radius: 10px; overflow: hidden;padding:0px 3px;padding-top:3px; width:190px; align:center; text-align:center;margin-left: -5px;margin-top: 8px;"><iframe src="http://localtimes.info/timediff.php?lcid=USNY0996,CUXX0003,JAXX0085,NLXX0002,RSXX0063,CHXX0008,BRXX0201,ASXX0112&cp=000000,ffffff&uc=0" seamless="" frameborder="0" width="190" height="293" style="background:white"></iframe></div>
 </div>
 <div class="bottom"></div>
 </div>
@@ -240,33 +299,33 @@
 
 <div class="first-column">
 <ul>
-<li><?php echo anchor('home/index', 'HOME') ?></li>
-<li><?php echo anchor('user/index', 'MY PROFILE') ?></li>
-<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
 <li class="active"><?php echo anchor('topmenu/worldmap', 'WORLDMAP') ?></li>
+<li><?php echo anchor('topmenu/videodump', 'VIDEODUMP') ?></li>
+<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
+<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
 <li><?php echo anchor('regions/africa', 'AFRICA') ?></li>
+<li><?php echo anchor('regions/antartica', 'ANTARCTICA') ?></li>
 <li><?php echo anchor('regions/asia', 'ASIA') ?></li>
 <li><?php echo anchor('regions/caribbean', 'CARIBBEAN') ?></li>
-<li><?php echo anchor('regions/central_america', 'CENTRAL AMERICA') ?></li>
 </ul>
 </div>
 <div class="first-column">
 <ul>
+<li><?php echo anchor('regions/central_america', 'CENTRAL AMERICA') ?></li>
 <li><?php echo anchor('regions/europe', 'EUROPE') ?></li>
+<li><?php echo anchor('regions/indonesia', 'INDONESIA') ?></li>
+<li><?php echo anchor('regions/middle_east', 'MIDDLE EAST') ?></li>
+</ul>
+</div>
+<div class="first-column">
+<ul>
 <li><?php echo anchor('regions/north_america', 'NORTH AMERICA') ?></li>
 <li><?php echo anchor('regions/oceania', 'OCEANIA') ?></li>
 <li><?php echo anchor('regions/south_america', 'SOUTH AMERICA') ?></li>
-</ul>
-</div>
-<div class="first-column">
-<ul>
-<li><?php echo anchor('topmenu/favorites', 'FAVORITES') ?></li>
-<li><?php echo anchor('news/news_index', 'TRAVEL NEWS') ?></li>
-<li><?php echo anchor('blog/blog_index', 'BLOG') ?></li>
 <li><?php echo anchor('topmenu/helpcenter', 'HELPCENTER') ?></li>
 </ul>
 </div>

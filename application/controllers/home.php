@@ -15,43 +15,12 @@ class Home extends CI_Controller
     
     public function index()
     {
-        $this->output->enable_profiler(true);
-        $this->load->model('Video_model');
         $this->load->model('User_model');
-        $data['main']='home';
-        $data['heading']= 'Travel with us...';
-        $data['videos'] = $this->Video_model->get(4, 0, 0);        
-        
-        $data['images'] = array(
-            0 => array(
-                'src' => 'assets/images/slider/1.JPG',
-                'title' => 'It is all about travel! Find ratings, adventures, tips and tools or stories written by our members.<br />
-    			On Holidayrating, you can make new travel buddies, edit detailed information or <a href = http://holidaysrating.com/index.php/topmenu/videodump>watch uploaded travel videos.</a>'
-            ),
-            
-            1 => array(
-                'src' => 'assets/images/slider/2.jpg',
-                'title' => 'Explore the <a href = http://holidaysrating.com/index.php/topmenu/worldmap>world</a> or check out our <a href = http://holidaysrating.com/index.php/topmenu/favorites>favorites</a>.<br />
-    			Read more about countries, cities or what there is to do. <a href = http://holidaysrating.com/index.php/auth/register>Click here</a> to become our travelguide and share your information to others.'
-            ),
-            
-            2 => array(
-                'src' => 'assets/images/slider/3.jpg',
-                'title' => 'This planet has many great things to offer, you just need to know where!<br />
-    			Like us with Facebook, Google+ or tweet us, help us grow!!'
-            ),
-            
-            3 => array(
-                'src' => 'assets/images/slider/4.jpg',
-                'title' => 'Ready for some cooking? Find the best local recipes! Edit your own cookbook!'
-            ),
-        );
-
-		
+        $data['main'] = 'home';
         if($this->ion_auth->logged_in())
             $data['profile_info']=$this->User_model->get_profile_information($this->session->userdata('user_id'));
             
-		$this->load->view('template', $data);
+        $this->load->view('template', $data);
     }
     
     public function contact_us()
