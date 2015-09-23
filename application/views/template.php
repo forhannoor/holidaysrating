@@ -29,8 +29,8 @@ var base_url = "<?php echo base_url() ?>";
 <div class="main">
 <div class="logo"><?php echo anchor('home/index', img('assets/images/logo/holidaysrating.png')); ?></div>
 <div class="homepage-links">
-<a href="http://www.holidaysrating.com/index.php/topmenu/helpcenter" style="float:right;margin-left:10px;padding-top:11px"><img src="<?php echo base_url('assets/images/help.png') ?>"/></a>
-<a href="http://www.holidaysrating.com/index.php/auth/register" rel="nofollow" style="float:right;padding-top:10px"><img src="<?php echo base_url('assets/assets/register.png') ?>" alt="register"/></a> 
+<a href="<?php echo site_url('topmenu/helpcenter') ?>" style="float:right;margin-left:10px;padding-top:11px"><img style="width: 30px; height: 30px;" src="<?php echo base_url('assets/images/helpcenter.png') ?>"/></a>
+<a href="<?php echo site_url('auth/register') ?>" rel="nofollow" style="float:right;padding-top:10px"><img src="<?php echo base_url('assets/assets/register.png') ?>" alt="register"/></a> 
 </div>
 </div>
 </div>

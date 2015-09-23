@@ -13,3 +13,10 @@ views
     template
     topmenu
         worldmap
+        
+23/9/15
+-------
+controllers
+    auth
+views
+    template

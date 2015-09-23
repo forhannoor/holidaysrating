@@ -9,7 +9,6 @@
 <meta name="robots" content="nofollow"/>
 <meta name="revisit-after" content="1 days"/>
 <meta content="<?php echo base_url('assets/images/logo/mediumtrans.png') ?>" property="og:image" />
-
 <title>Holidaysrating | The Social Travel Community</title>
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
 </head>
@@ -53,5 +52,4 @@
 </div>
 <?php echo css('assets/css/holiday.css') ?>
 </body>
-
 </html>
