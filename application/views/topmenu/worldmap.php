@@ -130,7 +130,7 @@ var base_url = "<?php echo base_url() ?>";
 </div>
 <img src="<?php echo base_url('assets/images/border.png') ?>" alt="Holiday" style="margin-top:12px" />
 <form name="Search">
-<h2>Search</h2>
+<h2>Quick Search</h2>
 <select name="Region">
 <option value="">-- Choose region --</option>
 <option value="africa">Africa</option>

@@ -5,11 +5,11 @@
 <meta http-equiv="content-language" content="en-us" />
 <meta name="keywords" content="Holidays rating, Holidaysrating, Login, Log in" />
 <meta name="description" content="Make new travel buddies, find information about destinations and it's local food, rate your favorite, upload your movies for everyone to watch or share your favorite travel story... You are our travelguide!" />
-<meta name="author" content="Raymond"/>
+<meta name="author" content="Holidaysrating.com"/>
 <meta name="robots" content="nofollow"/>
 <meta name="revisit-after" content="1 days"/>
 <meta content="<?php echo base_url('assets/images/logo/mediumtrans.png') ?>" property="og:image" />
-<meta name="viewport" content="maximum-scale=1"/>
+
 <title>Holidaysrating | The Social Travel Community</title>
 <?php echo js('assets/js/jquery-2.1.1.min.js') ?>
 </head>
@@ -17,42 +17,36 @@
 <body>
 <div id="top-head">
 <div class="main">
-<div class="logo"><?php echo anchor('home/index', img('assets/images/logo/holidaysrating.png')) ?></div>
-<a href="<?php echo site_url('auth/register') ?>" rel="nofollow" style="float:right;padding-top:10px" onmouseover='this.style.textDecoration="opactity:0.8"'><?php echo img('assets/assets/register.png') ?></a>
+<div class="logo"><?php echo anchor('home/index', img('assets/images/logo/holidaysrating.png')); ?></div>
+<div class="homepage-links">
+<a href="http://www.holidaysrating.com/index.php/topmenu/helpcenter" style="float:right;margin-left:10px;padding-top:11px"><img src="<?php echo base_url('assets/images/help.png') ?>"/></a>
+<a href="http://www.holidaysrating.com/index.php/auth/register" rel="nofollow" style="float:right;padding-top:10px"><img src="<?php echo base_url('assets/assets/register.png') ?>" alt="register"/></a> 
+</div>
 </div>
 </div>
 
-<div id="slider">
-<div id="home-login-page">
+<div id="slider" style="padding-top:40px">
+<div id="login-page">
 <?php echo form_open('auth/login') ?>
-<p>
 <?php echo form_label('Email', 'identity') ?>
 <?php echo form_input('identity', '', 'required') ?>
-</p>
-<p>
+<br />
 <?php echo form_label('Password', 'password') ?>
 <?php echo form_password('password', '', 'required') ?>
-</p>
-<p><label>Remember Me</label>
+<p style = "color: black; margin-top: 8px;">Remember Me
 <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"') ?>
 </p>
 <?php $error = $this->session->flashdata('error') ?>
-
 <?php if(strlen($error) > 0): ?>
 <p><?php echo $error ?></p>
-<?php endif ?>
-
-<p>
-    <label></label>
-    <?php echo form_submit('', 'Login') ?>
-    <a href="<?php echo site_url('home') ?>" id="login-cancel">Cancel</a>
-</p>
-
-<p><label></label><?php echo anchor('auth/forgot_password', 'Forgot Your Password?', 'rel = "nofollow"') ?></p>
- <?php echo form_close() ?>
-<?php $this->session->set_flashdata('login_page', 'login') ?>
+<?php endif ?>        
+<?php echo form_submit('', 'Login') ?> <a href="#" onClick="history.go(-1)">Cancel</a>
+<?php echo form_close() ?>
+<br />
+<?php echo anchor('auth/forgot_password', 'Forgot Your Password?', 'rel = "nofollow"') ?>
 </div>
 </div>
+
 
 <div id="last-line">
 <p><?php echo anchor('privacy/privacy_policy', 'Privacy Policy', 'rel = "nofollow"') ?> | <?php echo anchor('privacy/terms_of_use', 'Terms of Use', 'rel = "nofollow"') ?> | <?php echo anchor('home/contact_us', 'Contact Us', 'rel = "nofollow"') ?> | &copy; Copyright <?php echo date('Y') ?> Holidaysrating All Rights Reserved</p>
@@ -60,41 +54,4 @@
 <?php echo css('assets/css/holiday.css') ?>
 </body>
 
-<style type="text/css">
-#home-login-page form{display: table;}
-#home-login-page p{display: table-row; padding: 3px;}
-#home-login-page label{display: table-cell; padding: 3px;}
-#home-login-page input{display: table-cell; padding: 3px; margin-bottom: 3px; border: none; border-radius: 4px;}
-#home-login-page input[type=text], input[type=password]{width: 220px;}
-#home-login-page input[type=submit]{
-    position: relative;
-    width: 82px;
-    height: 32px;
-    border: none;
-    background: url('<?php echo base_url() ?>assets/assets/green.png') no-repeat;
-    color: #FFF;
-    font-size:13px;
-    font-weight: bold;
-    float: left;
-    margin-right: 15px;
-}
-#login-cancel{
-    text-decoration: none;
-    position: relative;
-    width: 82px;
-    height: 32px;
-    border: none;
-    background: url('<?php echo base_url() ?>assets/assets/orange.png') no-repeat;
-    color: #FFF;
-    font-size:13px;
-    text-align: center;
-    line-height: 30px;
-    font-weight: bold;
-    float: left;
-}
-#home-login-page input[type=submit]:hover, #login-cancel:hover{opacity: 0.8; cursor: pointer;}
-#home-login-page form{margin: 0px auto 0px auto; display: block; width: 30%;}
-#home-login-page form p{line-height: 22px;}
-#home-login-page{top: 25%;position: relative;}
-</style>
 </html>

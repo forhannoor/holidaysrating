@@ -1099,18 +1099,15 @@ body {
     background-size: cover;
 }
 
-/*#slider img {
-	margin-top:20px;
-}*/
-
 .homepage {
 	width:100%;
 	background:url('../images/homepage-img.jpg') no-repeat #c0dde9 center;
     height: 430px;
-    /*background-position: 50% 50%;*/
-    /*background-size: cover;*/
 }
 
+.homepage-links a:hover {
+	opacity:0.5;
+}
 .homepage ul {
 	margin:0px;
 	padding:0px;
@@ -1126,15 +1123,14 @@ body {
 
 .homepage ul li a{
     font-size:24px;
-	/*color: #FFFFFF;*/
-    color: darkorchid;
+    color:#96B5D3;
 	font-weight:bold;
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	text-decoration:none;
 }
 
 .homepage ul li a:hover{
-	color: #96B5D3;
+	color:#FFFFFF;
 	cursor:pointer;	
 }
 
@@ -1149,16 +1145,16 @@ body {
 	margin-left:160px;
 }
 .homepage .text4 a {
-	margin-right:190px;
+	margin-right:180px;
 }
 .homepage .text5 a {
 	margin-left:200px;
 }
 .homepage .text6 a {
-	margin-right:220px;
+	margin-right:200px;
 }
 .homepage .text7 a {
-	margin-left:100px;
+	margin-left:180px;
 }
 
 .bxslider a {
@@ -5892,5 +5888,12 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 	border:3px #c0dde9 solid;
 	border-radius:5px;	
 }
-
+#Topmenu-block {
+	margin:0 auto;
+	overflow:hidden;
+	padding:15px;
+	border:3px #c0dde9 solid;
+	border-radius:5px;	
+	
+}
 /* custom css code ends */

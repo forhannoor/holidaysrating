@@ -28,7 +28,10 @@ var base_url = "<?php echo base_url() ?>";
 <div id="top-head">
 <div class="main">
 <div class="logo"><?php echo anchor('home/index', img('assets/images/logo/holidaysrating.png')); ?></div>
-<a href="http://www.holidaysrating.com/index.php/auth/register" rel="nofollow" style="float:right;padding-top:10px" onmouseover='this.style.textDecoration="opactity:0.8"'><img src="<?php echo base_url('assets/assets/register.png') ?>"/></a>
+<div class="homepage-links">
+<a href="http://www.holidaysrating.com/index.php/topmenu/helpcenter" style="float:right;margin-left:10px;padding-top:11px"><img src="<?php echo base_url('assets/images/help.png') ?>"/></a>
+<a href="http://www.holidaysrating.com/index.php/auth/register" rel="nofollow" style="float:right;padding-top:10px"><img src="<?php echo base_url('assets/assets/register.png') ?>" alt="register"/></a> 
+</div>
 </div>
 </div>
 
@@ -55,7 +58,7 @@ var base_url = "<?php echo base_url() ?>";
 </ul>
 <br /><br /><br />
 <ul>
-<li class="text6"><?php echo anchor('topmenu/contruction', 'Construction') ?></li>
+<li class="text6"><?php echo anchor('topmenu/latest_stories', 'Stories') ?></li>
 <li class="text7"><?php echo anchor('topmenu/social_media', 'Social Media') ?></li>
 </ul>
 </center>
