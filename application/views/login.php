@@ -24,28 +24,48 @@
 </div>
 </div>
 
-<div id="slider" style="padding-top:40px">
+<div id="slider" style="padding-top:40px;">
 <div id="login-page">
-<?php echo form_open('auth/login') ?>
-<?php echo form_label('Email', 'identity') ?>
-<?php echo form_input('identity', '', 'required') ?>
-<br />
-<?php echo form_label('Password', 'password') ?>
-<?php echo form_password('password', '', 'required') ?>
-<p style = "color: black; margin-top: 8px;">Remember Me
-<?php echo form_checkbox('remember', '1', FALSE, 'id="remember"') ?>
-</p>
-<?php $error = $this->session->flashdata('error') ?>
-<?php if(strlen($error) > 0): ?>
-<p><?php echo $error ?></p>
-<?php endif ?>        
-<?php echo form_submit('', 'Login') ?> <a href="#" onClick="history.go(-1)">Cancel</a>
-<?php echo form_close() ?>
-<br />
-<?php echo anchor('auth/forgot_password', 'Forgot Your Password?', 'rel = "nofollow"') ?>
+<table>
+    <?php echo form_open('auth/login') ?>
+        <tr>
+            <td><?php echo form_label('Email', 'identity') ?></td>
+            <td><?php echo form_input('identity', '', 'required') ?></td>
+        </tr>
+        
+        <tr>
+            <td><?php echo form_label('Password', 'password') ?></td>
+            <td><?php echo form_password('password', '', 'required') ?></td>
+        </tr>
+        
+        <tr>
+            <td>Remember Me</td>
+            <td><?php echo form_checkbox('remember', '1', FALSE, 'id="remember"') ?></td>
+        </tr>
+        
+        <tr>
+            <td></td>
+            <td>
+                <?php echo form_submit('', 'Login') ?>
+            </td>
+        </tr>
+        
+        <tr>
+            <td></td>
+            <td><?php echo anchor('auth/forgot_password', 'Forgot Your Password?', 'rel = "nofollow"') ?></td>
+        </tr>
+    
+        <?php echo form_hidden('login_source', 'home') ?>
+        <?php $error = $this->session->flashdata('error') ?>
+        
+        <?php if(strlen($error) > 0): ?>
+        <p><strong><?php echo $error ?></strong></p>
+        <?php endif ?>
+    
+    <?php echo form_close() ?>
+</table>
 </div>
 </div>
-
 
 <div id="last-line">
 <p><?php echo anchor('privacy/privacy_policy', 'Privacy Policy', 'rel = "nofollow"') ?> | <?php echo anchor('privacy/terms_of_use', 'Terms of Use', 'rel = "nofollow"') ?> | <?php echo anchor('home/contact_us', 'Contact Us', 'rel = "nofollow"') ?> | &copy; Copyright <?php echo date('Y') ?> Holidaysrating All Rights Reserved</p>

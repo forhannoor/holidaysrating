@@ -666,7 +666,8 @@ class Auth extends CI_Controller {
 	}
 
     function login()
-    {           
+    {
+        $this->config->load('ion_auth');
         $this->form_validation->set_rules('identity', 'Identity', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 
@@ -677,22 +678,33 @@ class Auth extends CI_Controller {
 			if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
 			{
                 // login successful
-				$this->session->set_flashdata('message', $this->ion_auth->messages());
-                redirect('user/index', 'refresh');                
+                $this->session->set_flashdata('message', $this->ion_auth->messages());
+                $login_source = $this->input->post('login_source');
+                
+                if($login_source == 'home') // login from home/login
+                {
+                    // redirect to user/index
+                    redirect('user', 'refresh');
+                }
+                
+                else // login from sidebar or some other place
+                {
+                    // redirect to the page the user was before
+                    echo "<script type = \"text/javascript\">window.location.replace(document.referrer)</script>";
+                }                
 			}
             
 			else
 			{
                 // login failed
                 $this->session->set_flashdata('error', 'Invalid credential');
+                echo "<script type = \"text/javascript\">window.location.replace(document.referrer)</script>";
 			}
-			
-            echo "<script type = \"text/javascript\">window.location.replace(document.referrer)</script>";
 		}
 		
         else
 		{
-			redirect('home', 'refresh');
+			echo "<script type = \"text/javascript\">window.location.replace(document.referrer)</script>";
 		}       
     }
     
