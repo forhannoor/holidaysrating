@@ -63,7 +63,9 @@
 <div class="center">
 <div class="selectVideo">
 
-<?php echo $this->session->flashdata('msg') ?>
+<?php if(strlen($this->session->flashdata('msg')) > 0): ?>
+<div class="alert"><?php echo $this->session->flashdata('msg') ?></div>
+<?php endif ?>
 
 <h1>latest videos</h1>
 <div class="top"></div>

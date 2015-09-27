@@ -98,7 +98,14 @@ class topmenu extends CI_Controller
     /* video upload */
     public function dump_video()
     {
+        if(! $this->ion_auth->logged_in())
+        {
+            $this->session->set_flashdata('msg', 'You are not logged in');
+            redirect('topmenu/videodump', 'refresh');
+        }
+        
         $this->load->model('Story_model');
+        $this->load->model('Banner_m');
         
         /* upload configurations */    
         $config['upload_path']='./uploads/media/videos';
@@ -118,7 +125,7 @@ class topmenu extends CI_Controller
                 $data['heading'] = 'Video Upload';
        			$data['last_line'] = 'layouts/last_line';
                 $data['num_uploaded_stories'] = $this->Story_model->count_where('author', $this->session->userdata('user_id'));
-                $data['banner'] = $this->User_model->get_banner($this->ion_auth->user()->row()->id);
+                $data['banner'] = $this->Banner_m->get_where('uploader', $this->session->userdata('user_id'), 1);
                 $data['errors'] = $this->upload->display_errors();
                 $this->load->view('template_user', $data);
             }
@@ -137,7 +144,7 @@ class topmenu extends CI_Controller
             $data['heading'] = 'Video Upload';
        		$data['last_line'] = 'layouts/last_line';
             $data['allowed_types'] = $config['allowed_types'];
-            $data['banner'] = $this->User_model->get_banner($this->ion_auth->user()->row()->id);
+            $data['banner'] = $this->Banner_m->get_where('uploader', $this->session->userdata('user_id'), 1);
             $data['num_uploaded_stories'] = $this->Story_model->count_where('author', $this->session->userdata('user_id'));
             $this->load->view('template_user', $data);
         }
@@ -145,16 +152,55 @@ class topmenu extends CI_Controller
     
     public function dump_video_process()
     {
-        dd($this->input->post());
+        $config['upload_path']='./uploads/media/videos';
+        $config['allowed_types']='*';
+        $config['max_size']='1024000';
+        $config['encrypt_name'] = TRUE;
+        $this->load->library('upload', $config);
+        
+        if($this->upload->do_upload('file1')) // upload successful
+        {
+            $data = $this->upload->data();
+            $original_file = $data['file_name'];
+            $converted_file = sha1($original_file) . '.mp4';
+            $thumbnail = sha1($original_file) . '.jpg';
+            $ffmpeg = 'ffmpeg\\ffmpeg';
+            $file_path = 'uploads/media/videos/';
+            $conversion_command = $ffmpeg . ' -i ' . $file_path . $original_file . ' -vcodec h264 -acodec aac -strict -2 ' . $file_path . $converted_file;
+            $thumbnail_command = $ffmpeg . ' -i ' . $file_path . $converted_file . ' -ss 00:00:05 -vframes 1 ' . $file_path . $thumbnail;
+            $form_data = $this->input->post('formdata');
+            $form = json_decode($form_data);
+            exec($conversion_command); // convert file to mp4
+            exec($thumbnail_command); // create thumbnail
+            unlink($data['full_path']); // delete original file
+            $insert_data = array(
+                'name' => $converted_file,
+                'uploader' => $form->uploader,
+                'region' => $form->region,
+                'title' => $form->title,
+                'description' => $form->description,
+                'thumbnail' => $thumbnail
+            );
+            
+            $this->Video_model->insert($insert_data);
+            $this->session->set_userdata('upload_status', 1);
+            echo 'Upload successful';
+        }
+        
+        else // upload failed
+        {
+            $this->session->set_userdata('upload_status', 0);
+            echo 'Upload failed';
+        }
     }
     
     /* video playback */   
     public function video($name)
     {
         $this->load->model('Comment_m');
-        $vid = $this->Video_model->get_where('name', $name, 1);
+        $vid = $this->Video_model->get_where('name', urlsafe_b64decode($name), 1);
         $vid->viewed += 1;
-        R::store($vid);
+        $this->Video_model->update($vid->id, $vid);
         $data['video'] = $vid;
         $data['related_videos'] = $this->Video_model->get_where('region', $vid->region, 6);
         $data['main'] = 'topmenu/video_view';
@@ -170,8 +216,22 @@ class topmenu extends CI_Controller
     /* message to display after successful video upload */
     public function success()
     {
-        $str = '<h3>File has been uploaded successfully. Redirecting to your profile page...</h3>';
+        $upload_status = $this->session->userdata('upload_status');
+        $this->session->unset_userdata('upload_status');
+        
+        if($upload_status == 1) // video upload successful
+        {
+            $str = '<h3>File upload successful. Redirecting to your profile page...</h3>';
+            $url = site_url('user');
+        }
+        
+        else // video upload failed
+        {
+            $str = '<h3>File upload failed. Redirecting back to the page...</h3>';
+            $url = site_url('topmenu/dump_video');
+        }
+        
         echo $str;
-        header("Refresh:4; url=" . site_url('user'));
+        header("Refresh:2; url=" . $url);
     }
 }
