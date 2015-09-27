@@ -75,7 +75,7 @@ class topmenu extends CI_Controller
         	$data['last_line'] = 'layouts/last_line';
         	$data['sidebar'] = 'layouts/sidebar';
             $data['heading'] = 'Videodump';
-            $data['videos'] = $this->Video_model->get_where('', '', 4, 0, 'uploaded_at', 'DESC');
+            $data['videos'] = $this->Video_model->get_where('', '', 8, 0, 'uploaded_at', 'DESC');
             $this->load->view('topmenu/videodump', $data);
         }
         
@@ -202,7 +202,7 @@ class topmenu extends CI_Controller
         $vid->viewed += 1;
         $this->Video_model->update($vid->id, $vid);
         $data['video'] = $vid;
-        $data['related_videos'] = $this->Video_model->get_where('region', $vid->region, 6);
+        $data['related_videos'] = $this->Video_model->get_where('region', $vid->region, 5);
         $data['main'] = 'topmenu/video_view';
         $data['heading'] = 'Holidays Player';
         $data['header'] = 'layouts/header';

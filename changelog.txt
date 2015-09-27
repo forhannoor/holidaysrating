@@ -40,3 +40,4 @@ controllers
 views
     topmenu
         videodump
+    template_player

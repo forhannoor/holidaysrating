@@ -138,14 +138,25 @@ height: auto;
 </div>
 <img src="<?php echo base_url('assets/images/border.png') ?>" alt="border" style="margin-top:12px" />
 <h2 style="margin-bottom:8px">Related Videos</h2>
-<table class="thumbnails" style="border: thin gray solid;padding:10px;width:180px;border-radius:7px">
+<table class="thumbnails" style="border: thin gray solid; padding:4px; width:180px; border-radius:2px;">
+
 <?php foreach($related_videos as $r): ?>
 <?php $thumbnail = array('src' => strlen($r->thumbnail) > 0 ? 'uploads/media/videos/' . $r->thumbnail : 'assets/images/thumbnail.jpg', 'title' => $r->title) ?>
 <tr>
-    <td><p><?php echo anchor('topmenu/video/' . urlsafe_b64encode($r->name), img($thumbnail), array('target' => '_blank')) ?></p></td>
-    <td><p><?php echo $r->title ?></p></td>
+    <td>
+        <p><?php echo anchor('topmenu/video/' . urlsafe_b64encode($r->name), img($thumbnail), array('target' => '_blank')) ?></p>
+        <p style="margin-top: -10px;"><?php echo $r->viewed ?> views</p>
+    </td>
+    <td>
+        <?php if(strlen($r->title) > 20): ?>
+            <p><?php echo substr($r->title, 0, 20) ?>...</p>
+        <?php else: ?>
+            <p><?php echo $r->title ?></p>
+        <?php endif ?>    
+    </td>
 </tr>
 <?php endforeach ?>
+
 </table>
 
 </div>
