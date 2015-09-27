@@ -72,10 +72,10 @@ class topmenu extends CI_Controller
         
         if($this->uri->segment(3) == '')    // region not specified
         {
-        	$data['last_line']      = 'layouts/last_line';
-        	$data['sidebar']        = 'layouts/sidebar';
-            $data['heading']		= 'Videodump';
-            $data['videos'] = $this->Video_model->get(4, 0, 0);
+        	$data['last_line'] = 'layouts/last_line';
+        	$data['sidebar'] = 'layouts/sidebar';
+            $data['heading'] = 'Videodump';
+            $data['videos'] = $this->Video_model->get_where('', '', 4, 0, 'uploaded_at', 'DESC');
             $this->load->view('topmenu/videodump', $data);
         }
         

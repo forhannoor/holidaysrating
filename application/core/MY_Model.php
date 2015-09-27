@@ -20,7 +20,10 @@ class MY_Model extends CI_Model
     
     public function get_where($field, $value, $limit = 1000000000, $offset = 0, $order_by = '', $order = 'ASC')
     {
-        $this->db->where($field, $value);
+        if($field != '' && $value != '')
+        {
+            $this->db->where($field, $value);
+        }
         
         if(strlen($order_by) > 0)
         {
