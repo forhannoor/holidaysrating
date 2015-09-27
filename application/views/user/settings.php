@@ -4,8 +4,11 @@
 <br />
 <br />
 <p><strong>Choose your favorite color for the side bars:</strong></p>
-<?php echo anchor('user/color', 'Choose Color') ?>
+<?php echo anchor('user/color', 'Choose Color', 'id=\'choose_color\'') ?>
+&nbsp;
+<?php echo anchor('user/color/reset', 'Reset to default', array('onclick' => "return confirm('Reset to default?')")) ?>
 <br />
+<div id="color_chooser"><?php $this->load->view('user/color') ?></div>
 <br />
 <h2>Notifications</h2>
 <p><strong>Email me when buddy-request:</strong> change</p>
@@ -25,3 +28,14 @@
 <center><img src="<?php echo base_url() ?>assets/images/line.jpg" alt="line" /></center>
 <br />
 <?php echo anchor('user/index', img('assets/assets/back.png')) ?>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#color_chooser").hide();
+    
+    $("#choose_color").click(function(e){
+        e.preventDefault();
+        $("#color_chooser").toggle('slow');
+    });
+});
+</script>

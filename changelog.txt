@@ -36,8 +36,11 @@ views
 -------
 controllers
     topmenu
+    user
     
 views
     topmenu
         videodump
     template_player
+    user
+        settings

@@ -36,11 +36,13 @@ class User extends MY_Controller
 
     public function settings()
     {
+        $this->load->model('Usermeta_model');
         $data['heading'] = 'Settings';
         $data['main'] = 'user/settings.php';
         $data['banner'] = $this->Banner_m->get_where('uploader', $this->session->userdata('user_id'), 1);
         $data['profile_info'] = $this->User_model->get_profile_information($this->session->userdata('user_id'));
         $data['users_online'] = $this->Ion_auth_model->users_online();
+        $data['user_meta'] = $this->Usermeta_model->get($this->session->userdata('user_id'));
         $data['num_uploaded_stories'] = $this->Story_model->count_where('author', $this->session->userdata('user_id'));
         $this->load->view($this->_layout, $data);
     }
@@ -409,6 +411,12 @@ class User extends MY_Controller
 
     public function color()
     {
+        if($this->uri->segment(3) == 'reset')
+        {
+            /* reset color settings */
+            redirect('user', 'refresh');
+        }
+        
         if ($this->input->server('REQUEST_METHOD') === 'POST') // form is submitted
         {
             $this->load->model('Usermeta_model');
