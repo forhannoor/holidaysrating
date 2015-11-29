@@ -17,3 +17,7 @@ robots.txt
 sitemap.xml
 system/
 uploads/
+
+.settings
+.project
+.buildpath
