@@ -1,10 +1,12 @@
 <?php
 
-class Usermeta_model extends CI_Model
+class Usermeta_model extends MY_Model
 {
     public function __construct()
     {
         parent::__construct();
+        $this->_table = 'user_meta';
+        $this->_fields = array(0 => 'id', 1 => 'user_id', 2 => 'value');
     }
     
     public function save()

@@ -414,6 +414,14 @@ class User extends MY_Controller
         if($this->uri->segment(3) == 'reset')
         {
             /* reset color settings */
+        	$this->load->model('Usermeta_model');
+        	$usermeta = $this->Usermeta_model->get_where('user_id', $this->session->userdata('user_id'), 1);
+        	
+        	if(count($usermeta) > 0) // usermeta exists
+        	{
+        		$this->Usermeta_model->delete($usermeta->id);
+        	}
+        	
             redirect('user', 'refresh');
         }
         

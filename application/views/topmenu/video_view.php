@@ -15,7 +15,8 @@ $(document).ready(function() {
 
 <?php if($this->ion_auth->is_admin()): ?>
     <?php $this->session->set_userdata('referral_page', 'topmenu') ?>
-    <p><?php echo anchor('admin/video_delete/' . $video->id, 'Delete Video') ?></p>
+    <p><?php echo anchor('admin/video_delete/' . $video->id, img(array('src' => 'assets/assets/trash.png', 'title' => 'delete video')), array('onclick' => "return confirm('You are about to delete this video. This cannot be undone. Do you want to proceed?')")) ?></p>
+    <br>
 <?php endif ?>
 
 <p>Times viewed: <?php echo $video->viewed ?></p>
